@@ -7,118 +7,137 @@ public class BoardGenerator : MonoBehaviour {
     //1:right 2:down 3:left 4:up 
 
     public int numR;
+    int numInici;
     public int size;
     public int[,] board; //0 wall 1 room 2 corridor
     public GameObject[] tiles;            
 
     public void CreateRoom(int centx,int centy,int width,int weight,int dir) {
-
-        bool[] corri=new bool[5];
-
-        for (int i = 1; i < 5;i++) {
-            if (Random.Range(0, 100)<50) {
-                corri[i]= true;
-            }
-            }
-        corri[dir] = false;
         
-        for (int x = centx - (width / 2); x <= centx + (width / 2); x++)
-        {
-            for (int y = centy - (width / 2); y <= centy + (width / 2); y++)
-            {
-                board[x, y] = 1;
+        bool[] corri=new bool[5];
+        int newDir= 0;
+        while (newDir == 0) {
+            newDir= Random.Range(1, 4);
+            if (newDir == dir) newDir = 0;
             }
-        }
-
+        
+            corri[newDir] = true;
+            numR--;
        
+        /*
+            for (int i = 1; i < 5; i++)
+            {
+               if (Random.Range(0, 100) < 100 * numR / numInici&&i!=dir)
+                {
+                
+                print(100*numR/numInici+" "+numR);
+                numR--;
+                corri[i] = true;
+                }
+                
+            }
+        
+            */
+            for (int x = centx - 3; x <= centx + 3; x++)
+            {
+                for (int y = centy - 3; y <= centy + 3; y++)
+                {
+                    board[x, y] = 1;
+                }
+            }
+
+
             if (corri[1] == true)
             {
-            int x= centx + (width / 2)+1;
-            int y= centy+Random.Range(-width / 2, width / 2);
-            CreateCorridor(1,x,y);
+                int x = centx + 3 + 1;
+                int y = centy + Random.Range(-3, 3);
+             CreateCorridor(1, x, y);
             }
-            
-        if (corri[2] == true)
-        {
-            int y = centy - (width / 2) - 1;
-            int x = centy + Random.Range(-width / 2, width / 2);
-            CreateCorridor(2, x, y);
-        }
-        if (corri[3] == true)
-        {
-            int x = centx - (width / 2) - 1;
-            int y = centy + Random.Range(-width / 2, width / 2);
-            CreateCorridor(3, x, y);
-        }
-        if (corri[4] == true)
-        {
-            int y = centy + (width / 2) + 1;
-            int x = centy + Random.Range(-width / 2, width / 2);
+
+            if (corri[2] == true)
+            {
+                int y = centy - 3 - 1;
+                int x = centy + Random.Range(-3, 3);
+             CreateCorridor(2, x, y);
+            }
+            if (corri[3] == true)
+            {
+                int x = centx - 3 - 1;
+                int y = centy + Random.Range(-3, 3);
+             CreateCorridor(3, x, y);
+            }
+            if (corri[4] == true)
+            {
+                int y = centy + 3 + 1;
+                int x = centy + Random.Range(-3,3);
             CreateCorridor(4, x, y);
-        }
+            }
+
+
+
         
-  
     }
 
    
 
     public void CreateCorridor(int dir,int x,int y) {
-        int size = Random.Range(3,6);
-
-       /*
-        if (dir == 1) {
-            for (int i = x; i < x + size; i++) {
-                board[i, y] = 2;
-            }
-            int widht = Random.Range(5, 8);
-            int height = Random.Range(5, 8);
-
-            CreateRoom(x + size + 1 + (widht / 2), y + Random.Range(-height / 2, height  / 2), widht ,height , 3);
-        }
-        else if (dir == 2)
-        {
-            for (int i = y; i > y - size; i--)
-            {
-                board[x, i] = 2;
-            }
-
-            int widht = Random.Range(5, 8);
-            int height = Random.Range(5, 8);
-
-            CreateRoom( x + Random.Range(-widht / 2, widht / 2), y - size - 1 - (widht / 2), widht, height, 4);
-
-
-        }
-        else if (dir == 3)
-        {
-            for (int i = x; i > x - size; i--)
-            {
-                board[i, y] = 2;
-            }
-
-            int widht = Random.Range(5, 8);
-            int height = Random.Range(5, 8);
-
-            CreateRoom(x - size - 1 - (widht / 2), y + Random.Range(-height / 2, height / 2), widht, height, 1);
-
-        }
-        else if (dir == 4)
-        {
-            for (int i = y; i < y + size; i++)
-            {
-                board[x, i] = 2;
-            }
-
-            int widht = Random.Range(5, 8);
-            int height = Random.Range(5, 8);
-            CreateRoom(x + Random.Range(-widht / 2, widht / 2), y + size + 1 + (widht / 2), widht, height, 2);
-
-        }
         
+        if (numR > 0)
+        {
+            int size = Random.Range(3, 6);
 
-        */
+            if (x > 15 && x < 90 && y > 10 && y < 95)
+            {
 
-    
+                if (dir == 1)
+                {
+                    for (int i = x; i < x + size; i++)
+                    {
+                        board[i, y] = 2;
+                    }
+
+
+                   if(board[x + 1 + 3, y]==0) CreateRoom(x + 1 + 3, y + Random.Range(-3, 3), 6, 6, 3);
+                }
+
+                else if (dir == 2)
+                {
+                    for (int i = y; i > y - size; i--)
+                    {
+                        board[x, i] = 2;
+                    }
+
+                    if (board[ x, y - 1 - 3] == 0) CreateRoom(x + Random.Range(-3, 3), y + 1 + 3, 6, 6, 4);
+
+
+                }
+                else if (dir == 3)
+                {
+                    for (int i = x; i > x - size; i--)
+                    {
+                        board[i, y] = 2;
+                    }
+
+                    if (board[x - 1 - 3, y] == 0) CreateRoom(x - 1 - 3, y + Random.Range(-3, 3), 6, 6, 1);
+
+                }
+                else if (dir == 4)
+                {
+                    for (int i = y; i < y + size; i++)
+                    {
+                        board[x, i] = 2;
+                    }
+
+                    if (board[x, y + 1 + 3] == 0) CreateRoom(x + Random.Range(-3, 3), y - 1 - 3, 6, 6, 2);
+
+                }
+
+
+
+
+            }
+        }
+      
     }
 
     public void GenerateAll() {
@@ -141,6 +160,8 @@ public class BoardGenerator : MonoBehaviour {
     }
 
 	void Start () {
+        numInici = numR;
+
         board = new int[size, size];
         for (int x=0;x<size;x++) {
             for (int y = 0; y < size; y++)
@@ -150,7 +171,8 @@ public class BoardGenerator : MonoBehaviour {
             }
         }
         
-        CreateRoom(size / 2, size / 2, Random.Range(5, 8), Random.Range(5, 8),0);
+        CreateRoom(size / 2, size / 2, 6, 6,0);
+
         GenerateAll();
     }
 	

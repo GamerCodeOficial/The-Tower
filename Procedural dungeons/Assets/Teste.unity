@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0541f97efad75b54fa61ba43a91bce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numR: 0
+  numR: 30
   size: 100
   tiles:
   - {fileID: 1880031939694908, guid: 2b7ca1cb38b665045b0058c8138ecf25, type: 2}
