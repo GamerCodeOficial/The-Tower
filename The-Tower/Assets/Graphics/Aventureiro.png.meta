@@ -1,0 +1,1426 @@
+fileFormatVersion: 2
+guid: 12abb6261621bd641a29c4a994a6d244
+timeCreated: 1512480994
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Aventureiro_0
+    21300002: Aventureiro_1
+    21300004: Aventureiro_2
+    21300006: Aventureiro_3
+    21300008: Aventureiro_4
+    21300010: Aventureiro_5
+    21300012: Aventureiro_6
+    21300014: Aventureiro_7
+    21300016: Aventureiro_8
+    21300018: Aventureiro_9
+    21300020: Aventureiro_10
+    21300022: Aventureiro_11
+    21300024: Aventureiro_12
+    21300026: Aventureiro_13
+    21300028: Aventureiro_14
+    21300030: Aventureiro_15
+    21300032: Aventureiro_16
+    21300034: Aventureiro_17
+    21300036: Aventureiro_18
+    21300038: Aventureiro_19
+    21300040: Aventureiro_20
+    21300042: Aventureiro_21
+    21300044: Aventureiro_22
+    21300046: Aventureiro_23
+    21300048: Aventureiro_24
+    21300050: Aventureiro_25
+    21300052: Aventureiro_26
+    21300054: Aventureiro_27
+    21300056: Aventureiro_28
+    21300058: Aventureiro_29
+    21300060: Aventureiro_30
+    21300062: Aventureiro_31
+    21300064: Aventureiro_32
+    21300066: Aventureiro_33
+    21300068: Aventureiro_34
+    21300070: Aventureiro_35
+    21300072: Aventureiro_36
+    21300074: Aventureiro_37
+    21300076: Aventureiro_38
+    21300078: Aventureiro_39
+    21300080: Aventureiro_40
+    21300082: Aventureiro_41
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 13
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Aventureiro_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 112
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_4
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_5
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 112
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_6
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_7
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 112
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_8
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_9
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_10
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 112
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_11
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 112
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_12
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 76
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_13
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 76
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_14
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 77
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_15
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 77
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_16
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 77
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_17
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 77
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_18
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 77
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_19
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 78
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_20
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 79
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_21
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 79
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_22
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 79
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_23
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 79
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 43
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_25
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 43
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_26
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 43
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_27
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 43
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_28
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 43
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_29
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 43
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_30
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 43
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_31
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 44
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_32
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 44
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 6
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_34
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 6
+        width: 10
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_35
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 5
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_36
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 5
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_37
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 5
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_38
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 5
+        width: 7
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_39
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 5
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_40
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 5
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Aventureiro_41
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 5
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -93, y: -37.5}
+      - {x: -94, y: -38.5}
+      - {x: -97, y: -44.5}
+      - {x: -97, y: -66.5}
+      - {x: -83, y: -66.5}
+      - {x: -83, y: -44.5}
+      - {x: -85, y: -37.5}
+    - - {x: -70, y: -37.5}
+      - {x: -70, y: -66.5}
+      - {x: -60, y: -66.5}
+      - {x: -58, y: -65.5}
+      - {x: -58, y: -43.5}
+      - {x: -60, y: -37.5}
+    - - {x: -44, y: -37.5}
+      - {x: -45, y: -38.5}
+      - {x: -46, y: -51.5}
+      - {x: -46, y: -62.5}
+      - {x: -44, y: -66.5}
+      - {x: -39, y: -66.5}
+      - {x: -35, y: -65.5}
+      - {x: -35, y: -38.5}
+      - {x: -37, y: -37.5}
+    - - {x: -21, y: -37.5}
+      - {x: -21, y: -65.5}
+      - {x: -20, y: -66.5}
+      - {x: -14, y: -66.5}
+      - {x: -12, y: -65.5}
+      - {x: -10, y: -61.5}
+      - {x: -10, y: -43.5}
+      - {x: -13, y: -37.5}
+    - - {x: 4, y: -38.5}
+      - {x: 2, y: -46.5}
+      - {x: 2, y: -66.5}
+      - {x: 13, y: -66.5}
+      - {x: 15, y: -64.5}
+      - {x: 15, y: -46.5}
+      - {x: 11, y: -38.5}
+    - - {x: 34, y: -37.5}
+      - {x: 29, y: -37.5}
+      - {x: 25, y: -52.5}
+      - {x: 25, y: -66.5}
+      - {x: 39, y: -66.5}
+      - {x: 39, y: -44.5}
+      - {x: 37, y: -40.5}
+    - - {x: 61, y: -37.5}
+      - {x: 55, y: -37.5}
+      - {x: 52, y: -64.5}
+      - {x: 53, y: -66.5}
+      - {x: 63, y: -66.5}
+      - {x: 64, y: -64.5}
+      - {x: 64, y: -38.5}
+    - - {x: -151, y: -36.5}
+      - {x: -154, y: -37.5}
+      - {x: -155, y: -51.5}
+      - {x: -154, y: -60.5}
+      - {x: -152, y: -65.5}
+      - {x: -148, y: -65.5}
+      - {x: -144, y: -64.5}
+      - {x: -144, y: -37.5}
+      - {x: -146, y: -36.5}
+    - - {x: -122, y: -37.5}
+      - {x: -126, y: -42.5}
+      - {x: -126, y: -65.5}
+      - {x: -114, y: -65.5}
+      - {x: -112, y: -64.5}
+      - {x: -112, y: -53.5}
+      - {x: -115, y: -40.5}
+      - {x: -118, y: -37.5}
+    - - {x: -148, y: 0.5}
+      - {x: -153, y: 0.5}
+      - {x: -155, y: -1.5}
+      - {x: -155, y: -28.5}
+      - {x: -145, y: -28.5}
+      - {x: -143, y: -27.5}
+      - {x: -143, y: -15.5}
+      - {x: -145, y: -0.5}
+    - - {x: -127, y: 0.5}
+      - {x: -130, y: -3.5}
+      - {x: -130, y: -28.5}
+      - {x: -117, y: -28.5}
+      - {x: -116, y: -25.5}
+      - {x: -119, y: -0.5}
+      - {x: -122, y: 0.5}
+    - - {x: -103, y: -0.5}
+      - {x: -106, y: -11.5}
+      - {x: -106, y: -26.5}
+      - {x: -105, y: -28.5}
+      - {x: -94, y: -28.5}
+      - {x: -93, y: -27.5}
+      - {x: -93, y: -0.5}
+    - - {x: -78, y: 0.5}
+      - {x: -81, y: -3.5}
+      - {x: -81, y: -19.5}
+      - {x: -78, y: -28.5}
+      - {x: -71, y: -28.5}
+      - {x: -70, y: -24.5}
+      - {x: -70, y: -0.5}
+      - {x: -72, y: 0.5}
+    - - {x: -47, y: 0.5}
+      - {x: -54, y: 0.5}
+      - {x: -56, y: -7.5}
+      - {x: -56, y: -23.5}
+      - {x: -55, y: -25.5}
+      - {x: -52, y: -28.5}
+      - {x: -48, y: -28.5}
+      - {x: -45, y: -20.5}
+      - {x: -45, y: -12.5}
+      - {x: -46, y: -0.5}
+    - - {x: -29, y: 0.5}
+      - {x: -33, y: -1.5}
+      - {x: -33, y: -28.5}
+      - {x: -21, y: -28.5}
+      - {x: -21, y: -8.5}
+      - {x: -22, y: 0.5}
+    - - {x: 0, y: 0.5}
+      - {x: -6, y: 0.5}
+      - {x: -8, y: -3.5}
+      - {x: -8, y: -28.5}
+      - {x: 6, y: -28.5}
+      - {x: 6, y: -11.5}
+      - {x: 3, y: -0.5}
+    - - {x: 27, y: 0.5}
+      - {x: 23, y: -1.5}
+      - {x: 21, y: -14.5}
+      - {x: 21, y: -25.5}
+      - {x: 25, y: -27.5}
+      - {x: 33, y: -27.5}
+      - {x: 35, y: -22.5}
+      - {x: 35, y: -5.5}
+      - {x: 33, y: 0.5}
+    - - {x: 62, y: 1.5}
+      - {x: 54, y: 1.5}
+      - {x: 53, y: -3.5}
+      - {x: 53, y: -22.5}
+      - {x: 55, y: -27.5}
+      - {x: 61, y: -27.5}
+      - {x: 64, y: -19.5}
+      - {x: 64, y: -11.5}
+      - {x: 63, y: 0.5}
+    - - {x: -157, y: 33.5}
+      - {x: -158, y: 30.5}
+      - {x: -158, y: 6.5}
+      - {x: -156, y: 4.5}
+      - {x: -143, y: 4.5}
+      - {x: -140, y: 6.5}
+      - {x: -140, y: 26.5}
+      - {x: -143, y: 33.5}
+    - - {x: -128, y: 32.5}
+      - {x: -131, y: 31.5}
+      - {x: -133, y: 23.5}
+      - {x: -133, y: 8.5}
+      - {x: -128, y: 4.5}
+      - {x: -119, y: 4.5}
+      - {x: -117, y: 5.5}
+      - {x: -116, y: 14.5}
+      - {x: -116, y: 24.5}
+      - {x: -119, y: 32.5}
+    - - {x: -102, y: 34.5}
+      - {x: -108, y: 24.5}
+      - {x: -108, y: 14.5}
+      - {x: -103, y: 7.5}
+      - {x: -99, y: 5.5}
+      - {x: -91, y: 5.5}
+      - {x: -90, y: 12.5}
+      - {x: -90, y: 27.5}
+      - {x: -95, y: 34.5}
+    - - {x: -84, y: 8.5}
+      - {x: -83, y: 5.5}
+      - {x: -66, y: 5.5}
+      - {x: -66, y: 33.5}
+      - {x: -68, y: 34.5}
+      - {x: -80, y: 34.5}
+      - {x: -84, y: 27.5}
+    - - {x: -57, y: 34.5}
+      - {x: -62, y: 24.5}
+      - {x: -62, y: 6.5}
+      - {x: -61, y: 5.5}
+      - {x: -44, y: 5.5}
+      - {x: -44, y: 27.5}
+      - {x: -49, y: 34.5}
+    - - {x: -32, y: 34.5}
+      - {x: -37, y: 27.5}
+      - {x: -37, y: 10.5}
+      - {x: -32, y: 5.5}
+      - {x: -22, y: 5.5}
+      - {x: -21, y: 6.5}
+      - {x: -20, y: 11.5}
+      - {x: -20, y: 26.5}
+      - {x: -25, y: 34.5}
+    - - {x: -6, y: 34.5}
+      - {x: -11, y: 27.5}
+      - {x: -11, y: 12.5}
+      - {x: -8, y: 5.5}
+      - {x: 6, y: 5.5}
+      - {x: 7, y: 9.5}
+      - {x: 7, y: 28.5}
+      - {x: 2, y: 34.5}
+    - - {x: 23, y: 34.5}
+      - {x: 18, y: 27.5}
+      - {x: 18, y: 10.5}
+      - {x: 23, y: 6.5}
+      - {x: 33, y: 6.5}
+      - {x: 34, y: 7.5}
+      - {x: 35, y: 12.5}
+      - {x: 35, y: 26.5}
+      - {x: 30, y: 34.5}
+    - - {x: 55, y: 36.5}
+      - {x: 51, y: 34.5}
+      - {x: 48, y: 22.5}
+      - {x: 48, y: 10.5}
+      - {x: 49, y: 7.5}
+      - {x: 66, y: 7.5}
+      - {x: 66, y: 28.5}
+      - {x: 62, y: 36.5}
+    - - {x: 89, y: 36.5}
+      - {x: 82, y: 28.5}
+      - {x: 82, y: 10.5}
+      - {x: 83, y: 7.5}
+      - {x: 98, y: 7.5}
+      - {x: 100, y: 13.5}
+      - {x: 100, y: 29.5}
+      - {x: 95, y: 36.5}
+    - - {x: 117, y: 36.5}
+      - {x: 113, y: 35.5}
+      - {x: 110, y: 24.5}
+      - {x: 110, y: 12.5}
+      - {x: 113, y: 10.5}
+      - {x: 120, y: 7.5}
+      - {x: 126, y: 7.5}
+      - {x: 128, y: 16.5}
+      - {x: 128, y: 26.5}
+      - {x: 124, y: 36.5}
+    - - {x: 143, y: 36.5}
+      - {x: 139, y: 29.5}
+      - {x: 139, y: 11.5}
+      - {x: 144, y: 7.5}
+      - {x: 156, y: 7.5}
+      - {x: 156, y: 36.5}
+    - - {x: -145, y: 69.5}
+      - {x: -153, y: 69.5}
+      - {x: -158, y: 59.5}
+      - {x: -158, y: 49.5}
+      - {x: -156, y: 40.5}
+      - {x: -144, y: 40.5}
+      - {x: -140, y: 46.5}
+      - {x: -140, y: 57.5}
+      - {x: -142, y: 68.5}
+    - - {x: -127, y: 68.5}
+      - {x: -130, y: 66.5}
+      - {x: -131, y: 58.5}
+      - {x: -131, y: 46.5}
+      - {x: -128, y: 40.5}
+      - {x: -122, y: 40.5}
+      - {x: -119, y: 41.5}
+      - {x: -114, y: 44.5}
+      - {x: -114, y: 58.5}
+      - {x: -117, y: 68.5}
+    - - {x: -90, y: 68.5}
+      - {x: -94, y: 69.5}
+      - {x: -101, y: 69.5}
+      - {x: -105, y: 59.5}
+      - {x: -105, y: 50.5}
+      - {x: -104, y: 41.5}
+      - {x: -102, y: 40.5}
+      - {x: -96, y: 40.5}
+      - {x: -87, y: 48.5}
+      - {x: -87, y: 55.5}
+    - - {x: -67, y: 68.5}
+      - {x: -71, y: 69.5}
+      - {x: -80, y: 69.5}
+      - {x: -82, y: 67.5}
+      - {x: -82, y: 40.5}
+      - {x: -73, y: 40.5}
+      - {x: -64, y: 48.5}
+      - {x: -64, y: 55.5}
+      - {x: -65, y: 59.5}
+    - - {x: -45, y: 68.5}
+      - {x: -49, y: 69.5}
+      - {x: -56, y: 69.5}
+      - {x: -60, y: 59.5}
+      - {x: -60, y: 50.5}
+      - {x: -59, y: 41.5}
+      - {x: -57, y: 40.5}
+      - {x: -51, y: 40.5}
+      - {x: -42, y: 48.5}
+      - {x: -42, y: 55.5}
+    - - {x: -32, y: 69.5}
+      - {x: -36, y: 61.5}
+      - {x: -36, y: 40.5}
+      - {x: -23, y: 40.5}
+      - {x: -19, y: 45.5}
+      - {x: -19, y: 61.5}
+      - {x: -20, y: 69.5}
+    - - {x: 4, y: 69.5}
+      - {x: -3, y: 69.5}
+      - {x: -8, y: 68.5}
+      - {x: -10, y: 59.5}
+      - {x: -10, y: 44.5}
+      - {x: -7, y: 40.5}
+      - {x: 5, y: 40.5}
+      - {x: 8, y: 44.5}
+      - {x: 8, y: 62.5}
+      - {x: 6, y: 68.5}
+    - - {x: 22, y: 68.5}
+      - {x: 18, y: 64.5}
+      - {x: 18, y: 45.5}
+      - {x: 20, y: 40.5}
+      - {x: 33, y: 40.5}
+      - {x: 35, y: 42.5}
+      - {x: 35, y: 61.5}
+      - {x: 32, y: 68.5}
+    - - {x: 53, y: 69.5}
+      - {x: 47, y: 59.5}
+      - {x: 47, y: 47.5}
+      - {x: 54, y: 41.5}
+      - {x: 56, y: 40.5}
+      - {x: 63, y: 40.5}
+      - {x: 65, y: 43.5}
+      - {x: 65, y: 61.5}
+      - {x: 61, y: 69.5}
+    - - {x: 94, y: 69.5}
+      - {x: 87, y: 69.5}
+      - {x: 81, y: 57.5}
+      - {x: 81, y: 45.5}
+      - {x: 91, y: 40.5}
+      - {x: 97, y: 40.5}
+      - {x: 99, y: 48.5}
+      - {x: 99, y: 63.5}
+      - {x: 98, y: 68.5}
+    - - {x: 123, y: 69.5}
+      - {x: 116, y: 69.5}
+      - {x: 110, y: 55.5}
+      - {x: 110, y: 47.5}
+      - {x: 118, y: 40.5}
+      - {x: 126, y: 40.5}
+      - {x: 127, y: 41.5}
+      - {x: 128, y: 51.5}
+      - {x: 128, y: 57.5}
+      - {x: 127, y: 68.5}
+    - - {x: 154, y: 69.5}
+      - {x: 144, y: 69.5}
+      - {x: 141, y: 58.5}
+      - {x: 141, y: 45.5}
+      - {x: 147, y: 41.5}
+      - {x: 150, y: 40.5}
+      - {x: 156, y: 40.5}
+      - {x: 158, y: 46.5}
+      - {x: 158, y: 59.5}
+      - {x: 157, y: 68.5}
+    physicsShape:
+    - - {x: -93, y: -37.5}
+      - {x: -94, y: -38.5}
+      - {x: -97, y: -44.5}
+      - {x: -97, y: -66.5}
+      - {x: -83, y: -66.5}
+      - {x: -83, y: -44.5}
+      - {x: -85, y: -37.5}
+    - - {x: -70, y: -37.5}
+      - {x: -70, y: -66.5}
+      - {x: -60, y: -66.5}
+      - {x: -58, y: -65.5}
+      - {x: -58, y: -43.5}
+      - {x: -60, y: -37.5}
+    - - {x: -44, y: -37.5}
+      - {x: -45, y: -38.5}
+      - {x: -46, y: -51.5}
+      - {x: -46, y: -62.5}
+      - {x: -44, y: -66.5}
+      - {x: -39, y: -66.5}
+      - {x: -35, y: -65.5}
+      - {x: -35, y: -38.5}
+      - {x: -37, y: -37.5}
+    - - {x: -21, y: -37.5}
+      - {x: -21, y: -65.5}
+      - {x: -20, y: -66.5}
+      - {x: -14, y: -66.5}
+      - {x: -12, y: -65.5}
+      - {x: -10, y: -61.5}
+      - {x: -10, y: -43.5}
+      - {x: -13, y: -37.5}
+    - - {x: 4, y: -38.5}
+      - {x: 2, y: -46.5}
+      - {x: 2, y: -66.5}
+      - {x: 13, y: -66.5}
+      - {x: 15, y: -64.5}
+      - {x: 15, y: -46.5}
+      - {x: 11, y: -38.5}
+    - - {x: 34, y: -37.5}
+      - {x: 29, y: -37.5}
+      - {x: 25, y: -52.5}
+      - {x: 25, y: -66.5}
+      - {x: 39, y: -66.5}
+      - {x: 39, y: -44.5}
+      - {x: 37, y: -40.5}
+    - - {x: 61, y: -37.5}
+      - {x: 55, y: -37.5}
+      - {x: 52, y: -64.5}
+      - {x: 53, y: -66.5}
+      - {x: 63, y: -66.5}
+      - {x: 64, y: -64.5}
+      - {x: 64, y: -38.5}
+    - - {x: -151, y: -36.5}
+      - {x: -154, y: -37.5}
+      - {x: -155, y: -51.5}
+      - {x: -154, y: -60.5}
+      - {x: -152, y: -65.5}
+      - {x: -148, y: -65.5}
+      - {x: -144, y: -64.5}
+      - {x: -144, y: -37.5}
+      - {x: -146, y: -36.5}
+    - - {x: -122, y: -37.5}
+      - {x: -126, y: -42.5}
+      - {x: -126, y: -65.5}
+      - {x: -114, y: -65.5}
+      - {x: -112, y: -64.5}
+      - {x: -112, y: -53.5}
+      - {x: -115, y: -40.5}
+      - {x: -118, y: -37.5}
+    - - {x: -148, y: 0.5}
+      - {x: -153, y: 0.5}
+      - {x: -155, y: -1.5}
+      - {x: -155, y: -28.5}
+      - {x: -145, y: -28.5}
+      - {x: -143, y: -27.5}
+      - {x: -143, y: -15.5}
+      - {x: -145, y: -0.5}
+    - - {x: -127, y: 0.5}
+      - {x: -130, y: -3.5}
+      - {x: -130, y: -28.5}
+      - {x: -117, y: -28.5}
+      - {x: -116, y: -25.5}
+      - {x: -119, y: -0.5}
+      - {x: -122, y: 0.5}
+    - - {x: -103, y: -0.5}
+      - {x: -106, y: -11.5}
+      - {x: -106, y: -26.5}
+      - {x: -105, y: -28.5}
+      - {x: -94, y: -28.5}
+      - {x: -93, y: -27.5}
+      - {x: -93, y: -0.5}
+    - - {x: -78, y: 0.5}
+      - {x: -81, y: -3.5}
+      - {x: -81, y: -19.5}
+      - {x: -78, y: -28.5}
+      - {x: -71, y: -28.5}
+      - {x: -70, y: -24.5}
+      - {x: -70, y: -0.5}
+      - {x: -72, y: 0.5}
+    - - {x: -47, y: 0.5}
+      - {x: -54, y: 0.5}
+      - {x: -56, y: -7.5}
+      - {x: -56, y: -23.5}
+      - {x: -55, y: -25.5}
+      - {x: -52, y: -28.5}
+      - {x: -48, y: -28.5}
+      - {x: -45, y: -20.5}
+      - {x: -45, y: -12.5}
+      - {x: -46, y: -0.5}
+    - - {x: -29, y: 0.5}
+      - {x: -33, y: -1.5}
+      - {x: -33, y: -28.5}
+      - {x: -21, y: -28.5}
+      - {x: -21, y: -8.5}
+      - {x: -22, y: 0.5}
+    - - {x: 0, y: 0.5}
+      - {x: -6, y: 0.5}
+      - {x: -8, y: -3.5}
+      - {x: -8, y: -28.5}
+      - {x: 6, y: -28.5}
+      - {x: 6, y: -11.5}
+      - {x: 3, y: -0.5}
+    - - {x: 27, y: 0.5}
+      - {x: 23, y: -1.5}
+      - {x: 21, y: -14.5}
+      - {x: 21, y: -25.5}
+      - {x: 25, y: -27.5}
+      - {x: 33, y: -27.5}
+      - {x: 35, y: -22.5}
+      - {x: 35, y: -5.5}
+      - {x: 33, y: 0.5}
+    - - {x: 62, y: 1.5}
+      - {x: 54, y: 1.5}
+      - {x: 53, y: -3.5}
+      - {x: 53, y: -22.5}
+      - {x: 55, y: -27.5}
+      - {x: 61, y: -27.5}
+      - {x: 64, y: -19.5}
+      - {x: 64, y: -11.5}
+      - {x: 63, y: 0.5}
+    - - {x: -157, y: 33.5}
+      - {x: -158, y: 30.5}
+      - {x: -158, y: 6.5}
+      - {x: -156, y: 4.5}
+      - {x: -143, y: 4.5}
+      - {x: -140, y: 6.5}
+      - {x: -140, y: 26.5}
+      - {x: -143, y: 33.5}
+    - - {x: -128, y: 32.5}
+      - {x: -131, y: 31.5}
+      - {x: -133, y: 23.5}
+      - {x: -133, y: 8.5}
+      - {x: -128, y: 4.5}
+      - {x: -119, y: 4.5}
+      - {x: -117, y: 5.5}
+      - {x: -116, y: 14.5}
+      - {x: -116, y: 24.5}
+      - {x: -119, y: 32.5}
+    - - {x: -102, y: 34.5}
+      - {x: -108, y: 24.5}
+      - {x: -108, y: 14.5}
+      - {x: -103, y: 7.5}
+      - {x: -99, y: 5.5}
+      - {x: -91, y: 5.5}
+      - {x: -90, y: 12.5}
+      - {x: -90, y: 27.5}
+      - {x: -95, y: 34.5}
+    - - {x: -84, y: 8.5}
+      - {x: -83, y: 5.5}
+      - {x: -66, y: 5.5}
+      - {x: -66, y: 33.5}
+      - {x: -68, y: 34.5}
+      - {x: -80, y: 34.5}
+      - {x: -84, y: 27.5}
+    - - {x: -57, y: 34.5}
+      - {x: -62, y: 24.5}
+      - {x: -62, y: 6.5}
+      - {x: -61, y: 5.5}
+      - {x: -44, y: 5.5}
+      - {x: -44, y: 27.5}
+      - {x: -49, y: 34.5}
+    - - {x: -32, y: 34.5}
+      - {x: -37, y: 27.5}
+      - {x: -37, y: 10.5}
+      - {x: -32, y: 5.5}
+      - {x: -22, y: 5.5}
+      - {x: -21, y: 6.5}
+      - {x: -20, y: 11.5}
+      - {x: -20, y: 26.5}
+      - {x: -25, y: 34.5}
+    - - {x: -6, y: 34.5}
+      - {x: -11, y: 27.5}
+      - {x: -11, y: 12.5}
+      - {x: -8, y: 5.5}
+      - {x: 6, y: 5.5}
+      - {x: 7, y: 9.5}
+      - {x: 7, y: 28.5}
+      - {x: 2, y: 34.5}
+    - - {x: 23, y: 34.5}
+      - {x: 18, y: 27.5}
+      - {x: 18, y: 10.5}
+      - {x: 18.532272, y: 6.7628098}
+      - {x: 33, y: 6.5}
+      - {x: 34, y: 7.5}
+      - {x: 35, y: 12.5}
+      - {x: 35, y: 26.5}
+      - {x: 30, y: 34.5}
+    - - {x: 55, y: 36.5}
+      - {x: 51, y: 34.5}
+      - {x: 48, y: 22.5}
+      - {x: 48, y: 10.5}
+      - {x: 49, y: 7.5}
+      - {x: 66, y: 7.5}
+      - {x: 66, y: 28.5}
+      - {x: 62, y: 36.5}
+    - - {x: 89, y: 36.5}
+      - {x: 82, y: 28.5}
+      - {x: 82, y: 10.5}
+      - {x: 83, y: 7.5}
+      - {x: 98, y: 7.5}
+      - {x: 100, y: 13.5}
+      - {x: 100, y: 29.5}
+      - {x: 95, y: 36.5}
+    - - {x: 117, y: 36.5}
+      - {x: 113, y: 35.5}
+      - {x: 110, y: 24.5}
+      - {x: 110, y: 12.5}
+      - {x: 113, y: 10.5}
+      - {x: 120, y: 7.5}
+      - {x: 126, y: 7.5}
+      - {x: 128, y: 16.5}
+      - {x: 128, y: 26.5}
+      - {x: 124, y: 36.5}
+    - - {x: 143, y: 36.5}
+      - {x: 139, y: 29.5}
+      - {x: 139, y: 11.5}
+      - {x: 144, y: 7.5}
+      - {x: 156, y: 7.5}
+      - {x: 156, y: 36.5}
+    - - {x: -145, y: 69.5}
+      - {x: -153, y: 69.5}
+      - {x: -158, y: 59.5}
+      - {x: -158, y: 49.5}
+      - {x: -156, y: 40.5}
+      - {x: -144, y: 40.5}
+      - {x: -140, y: 46.5}
+      - {x: -140, y: 57.5}
+      - {x: -142, y: 68.5}
+    - - {x: -127, y: 68.5}
+      - {x: -130, y: 66.5}
+      - {x: -131, y: 58.5}
+      - {x: -131, y: 46.5}
+      - {x: -128, y: 40.5}
+      - {x: -122, y: 40.5}
+      - {x: -119, y: 41.5}
+      - {x: -114, y: 44.5}
+      - {x: -114, y: 58.5}
+      - {x: -117, y: 68.5}
+    - - {x: -90, y: 68.5}
+      - {x: -94, y: 69.5}
+      - {x: -101, y: 69.5}
+      - {x: -105, y: 59.5}
+      - {x: -105, y: 50.5}
+      - {x: -104, y: 41.5}
+      - {x: -102, y: 40.5}
+      - {x: -96, y: 40.5}
+      - {x: -87, y: 40.61576}
+      - {x: -87, y: 55.5}
+    - - {x: -67, y: 68.5}
+      - {x: -71, y: 69.5}
+      - {x: -80, y: 69.5}
+      - {x: -82, y: 67.5}
+      - {x: -82, y: 40.5}
+      - {x: -73, y: 40.5}
+      - {x: -64, y: 39.82734}
+      - {x: -64, y: 55.5}
+      - {x: -65, y: 59.5}
+    - - {x: -45, y: 68.5}
+      - {x: -49, y: 69.5}
+      - {x: -56, y: 69.5}
+      - {x: -60, y: 59.5}
+      - {x: -60, y: 50.5}
+      - {x: -59, y: 41.5}
+      - {x: -57, y: 40.5}
+      - {x: -51, y: 40.5}
+      - {x: -42, y: 48.5}
+      - {x: -42, y: 55.5}
+    - - {x: -32, y: 69.5}
+      - {x: -36, y: 61.5}
+      - {x: -36, y: 40.5}
+      - {x: -23, y: 40.5}
+      - {x: -19, y: 45.5}
+      - {x: -19, y: 61.5}
+      - {x: -20, y: 69.5}
+    - - {x: 4, y: 69.5}
+      - {x: -3, y: 69.5}
+      - {x: -8, y: 68.5}
+      - {x: -10, y: 59.5}
+      - {x: -10, y: 44.5}
+      - {x: -7, y: 40.5}
+      - {x: 5, y: 40.5}
+      - {x: 8, y: 44.5}
+      - {x: 8, y: 62.5}
+      - {x: 6, y: 68.5}
+    - - {x: 22, y: 68.5}
+      - {x: 18, y: 64.5}
+      - {x: 18, y: 45.5}
+      - {x: 20, y: 40.5}
+      - {x: 33, y: 40.5}
+      - {x: 35, y: 42.5}
+      - {x: 35, y: 61.5}
+      - {x: 32, y: 68.5}
+    - - {x: 53, y: 69.5}
+      - {x: 47, y: 59.5}
+      - {x: 47, y: 47.5}
+      - {x: 54, y: 41.5}
+      - {x: 56, y: 40.5}
+      - {x: 63, y: 40.5}
+      - {x: 65, y: 43.5}
+      - {x: 65, y: 61.5}
+      - {x: 61, y: 69.5}
+    - - {x: 94, y: 69.5}
+      - {x: 87, y: 69.5}
+      - {x: 81, y: 57.5}
+      - {x: 81, y: 45.5}
+      - {x: 91, y: 40.5}
+      - {x: 97, y: 40.5}
+      - {x: 99, y: 48.5}
+      - {x: 99, y: 63.5}
+      - {x: 98, y: 68.5}
+    - - {x: 123, y: 69.5}
+      - {x: 116, y: 69.5}
+      - {x: 110, y: 55.5}
+      - {x: 110, y: 47.5}
+      - {x: 118, y: 40.5}
+      - {x: 126, y: 40.5}
+      - {x: 127, y: 41.5}
+      - {x: 128, y: 51.5}
+      - {x: 128, y: 57.5}
+      - {x: 127, y: 68.5}
+    - - {x: 154, y: 69.5}
+      - {x: 144, y: 69.5}
+      - {x: 141, y: 58.5}
+      - {x: 141, y: 45.5}
+      - {x: 147, y: 41.5}
+      - {x: 150, y: 40.5}
+      - {x: 156, y: 40.5}
+      - {x: 158, y: 46.5}
+      - {x: 158, y: 59.5}
+      - {x: 157, y: 68.5}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
