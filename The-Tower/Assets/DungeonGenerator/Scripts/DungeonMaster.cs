@@ -196,7 +196,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x + 1, y] == 2)
                         {
-                            print("direita");
+                         
                             real[((x + 1) * tamanho) - 1, (y * tamanho) + 4] = 1;
                             real[((x + 1) * tamanho) - 1, (y * tamanho) + 5] = 1;
                         }
@@ -205,7 +205,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x - 1, y] == 2)
                         {
-                            print("esquerda");
+                            
                             real[x * tamanho, (y * tamanho) + 4] = 1;
                             real[x * tamanho, (y * tamanho) + 5] = 1;
                         }
@@ -214,7 +214,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x, y + 1] == 2)
                         {
-                            print("cima");
+                            
                             real[(x * tamanho) + 4, ((y + 1) * tamanho) -1] = 1;
                             real[(x * tamanho) + 5, ((y + 1) * tamanho) -1] = 1;
                         }
@@ -223,7 +223,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x, y - 1] == 2)
                         {
-                            print("baixo");
+                            
                             real[(x * tamanho) + 4, y * tamanho] = 1;
                             real[(x * tamanho) + 5, y * tamanho] = 1;
                         }
@@ -234,7 +234,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x + 1, y] != 0)
                         {
-                            print("direita");
+                          
                             for (int i = 3; i < 7; i++) {
                                 real[((x + 1) * tamanho) - 1, (y * tamanho) + i] = 1;
 
@@ -256,7 +256,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x - 1, y] != 0)
                         {
-                            print("esquerda");
+                          
                             for (int i = 3; i < 7; i++)
                             {
                                 real[x * tamanho, (y * tamanho) + i] = 1;
@@ -279,7 +279,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x, y + 1] != 0)
                         {
-                            print("cima");
+                          
                             for (int i = 3; i < 7; i++)
                             {
                                 real[(x * tamanho) + i, ((y + 1) * tamanho) - 1] = 1;
@@ -302,7 +302,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         if (grid[x, y - 1] != 0)
                         {
-                            print("baixo");
+                          
                             for (int i = 3; i < 7; i++)
                             {
                                 real[(x * tamanho) + i, y * tamanho] = 1;
