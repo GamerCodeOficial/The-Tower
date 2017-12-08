@@ -11,7 +11,8 @@ public class DungeonMaster : MonoBehaviour
     public GameObject[] tiles;
 
     public int nCorridors;
-    
+
+    public int tamanho;
 
     public void Corridors(int x,int y,int nCor){
 
@@ -144,9 +145,9 @@ public class DungeonMaster : MonoBehaviour
             {
                 if (grid[x, y] == 0)
                 {
-                    for (int xi = x * 10; xi < (x + 1) * 10; xi++)
+                    for (int xi = x * tamanho; xi < (x + 1) * tamanho; xi++)
                     {
-                        for (int yi = y * 10; yi < (y + 1) * 10; yi++)
+                        for (int yi = y * tamanho; yi < (y + 1) * tamanho; yi++)
                         {
                             real[xi, yi] = 0;
                         }
@@ -154,29 +155,26 @@ public class DungeonMaster : MonoBehaviour
                 }
                 else if (grid[x, y] == 1)
                 {
-                    for (int xi = x * 10; xi < (x + 1) * 10; xi++)
+                    for (int xi = (x * tamanho) + 2; xi < ((x + 1) * tamanho) - 2; xi++)
                     {
-                        for (int yi = y * 10; yi < (y + 1) * 10; yi++)
+                        for (int yi = (y * tamanho) + 2; yi < ((y + 1) * tamanho) - 2; yi++)
                         {
+                            
                             real[xi, yi] = 1;
                         }
                     }
                 }
                 else if (grid[x, y] == 2)
                 {
-                    print ("Sala");
-                    for (int xi = (x * 10) + 1; xi < ((x + 1) * 10) - 1; xi++)
+                    
+                    for (int xi = (x * tamanho) + 1; xi < ((x + 1) * tamanho) - 1; xi++)
                     {
-                        for (int yi = (y * 10) + 1; yi < ((y + 1) * 10) - 1; yi++)
+                        for (int yi = (y * tamanho) + 1; yi < ((y + 1) * tamanho) - 1; yi++)
                         {
-                            print("normal");
+                           
                             real[xi, yi] = 2;
                         }
                     }
-
-                    
-
-
 
                 }
             }
@@ -191,16 +189,67 @@ public class DungeonMaster : MonoBehaviour
         {
             for (int y = 0; y < size; y++)
             {
-                if (grid[x, y] == 2)
+                if (grid[x, y] == 1)
                 {
+
+                    if (x < size - 1)
+                    {
+                        if (grid[x + 1, y] == 2)
+                        {
+                            print("direita");
+                            real[((x + 1) * tamanho) - 1, (y * tamanho) + 4] = 1;
+                            real[((x + 1) * tamanho) - 1, (y * tamanho) + 5] = 1;
+                        }
+                    }
+                    if (x > 1)
+                    {
+                        if (grid[x - 1, y] == 2)
+                        {
+                            print("esquerda");
+                            real[x * tamanho, (y * tamanho) + 4] = 1;
+                            real[x * tamanho, (y * tamanho) + 5] = 1;
+                        }
+                    }
+                    if (y < size - 1)
+                    {
+                        if (grid[x, y + 1] == 2)
+                        {
+                            print("cima");
+                            real[(x * tamanho) + 4, ((y + 1) * tamanho) -1] = 1;
+                            real[(x * tamanho) + 5, ((y + 1) * tamanho) -1] = 1;
+                        }
+                    }
+                    if (y > 1)
+                    {
+                        if (grid[x, y - 1] == 2)
+                        {
+                            print("baixo");
+                            real[(x * tamanho) + 4, y * tamanho] = 1;
+                            real[(x * tamanho) + 5, y * tamanho] = 1;
+                        }
+                    }
+
 
                     if (x < size - 1)
                     {
                         if (grid[x + 1, y] != 0)
                         {
                             print("direita");
-                            real[((x + 1) * 10) - 1, (y * 10) + 4] = 1;
-                            real[((x + 1) * 10) - 1, (y * 10) + 5] = 1;
+                            for (int i = 3; i < 7; i++) {
+                                real[((x + 1) * tamanho) - 1, (y * tamanho) + i] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[((x + 1) * tamanho) - 2, (y * tamanho) + i] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[((x + 1) * tamanho) , (y * tamanho) + i] = 1;
+
+                            }
+
                         }
                     }
                     if (x > 1)
@@ -208,8 +257,22 @@ public class DungeonMaster : MonoBehaviour
                         if (grid[x - 1, y] != 0)
                         {
                             print("esquerda");
-                            real[x * 10, (y * 10) + 4] = 1;
-                            real[x * 10, (y * 10) + 5] = 1;
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[x * tamanho, (y * tamanho) + i] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) +1, (y * tamanho) + i] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) -1, (y * tamanho) + i] = 1;
+
+                            }
+
                         }
                     }
                     if (y < size - 1)
@@ -217,8 +280,22 @@ public class DungeonMaster : MonoBehaviour
                         if (grid[x, y + 1] != 0)
                         {
                             print("cima");
-                            real[(x * 10) + 4, ((y + 1) * 10)-1] = 1;
-                            real[(x * 10) + 5, ((y + 1) * 10)-1] = 1;
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, ((y + 1) * tamanho) - 1] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, ((y + 1) * tamanho) - 2] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, ((y + 1) * tamanho) ] = 1;
+
+                            }
+
                         }
                     }
                     if (y > 1)
@@ -226,10 +303,25 @@ public class DungeonMaster : MonoBehaviour
                         if (grid[x, y - 1] != 0)
                         {
                             print("baixo");
-                            real[(x * 10) + 4, y * 10] = 1;
-                            real[(x * 10) + 5, y * 10] = 1;
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, y * tamanho] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, (y * tamanho) +1] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, (y * tamanho) -1] = 1;
+
+                            }
+
                         }
                     }
+
 
                 }
             }
@@ -267,9 +359,9 @@ public class DungeonMaster : MonoBehaviour
     public void GenerateAll()
     {
 
-        for (int x = 0; x < size*10; x++)
+        for (int x = 0; x < size* tamanho; x++)
         {
-            for (int y = 0; y < size*10; y++)
+            for (int y = 0; y < size* tamanho; y++)
             {
                 Vector3 pos;
                 pos.x = x;
