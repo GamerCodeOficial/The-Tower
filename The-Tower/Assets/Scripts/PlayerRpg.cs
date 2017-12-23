@@ -27,6 +27,10 @@ public class PlayerRpg : MonoBehaviour
     public float radiusM;
     public LayerMask m;
 
+    public float raioN;
+    public LayerMask d;
+    public Collider2D dory;
+
     public Vector3 nPos;
 
     public Transform hit;
@@ -103,6 +107,8 @@ public class PlayerRpg : MonoBehaviour
 
         t += Time.deltaTime;
 
+        dory = Physics2D.OverlapCircle(transform.position, raioN, d);
+        if (dory != null && Input.GetKeyDown(KeyCode.E)) dory.GetComponent<DoorControl>().Open();
     }
 
 

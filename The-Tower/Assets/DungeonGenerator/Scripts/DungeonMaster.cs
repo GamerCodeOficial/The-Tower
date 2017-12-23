@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DungeonMaster : MonoBehaviour
 {
+    public RoomControl rContr;
+
     public int size;
     public int[,] grid;
     public int[,] real;
@@ -105,7 +107,7 @@ public class DungeonMaster : MonoBehaviour
                     while (p < oi)
                     {
                         int ra = Random.Range(1, 4);
-                        if (pos[ra] == true) { nDir[ra] = true; p++; print(ra); }
+                        if (pos[ra] == true) { nDir[ra] = true; p++;  }
                     }
 
 
@@ -328,7 +330,74 @@ public class DungeonMaster : MonoBehaviour
         }
     }
 
+    public void Roomificate()
+    {
+        
 
+        for (int x = 1; x < size-1; x++)
+        {
+            for (int y = 1; y < size-1; y++)
+            {
+                bool[] rooms = new bool[5];
+                if (grid[x+1, y] != 0)
+                {
+                    rooms[1] = true;
+                }
+                if (grid[x, y-1] != 0)
+                {
+                    rooms[2] = true;
+                }
+                if (grid[x-1, y] != 0)
+                {
+                    rooms[3] = true;
+                }
+                if (grid[x, y+1] != 0)
+                {
+                    rooms[4] = true;
+                }
+
+               
+            }
+        }
+    }
+    void Roomie() {
+        for (int x = 0; x < size; x++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                if (grid[x, y] == 2)
+                {
+                    bool[] door = new bool[5];
+                    if (grid[x + 1, y] != 0) door[1] = true;
+                    if (grid[x , y - 1] != 0) door[2] = true;
+                    if (grid[x - 1, y] != 0) door[3] = true;
+                    if (grid[x , y + 1] != 0) door[4] = true;
+                    
+                    rContr.AddRoom(x,y,door); 
+                }
+            }
+        }
+    }
+    void Doorate() {
+        int p = 0;
+        for (int x = 0; x < size; x++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                if (grid[x, y] == 2)
+                {
+                    bool[] door = new bool[5];
+                    if (grid[x + 1, y] == 1) door[1] = true;
+                    if (grid[x, y - 1] == 1) door[2] = true;
+                    if (grid[x - 1, y] == 1) door[3] = true;
+                    if (grid[x, y + 1] == 1) door[4] = true;
+                    print("Doorate " + door[1] + " " + door[2] + " " + door[3] + " " + door[4] + "p: " + p);
+                    rContr.Doors(p ,door);
+                    p++;
+                }
+            }
+        }
+    }
     // Use this for initialization
     void Start()
     {
@@ -349,8 +418,13 @@ public class DungeonMaster : MonoBehaviour
         CreateRooms();
         Realize();
         Conections();
+        Roomificate();
         GenerateAll();
-
+        Roomie();
+        rContr.CreateRooms();
+        rContr.Positionate();
+        rContr.ChooseTypes();
+        Doorate();
     }
     
 
