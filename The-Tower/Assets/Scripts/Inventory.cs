@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class Inventory : MonoBehaviour {
-
+   
     public Collider2D col;
     public LayerMask loot;
    
@@ -47,13 +47,13 @@ public class Inventory : MonoBehaviour {
         if (line[0] != null)
         {
             float d = Vector3.Distance(transform.position, line[0].gameObject.transform.position);
-            if (d > 2.5f) { Trash(); }
+            if (d > 1) { Trash(); }
         }
         col = Physics2D.OverlapCircle(transform.position, 0.4f, loot);
 
         if (col != null)
         {
-
+            
 
             Loot g = col.gameObject.GetComponent<Loot>();
             if (g.pickable == true)

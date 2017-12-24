@@ -60,13 +60,13 @@ public class PlayerRpg : MonoBehaviour
 
         }
         if (rX < -0.27) { dir = 4;
-            atkPos.y += radiusM ;
+            atkPos.y -= radiusM * 2;
         }
         if (rY < 0 && rX >= -0.27 && rX <= 0.27f) { dir = 3;
             atkPos.x -= radiusM ;
         }
         if (rX > 0.27) { dir = 2;
-            atkPos.y -= radiusM ;
+            atkPos.y += radiusM*2 ;
         }
 
         rend.sprite = atkEsp[dir];
@@ -80,8 +80,14 @@ public class PlayerRpg : MonoBehaviour
         nPos.z = -1;
 
         aim.LookAt(nPos);
-
-       
+        if (dir == 2 || dir == 4)
+        {
+            float p = radiusM * 2;
+        }
+        else {
+            float p = radiusM;
+        }
+        
 
         col = Physics2D.OverlapCircle(atkPos, radiusM , m);
 
@@ -91,9 +97,10 @@ public class PlayerRpg : MonoBehaviour
 
         if (col != null)
         {
+            
             if (t >= inv.size[inv.slot[1]] / dex && Input.GetMouseButtonDown(0))
             {
-                print("dam" + (inv.iValue[inv.slot[1]] + str));
+                
 
                 col.GetComponent<Enemy>().TakeDamage(str + inv.iValue[inv.slot[1]]);
 

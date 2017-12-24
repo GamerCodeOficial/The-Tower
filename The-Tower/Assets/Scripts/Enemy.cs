@@ -60,12 +60,13 @@ public class Enemy : MonoBehaviour {
         if (a > def)  hp -= dam; 
     }
     public void Die() {
-        /*
+        
         if (Random.Range(0, 100) < pct)
         {
+           
             Instantiate(drop, transform.position, trans.rotation);
         }
-       */
+       
         Destroy(gameObject);
     }
 }
