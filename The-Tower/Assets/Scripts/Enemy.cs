@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    public float pct;
+
     public Transform trans;
 
     public GameObject drop;
@@ -58,11 +60,12 @@ public class Enemy : MonoBehaviour {
         if (a > def)  hp -= dam; 
     }
     public void Die() {
-
-        
-            if(drop!=null)            drop.transform.parent = drop.GetComponent<Loot>().sala.transform;
-        
-
+        /*
+        if (Random.Range(0, 100) < pct)
+        {
+            Instantiate(drop, transform.position, trans.rotation);
+        }
+       */
         Destroy(gameObject);
     }
 }

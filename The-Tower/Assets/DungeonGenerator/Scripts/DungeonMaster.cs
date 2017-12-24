@@ -391,7 +391,7 @@ public class DungeonMaster : MonoBehaviour
                     if (grid[x, y - 1] == 1) door[2] = true;
                     if (grid[x - 1, y] == 1) door[3] = true;
                     if (grid[x, y + 1] == 1) door[4] = true;
-                    print("Doorate " + door[1] + " " + door[2] + " " + door[3] + " " + door[4] + "p: " + p);
+                    
                     rContr.Doors(p ,door);
                     p++;
                 }

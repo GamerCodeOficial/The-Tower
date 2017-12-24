@@ -14,6 +14,10 @@ public class RoomControl : MonoBehaviour {
 
     public GameObject room;
 
+    public GameObject[] monsters;
+    public float[] monSpwPct;
+    
+
     // Use this for initialization
     void Start() {
         rDoor = new bool[30, 5];
@@ -71,7 +75,7 @@ public class RoomControl : MonoBehaviour {
         }
     }
     public void Doors(int index,bool[] doors) {
-        print("Doors " + doors[1] + " " + doors[2] + " " + doors[3] + " " + doors[4] + "index: " + index);
+        
         rooms[index].GetComponent<Room>().doors = doors;
         rooms[index].GetComponent<Room>().CreateDoors();
     }

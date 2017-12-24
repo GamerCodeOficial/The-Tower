@@ -108,7 +108,7 @@ public class PlayerRpg : MonoBehaviour
         t += Time.deltaTime;
 
         dory = Physics2D.OverlapCircle(transform.position, raioN, d);
-        if (dory != null && Input.GetKeyDown(KeyCode.E)) dory.GetComponent<DoorControl>().Open();
+        if (dory != null && Input.GetKeyDown(KeyCode.E)) { dory.GetComponent<DoorControl>().Open(); print("ABBRE"); }
     }
 
 

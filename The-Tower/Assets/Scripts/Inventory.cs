@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour {
     public Text found;
     public Text current;
 
+    public int total;
+
     public string[] iName;
     public int[] iSlot;
     public string[] iType;
