@@ -16,16 +16,26 @@ public class Inventory : MonoBehaviour {
 
     public int total;
 
+
+
     public string[] iName;
     public int[] iSlot;
     public string[] iType;
     public int[] iValue;
     public int[] size;
+
+    public float[] hp;
+    public float[] dex;
+    public float[] str;
+    public float[] def;
+    public float[] aura;
     
+
+
     public Loot[] line;
 
 
-    public int[] slot; //0 null  1 Weapon  2 Secondary  3 Armor  4 Other 5 potions
+    public int[] slot; //0 null  1 Weapon  2 Secondary  3 Armor  4 Other 5 potions 6 head 7 feet
 
     // Use this for initialization
     void Start () {
@@ -38,8 +48,11 @@ public class Inventory : MonoBehaviour {
             
         } else {
             tkorlv.SetActive(true);
-            found.text = iName[line[0].id] + " value: " + iValue[line[0].id];
-            current.text = iName[slot[iSlot[line[0].id]]] + " value: " + iValue[slot[iSlot[line[0].id]]];
+
+            found.text =ListStats(found.text, line[0].id);
+            
+            current.text = ListStats(current.text, slot[iSlot[line[0].id]]);
+            
         }
     }
 	// Update is called once per frame
@@ -101,5 +114,21 @@ public class Inventory : MonoBehaviour {
         }
         g.pickable = true;
     }
+    public string ListStats(string stat,int id) {
+        stat = "";
+        stat += iName[id]+"\n";
+        
+        if(hp[id]!=0)stat += "hp: " + hp[id] + "\n";
 
+        if (dex[id] != 0) stat += "dex: " + dex[id] + "\n";
+
+        if (str[id] != 0) stat += "str: " + str[id] + "\n";
+
+        if (def[id] != 0) stat += "def: " + def[id] + "\n";
+
+        if (aura[id] != 0) stat += "aura: " + aura[id];
+        stat = stat.Replace('$', '\n');
+        return stat;
+
+}
 }

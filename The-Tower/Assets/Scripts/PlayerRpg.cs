@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRpg : MonoBehaviour
 {
+    private Quaternion rota;
     //dir 1:direita 2:baixo 3:esquerda 4:direita
     public int direction;
     public int dir;
@@ -12,15 +13,24 @@ public class PlayerRpg : MonoBehaviour
    
     public Sprite[] atkEsp;
     public SpriteRenderer rend;
-    
+
+
+    public float cHp;
 
     public float hp;
     public float dex;
     public float str;
     public float def;
+    public float aura;
+
+    public float rHp;
+    public float rDex;
+    public float rStr;
+    public float rDef;
+    public float rAura;
 
     public float ac;
-    public Collider2D col;
+    public Collider2D[] col;
 
    
 
@@ -45,64 +55,66 @@ public class PlayerRpg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        cHp = hp;
         nPos = Vector3.zero;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float rX = aim.rotation.x;
-        float rY = aim.rotation.y;
-        //print(rX+" "+rY);
-        Vector2 atkPos= transform.position;
-        if (rY > 0 && rX >= -0.27 && rX <= 0.27f) { dir = 1;
+        CalculatStats();
+
+        float z = PointToMouse();
+        
+        Vector2 atkPos = transform.position;
+
+        
+        
+        
+        if ((z >= 0 && z <= 45)|| (z > 315 && z <= 360)) { dir = 1;
             atkPos.x += radiusM ; 
 
         }
-        if (rX < -0.27) { dir = 4;
-            atkPos.y -= radiusM * 2;
+        if ((z > 45 && z <= 135)) { dir = 4;
+            atkPos.y += radiusM;
         }
-        if (rY < 0 && rX >= -0.27 && rX <= 0.27f) { dir = 3;
+        if ((z > 135 && z <= 225)) { dir = 3;
             atkPos.x -= radiusM ;
         }
-        if (rX > 0.27) { dir = 2;
-            atkPos.y += radiusM*2 ;
+        if ((z > 225 && z <= 315)) { dir = 2;
+            atkPos.y -= radiusM ;
         }
-
+        
         rend.sprite = atkEsp[dir];
 
 
 
-        def = inv.iValue[inv.slot[3]];
+        
 
 
         nPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         nPos.z = -1;
 
         aim.LookAt(nPos);
-        if (dir == 2 || dir == 4)
-        {
-            float p = radiusM * 2;
-        }
-        else {
-            float p = radiusM;
-        }
         
+      
 
-        col = Physics2D.OverlapCircle(atkPos, radiusM , m);
+        col = Physics2D.OverlapCircleAll(atkPos, radiusM , m);
 
 
-        if (hp <= 0) Die();
+        if (cHp <= 0) Die();
 
 
         if (col != null)
         {
             
-            if (t >= inv.size[inv.slot[1]] / dex && Input.GetMouseButtonDown(0))
+            if (t >= inv.size[inv.slot[1]] / rDex && Input.GetMouseButtonDown(0))
             {
-                
 
-                col.GetComponent<Enemy>().TakeDamage(str + inv.iValue[inv.slot[1]]);
+                foreach(Collider2D cl in col){
+                    cl.GetComponent<Enemy>().TakeDamage(rStr);
+                    print("dam: " + rStr);
+                }
 
             }
 
@@ -115,7 +127,7 @@ public class PlayerRpg : MonoBehaviour
         t += Time.deltaTime;
 
         dory = Physics2D.OverlapCircle(transform.position, raioN, d);
-        if (dory != null && Input.GetKeyDown(KeyCode.E)) { dory.GetComponent<DoorControl>().Open(); print("ABBRE"); }
+        if (dory != null && Input.GetKeyDown(KeyCode.E)) { dory.GetComponent<DoorControl>().Open();  }
     }
 
 
@@ -130,14 +142,14 @@ public class PlayerRpg : MonoBehaviour
     {
         float a = Random.Range(0, 100);
 
-        if (a > def)
+        if (a > rDef)
         {
-            print(a + ">" + def + " -" + dam);
-            hp -= dam;
+            print(a + ">" + rDef + " -" + dam);
+            cHp -= dam;
         }
         else
         {
-            print(a + "<" + def + " blocked");
+            print(a + "<" + rDef + " blocked");
         }
     }
     public void Die()
@@ -145,5 +157,44 @@ public class PlayerRpg : MonoBehaviour
         print("Morreu");
         Destroy(gameObject);
     }
+    public void CalculatStats() {
+        rHp=hp;
+        rDex=dex;
+        rStr=str;
+        rDef=def;
+        rAura=aura;
+        for (int i = 0; i < 8; i++) {
+
+            int j = inv.slot[i];
+            rHp += inv.hp[j];
+            rDex += inv.dex[j];
+            rStr += inv.str[j];
+            rDef += inv.def[j];
+            rAura += inv.aura[j];
+
+        }
+        
+    }
+
+    //Public Vars
+    public Camera cam;
+
+    //Private Vars
+    private Vector3 mousePosition;
+
+    private Vector2 mousePos;
+    private Vector3 screenPos;
+
+    public float PointToMouse()
+    {
+
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        difference.Normalize();
+        float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        rota = Quaternion.Euler(0f, 0f, rotation_z + 0.0f);
+        return rota.eulerAngles.z;
+
+    }
+
 
 }
