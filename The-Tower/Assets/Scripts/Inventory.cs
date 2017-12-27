@@ -5,10 +5,17 @@ using UnityEngine.UI;
 
 
 public class Inventory : MonoBehaviour {
-   
+
+    public RoomControl rom;
+
+    public SceneControl cont;
+
     public Collider2D col;
     public LayerMask loot;
-   
+    public LayerMask all;
+
+    public Collider2D[] coly;
+    
 
     public GameObject tkorlv;
     public Text found;
@@ -39,8 +46,9 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
+        rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
+    }
     void Update() {
         
         if (line[0] == null) {
@@ -66,7 +74,6 @@ public class Inventory : MonoBehaviour {
 
         if (col != null)
         {
-            
 
             Loot g = col.gameObject.GetComponent<Loot>();
             if (g.pickable == true)
@@ -82,10 +89,20 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
-            
-        
 
-    }
+        coly = Physics2D.OverlapCircleAll(transform.position, 0.4f, all);
+
+        if (coly != null)
+        {
+            foreach (Collider2D cool in coly) { 
+                if (cool.gameObject.tag == "End") {
+                    int p = rom.andar + 1;
+                    cont.GoToScene("Fase"+p);
+                        }
+         }   
+        }
+
+        }
     public void Take() {
         Loot g = line[0];
         slot[iSlot[line[0].id]] = line[0].id;

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour {
+
     public RoomControl rom;
     public GameObject player;
     public GameObject shadow;
     public GameObject door;
+    public GameObject end;
+
     public bool[] doors;
     public bool oppened;
     public int type;
@@ -83,7 +86,8 @@ public class Room : MonoBehaviour {
 
     }
     public void End() {
-
+        GameObject e = Instantiate(end, transform.position, transform.rotation);
+       
     }
     public void Monster() {
         int j = 0;

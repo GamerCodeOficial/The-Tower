@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomControl : MonoBehaviour {
+    public int andar;
     public GameObject[] rooms;
     public int[] rX;
     public int[] rY;
