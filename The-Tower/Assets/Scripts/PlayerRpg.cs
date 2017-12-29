@@ -51,14 +51,21 @@ public class PlayerRpg : MonoBehaviour
     public Inventory inv;
 
     public void GetStatus() {
-        hp=PlayerPrefs.GetInt("Hp");
-        dex = PlayerPrefs.GetInt("Dex");
-        str = PlayerPrefs.GetInt("Str");
-        def = PlayerPrefs.GetInt("Def");
-        aura = PlayerPrefs.GetInt("Aura");
+        hp=PlayerPrefs.GetFloat("Hp");
+        dex = PlayerPrefs.GetFloat("Dex");
+        str = PlayerPrefs.GetFloat("Str");
+        def = PlayerPrefs.GetFloat("Def");
+        aura = PlayerPrefs.GetFloat("Aura");
 
 }
-
+    public void SaveStatus()
+    {
+        PlayerPrefs.SetFloat("Hp",hp);
+        PlayerPrefs.SetFloat("Dex", dex);
+        PlayerPrefs.SetFloat("Str", str);
+        PlayerPrefs.SetFloat("Def", def);
+        PlayerPrefs.SetFloat("Aura", aura);
+    }
 
     // Use this for initialization
     void Start()

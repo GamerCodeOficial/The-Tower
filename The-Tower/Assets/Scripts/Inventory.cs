@@ -44,13 +44,14 @@ public class Inventory : MonoBehaviour {
 
     public int[] slot; //0 null  1 Weapon  2 Secondary  3 Armor  4 Other 5 potions 6 head 7 feet
 
-    
+    public PlayerRpg rpg;
         
 
     
 
     // Use this for initialization
     void Start () {
+        rpg = GameObject.FindGameObjectWithTag("RPG").GetComponent<PlayerRpg>();
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
 
@@ -110,11 +111,14 @@ public class Inventory : MonoBehaviour {
                 if (cool.gameObject.tag == "End") {
                     int p = rom.andar + 1;
                     PlayerPrefs.SetInt("Andar", p);
-
+                    rpg.SaveStatus();
                     for (int i = 0; i < 8; i++)
                     {
                         PlayerPrefs.SetInt("Slot" + i, slot[i]);
                     }
+                    ////
+                  
+
 
                     cont.GoToScene("Fase"+p);
                         }
