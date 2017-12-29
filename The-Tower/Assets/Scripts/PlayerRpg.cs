@@ -50,11 +50,21 @@ public class PlayerRpg : MonoBehaviour
 
     public Inventory inv;
 
+    public void GetStatus() {
+        hp=PlayerPrefs.GetInt("Hp");
+        dex = PlayerPrefs.GetInt("Dex");
+        str = PlayerPrefs.GetInt("Str");
+        def = PlayerPrefs.GetInt("Def");
+        aura = PlayerPrefs.GetInt("Aura");
+
+}
 
 
     // Use this for initialization
     void Start()
     {
+
+        GetStatus();
         cHp = hp;
         nPos = Vector3.zero;
     }

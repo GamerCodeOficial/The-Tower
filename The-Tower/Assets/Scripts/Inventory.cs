@@ -44,10 +44,22 @@ public class Inventory : MonoBehaviour {
 
     public int[] slot; //0 null  1 Weapon  2 Secondary  3 Armor  4 Other 5 potions 6 head 7 feet
 
+    
+        
+
+    
+
     // Use this for initialization
     void Start () {
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
+
+        for (int i = 0; i < 8; i++)
+        {
+            slot[i] = PlayerPrefs.GetInt("Slot" + i);
+            print("Foi "+ PlayerPrefs.GetInt("Slot" + i));/////////
+        }
+
     }
     void Update() {
         
@@ -92,11 +104,18 @@ public class Inventory : MonoBehaviour {
 
         coly = Physics2D.OverlapCircleAll(transform.position, 0.4f, all);
 
-        if (coly != null)
+        if (coly != null&&Input.GetKeyDown(KeyCode.E))
         {
             foreach (Collider2D cool in coly) { 
                 if (cool.gameObject.tag == "End") {
                     int p = rom.andar + 1;
+                    PlayerPrefs.SetInt("Andar", p);
+
+                    for (int i = 0; i < 8; i++)
+                    {
+                        PlayerPrefs.SetInt("Slot" + i, slot[i]);
+                    }
+
                     cont.GoToScene("Fase"+p);
                         }
          }   

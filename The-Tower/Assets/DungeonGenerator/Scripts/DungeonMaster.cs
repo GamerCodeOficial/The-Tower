@@ -157,9 +157,9 @@ public class DungeonMaster : MonoBehaviour
                 }
                 else if (grid[x, y] == 1)
                 {
-                    for (int xi = (x * tamanho) + 2; xi < ((x + 1) * tamanho) - 2; xi++)
+                    for (int xi = (x * tamanho) + 3; xi < ((x + 1) * tamanho) - 3; xi++)
                     {
-                        for (int yi = (y * tamanho) + 2; yi < ((y + 1) * tamanho) - 2; yi++)
+                        for (int yi = (y * tamanho) + 3; yi < ((y + 1) * tamanho) - 3; yi++)
                         {
                             
                             real[xi, yi] = 1;
@@ -251,6 +251,11 @@ public class DungeonMaster : MonoBehaviour
                                 real[((x + 1) * tamanho) , (y * tamanho) + i] = 1;
 
                             }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[((x + 1) * tamanho)-3, (y * tamanho) + i] = 1;
+
+                            }
 
                         }
                     }
@@ -269,9 +274,15 @@ public class DungeonMaster : MonoBehaviour
                                 real[(x * tamanho) +1, (y * tamanho) + i] = 1;
 
                             }
+                            
                             for (int i = 3; i < 7; i++)
                             {
                                 real[(x * tamanho) -1, (y * tamanho) + i] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + 2, (y * tamanho) + i] = 1;
 
                             }
 
@@ -297,6 +308,11 @@ public class DungeonMaster : MonoBehaviour
                                 real[(x * tamanho) + i, ((y + 1) * tamanho) ] = 1;
 
                             }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, ((y + 1) * tamanho)-3] = 1;
+
+                            }
 
                         }
                     }
@@ -318,6 +334,11 @@ public class DungeonMaster : MonoBehaviour
                             for (int i = 3; i < 7; i++)
                             {
                                 real[(x * tamanho) + i, (y * tamanho) -1] = 1;
+
+                            }
+                            for (int i = 3; i < 7; i++)
+                            {
+                                real[(x * tamanho) + i, (y * tamanho) +2] = 1;
 
                             }
 
@@ -406,7 +427,7 @@ public class DungeonMaster : MonoBehaviour
         grid = new int[size, size];
         real = new int[size*10, size*10];
         for (int x = 0; x < size; x++)
-        {
+        { 
             for (int y = 0; y < size; y++)
             {
                 grid[x, y] = 0;

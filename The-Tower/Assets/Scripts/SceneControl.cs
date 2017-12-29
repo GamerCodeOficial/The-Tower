@@ -7,7 +7,9 @@ public class SceneControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(gameObject);
-        PlayerPrefs.SetInt("Save", 0);
+        //PlayerPrefs.SetInt("Save", 0);  //For reestarting Progress
+
+        print(PlayerPrefs.GetInt("Save"));
     }
 	
 	// Update is called once per frame
@@ -27,6 +29,7 @@ public class SceneControl : MonoBehaviour {
     }
     public void LoadGame()
     {
+        GoToScene("Fase"+ PlayerPrefs.GetInt("Andar"));
     }
     public void NewGame()
     {
@@ -35,5 +38,8 @@ public class SceneControl : MonoBehaviour {
     }
     public void GoToScene(string f) {
         SceneManager.LoadScene(f);
+    }
+    public void Erase() {
+        PlayerPrefs.SetInt("Save", 0);
     }
 }
