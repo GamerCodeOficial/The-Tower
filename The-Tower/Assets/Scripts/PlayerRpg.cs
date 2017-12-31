@@ -50,6 +50,8 @@ public class PlayerRpg : MonoBehaviour
 
     public Inventory inv;
 
+    public SpriteRenderer render;
+
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
         dex = PlayerPrefs.GetFloat("Dex");
@@ -91,9 +93,16 @@ public class PlayerRpg : MonoBehaviour
         int.TryParse(t, out oi[2]);
 
         Color co = new Color();
-        co.r = oi[0];
-        co.g = oi[1];
-        co.b = oi[2];
+        float[] norm = new float[3];
+        for (int i = 0; i < 3; i++)
+        {
+            norm[i] = oi[i];
+            norm[i] /= 255;
+        }
+        co.r = norm[0];
+        co.g = norm[1];
+        co.b = norm[2];
+        co.a = 1;
         return co;
     }
 
@@ -111,11 +120,10 @@ public class PlayerRpg : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        print(PlayerPrefs.GetString("Cor"));
+ 
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
-        print(c.r);
-        
+
+        render.color = c;
 
         CalculatStats();
 

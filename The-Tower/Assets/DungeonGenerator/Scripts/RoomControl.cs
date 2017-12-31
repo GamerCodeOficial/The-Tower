@@ -67,11 +67,15 @@ public class RoomControl : MonoBehaviour {
         }
     } 
     public void ChooseTypes() {
-        int j = 0;
+       
         for (int i = 0; i < 15; i++) {
             for (int p = 0; p<ammount[i]; p++){
+                int j = Random.Range(0,rooms.Length);
+                while (rooms[j].GetComponent<Room>().type!=0) {
+                    j = Random.Range(0, rooms.Length);
+                }
                 rooms[j].GetComponent<Room>().type = i;
-                j++;
+                
             }
         }
     }

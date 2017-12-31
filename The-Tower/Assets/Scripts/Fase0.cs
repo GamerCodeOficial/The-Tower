@@ -25,7 +25,7 @@ public class Fase0 : MonoBehaviour {
     public Image rendT;
 
     public string[] colors;
-
+    
 	// Use this for initialization
 	void Start () {
         
@@ -38,11 +38,11 @@ public class Fase0 : MonoBehaviour {
         pri.text = Descript(primeiro);
         seg.text = Descript(segundo);
         ter.text = Descript(terceiro);
-        /*
+        
         rendP.color = GetColor(colors[(int)(primeiro[5])]);
         rendS.color = GetColor(colors[(int)(segundo[5])]);
         rendT.color = GetColor(colors[(int)(terceiro[5])]);
-        */
+        
     }
 	
 	// Update is called once per frame
@@ -71,9 +71,15 @@ public class Fase0 : MonoBehaviour {
         int.TryParse(t, out oi[2]);
         
         Color co = new Color();
-        co.r = oi[0];
-        co.g = oi[1];
-        co.b = oi[2];
+        float[] norm = new float[3];
+        for (int i = 0; i < 3; i++) {
+            norm[i] = oi[i];
+            norm[i] /= 255;
+        }
+        co.r = norm[0];
+        co.g = norm[1];
+        co.b = norm[2];
+        co.a = 1;
         return co;
     }
 
@@ -93,7 +99,7 @@ public class Fase0 : MonoBehaviour {
         r = Random.Range(0, 4);
         p[r]--;
 
-        r = Random.Range(0, 3);//Color
+        r = Random.Range(0, colors.Length);//Color
         p[5] = r;
         print(p[5]);
         p[0] =20+ (p[0]-5)*3;
