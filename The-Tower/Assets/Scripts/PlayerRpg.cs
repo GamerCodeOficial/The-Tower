@@ -67,6 +67,38 @@ public class PlayerRpg : MonoBehaviour
         PlayerPrefs.SetFloat("Aura", aura);
     }
 
+    public Color GetColor(string cor)
+    {
+        int[] oi = new int[3];
+        char[] c = cor.ToCharArray();
+        string t = "";
+        for (int i = 0; i < 3; i++)
+        {
+            t += c[i];
+        }
+        int.TryParse(t, out oi[0]);
+        t = "";
+        for (int i = 3; i < 6; i++)
+        {
+            t += c[i];
+        }
+        int.TryParse(t, out oi[1]);
+        t = "";
+        for (int i = 6; i < 9; i++)
+        {
+            t += c[i];
+        }
+        int.TryParse(t, out oi[2]);
+
+        Color co = new Color();
+        co.r = oi[0];
+        co.g = oi[1];
+        co.b = oi[2];
+        return co;
+    }
+
+
+
     // Use this for initialization
     void Start()
     {
@@ -79,6 +111,12 @@ public class PlayerRpg : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        print(PlayerPrefs.GetString("Cor"));
+        Color c = GetColor(PlayerPrefs.GetString("Cor"));
+        print(c.r);
+        
+
         CalculatStats();
 
         float z = PointToMouse();
