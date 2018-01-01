@@ -113,8 +113,8 @@ public class Fase0 : MonoBehaviour {
         ret += "dex: " + opt[1] + "\n";
         ret += "str: " + opt[2] + "\n";
         ret += "def: " + opt[3] + "\n";
-        ret += "aura: " + opt[4] + "\n";
-        ret += "Color: " + opt[5];
+        
+       
         ret = ret.Replace('$', '\n');
         return ret;
         }

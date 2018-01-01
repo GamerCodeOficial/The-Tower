@@ -113,7 +113,8 @@ public class PlayerRpg : MonoBehaviour
     {
 
         GetStatus();
-        cHp = hp;
+        CalculatStats();
+        cHp = rHp;
         nPos = Vector3.zero;
     }
 
@@ -218,7 +219,8 @@ public class PlayerRpg : MonoBehaviour
     public void Die()
     {
         print("Morreu");
-        Destroy(gameObject);
+        PlayerPrefs.SetInt("Save",0);
+        inv.cont.GoToScene("Menu");
     }
     public void CalculatStats() {
         rHp=hp;
@@ -256,6 +258,25 @@ public class PlayerRpg : MonoBehaviour
         float rotation_z = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         rota = Quaternion.Euler(0f, 0f, rotation_z + 0.0f);
         return rota.eulerAngles.z;
+
+    }
+
+    public string ListStats()
+    {
+        string stat = "";
+        
+
+         stat += "hp: " + rHp+ "\n";
+
+        stat += "dex: " + rDex + "\n";
+
+        stat += "str: " + rStr+ "\n";
+
+        stat += "def: " + rDef + "\n";
+
+        if(aura>0)stat += "aura: " + rAura;
+        stat = stat.Replace('$', '\n');
+        return stat;
 
     }
 

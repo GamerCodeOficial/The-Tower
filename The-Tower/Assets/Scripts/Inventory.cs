@@ -70,9 +70,9 @@ public class Inventory : MonoBehaviour {
         } else {
             tkorlv.SetActive(true);
 
-            found.text =ListStats(found.text, line[0].id);
+            found.text ="Found: "+ListStats(found.text, line[0].id);
             
-            current.text = ListStats(current.text, slot[iSlot[line[0].id]]);
+            current.text = "Current: " + ListStats(current.text, slot[iSlot[line[0].id]]);
             
         }
     }
@@ -155,7 +155,7 @@ public class Inventory : MonoBehaviour {
         g.pickable = true;
     }
     public string ListStats(string stat,int id) {
-        stat = "";
+        stat = "\n";
         stat += iName[id]+"\n";
         
         if(hp[id]!=0)stat += "hp: " + hp[id] + "\n";
