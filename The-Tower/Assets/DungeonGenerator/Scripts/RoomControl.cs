@@ -10,11 +10,12 @@ public class RoomControl : MonoBehaviour {
     public bool[,] rDoor;
     public int rNum;
 
-    public int[] ammount;//0none 1:player 2:end 3:monsters 3:
+    public int[] ammount;//0none 1:player 2:end 3:monsters 4:Boss
 
 
     public GameObject room;
 
+    public GameObject boss;
     public GameObject[] monsters;
     public float[] monSpwPct;
     

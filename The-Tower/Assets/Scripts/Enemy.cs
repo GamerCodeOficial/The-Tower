@@ -22,6 +22,12 @@ public class Enemy : MonoBehaviour {
 
     private float t;
 
+    public bool sPlayer;
+
+    
+    public Room rom;
+
+
     // Use this for initialization
     void Start () {
 
@@ -34,9 +40,9 @@ public class Enemy : MonoBehaviour {
         trans.LookAt(player.transform);
 
 
-        float d = Vector3.Distance(transform.position, player.transform.position);
-        if (d < 30)
-        {
+        //float d = Vector3.Distance(transform.position, player.transform.position);
+        if (rom.oppened)
+        { 
             transform.Translate(trans.forward * Time.deltaTime * dex);
         }
 

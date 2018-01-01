@@ -37,6 +37,9 @@ public class Room : MonoBehaviour {
         {
             Monster();
         }
+        if (type == 4) {
+            Boss();
+        }
 
     }
     void Update()
@@ -101,12 +104,13 @@ public class Room : MonoBehaviour {
         int ammount = Random.Range(1, 6);
         for (int i=0;i<ammount;i++) {
             int r = Random.Range(0, j);
-            Instantiate(rom.monsters[spawn[r]], transform.position, transform.rotation);
+            GameObject en=Instantiate(rom.monsters[spawn[r]], transform.position, transform.rotation);
+            en.GetComponent<Enemy>().rom = this;
         }
         
 
     }
     public void Boss() {
-
+            Instantiate(rom.boss, transform.position, transform.rotation);
     }
 }
