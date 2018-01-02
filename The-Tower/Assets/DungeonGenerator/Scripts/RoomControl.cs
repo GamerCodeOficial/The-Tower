@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomControl : MonoBehaviour {
+    public int andar;
     public GameObject[] rooms;
     public int[] rX;
     public int[] rY;
     public bool[,] rDoor;
     public int rNum;
 
-    public int[] ammount;//0none 1:player 2:end 3:monsters 3:
+    public int[] ammount;//0none 1:player 2:end 3:monsters 4:Boss
 
 
     public GameObject room;
 
+    public GameObject boss;
     public GameObject[] monsters;
     public float[] monSpwPct;
     
@@ -66,11 +68,15 @@ public class RoomControl : MonoBehaviour {
         }
     } 
     public void ChooseTypes() {
-        int j = 0;
+       
         for (int i = 0; i < 15; i++) {
             for (int p = 0; p<ammount[i]; p++){
+                int j = Random.Range(0,rooms.Length);
+                while (rooms[j].GetComponent<Room>().type!=0) {
+                    j = Random.Range(0, rooms.Length);
+                }
                 rooms[j].GetComponent<Room>().type = i;
-                j++;
+                
             }
         }
     }

@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
     public Transform trans;
 
     public GameObject drop;
-    
+
+    public int[] minMax;
 
     public float hp;
     public float str;
@@ -21,6 +22,12 @@ public class Enemy : MonoBehaviour {
     public PlayerRpg pRpg;
 
     private float t;
+
+    public bool sPlayer;
+
+
+    public Room rom;
+
 
     // Use this for initialization
     void Start () {
@@ -34,9 +41,9 @@ public class Enemy : MonoBehaviour {
         trans.LookAt(player.transform);
 
 
-        float d = Vector3.Distance(transform.position, player.transform.position);
-        if (d < 30)
-        {
+        //float d = Vector3.Distance(transform.position, player.transform.position);
+        if (rom.oppened)
+        { 
             transform.Translate(trans.forward * Time.deltaTime * dex);
         }
 
@@ -66,7 +73,8 @@ public class Enemy : MonoBehaviour {
            
             Instantiate(drop, transform.position, trans.rotation);
         }
-       
+        int r = Random.Range(minMax[0],minMax[1]);
+        player.GetComponent<Inventory>().money += r;
         Destroy(gameObject);
     }
 }

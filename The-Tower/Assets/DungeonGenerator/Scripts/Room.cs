@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour {
+
     public RoomControl rom;
     public GameObject player;
     public GameObject shadow;
     public GameObject door;
+    public GameObject end;
+
     public bool[] doors;
     public bool oppened;
     public int type;
@@ -33,6 +36,9 @@ public class Room : MonoBehaviour {
         if (type == 3)
         {
             Monster();
+        }
+        if (type == 4) {
+            Boss();
         }
 
     }
@@ -83,7 +89,8 @@ public class Room : MonoBehaviour {
 
     }
     public void End() {
-
+        GameObject e = Instantiate(end, transform.position, transform.rotation);
+       
     }
     public void Monster() {
         int j = 0;
@@ -97,12 +104,14 @@ public class Room : MonoBehaviour {
         int ammount = Random.Range(1, 6);
         for (int i=0;i<ammount;i++) {
             int r = Random.Range(0, j);
-            Instantiate(rom.monsters[spawn[r]], transform.position, transform.rotation);
+            GameObject en=Instantiate(rom.monsters[spawn[r]], transform.position, transform.rotation);
+            en.GetComponent<Enemy>().rom = this;
         }
         
 
     }
     public void Boss() {
-
+        GameObject en = Instantiate(rom.boss, transform.position, transform.rotation);
+        en.GetComponent<Boss>().en.rom = this;
     }
 }
