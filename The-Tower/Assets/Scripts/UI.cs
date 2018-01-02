@@ -11,6 +11,7 @@ public class UI : MonoBehaviour {
     public GameObject character;
 
     public Text stats;
+    public Text money;
 
     public Image face;
     public Image avatar;
@@ -25,6 +26,7 @@ public class UI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         stats.text = inv.rpg.ListStats();
+        money.text = inv.money.ToString();
         Life();
         Color c = inv.rpg.GetColor(PlayerPrefs.GetString("Cor"));
         face.color = c;

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
+    public float tim;
+
     public RoomControl rom;
 
     public SceneControl cont;
@@ -23,6 +25,7 @@ public class Inventory : MonoBehaviour {
 
     public int total;
 
+    public int money;
 
 
     public string[] iName;
@@ -57,10 +60,10 @@ public class Inventory : MonoBehaviour {
 
         for (int i = 0; i < 8; i++)
         {
-            slot[i] = PlayerPrefs.GetInt("Slot" + i);
-            print("Foi "+ PlayerPrefs.GetInt("Slot" + i));/////////
+            slot[i] = PlayerPrefs.GetInt("Slot" + i,0);
+            
         }
-
+        money = PlayerPrefs.GetInt("Slot" ,0);
     }
     void Update() {
         
@@ -78,6 +81,9 @@ public class Inventory : MonoBehaviour {
     }
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        
+
         if (line[0] != null)
         {
             float d = Vector3.Distance(transform.position, line[0].gameObject.transform.position);
@@ -109,18 +115,7 @@ public class Inventory : MonoBehaviour {
         {
             foreach (Collider2D cool in coly) { 
                 if (cool.gameObject.tag == "End") {
-                    int p = rom.andar + 1;
-                    PlayerPrefs.SetInt("Andar", p);
-                    rpg.SaveStatus();
-                    for (int i = 0; i < 8; i++)
-                    {
-                        PlayerPrefs.SetInt("Slot" + i, slot[i]);
-                    }
-                    ////
-                  
-
-
-                    cont.GoToScene("Fase"+p);
+                    End();
                         }
          }   
         }
@@ -171,4 +166,18 @@ public class Inventory : MonoBehaviour {
         return stat;
 
 }
+    public void End()
+    {
+        int p = rom.andar + 1;
+        PlayerPrefs.SetInt("Andar", p);
+        rpg.SaveStatus();
+        for (int i = 0; i < 8; i++)
+        {
+            PlayerPrefs.SetInt("Slot" + i, slot[i]);
+        }
+        ////
+        PlayerPrefs.SetInt("Money" ,money);
+        cont.GoToScene("Fase" + p);
+    }
+
 }

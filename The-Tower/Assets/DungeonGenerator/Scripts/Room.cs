@@ -111,6 +111,7 @@ public class Room : MonoBehaviour {
 
     }
     public void Boss() {
-            Instantiate(rom.boss, transform.position, transform.rotation);
+        GameObject en = Instantiate(rom.boss, transform.position, transform.rotation);
+        en.GetComponent<Boss>().en.rom = this;
     }
 }

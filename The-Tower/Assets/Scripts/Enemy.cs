@@ -9,7 +9,8 @@ public class Enemy : MonoBehaviour {
     public Transform trans;
 
     public GameObject drop;
-    
+
+    public int[] minMax;
 
     public float hp;
     public float str;
@@ -24,7 +25,7 @@ public class Enemy : MonoBehaviour {
 
     public bool sPlayer;
 
-    
+
     public Room rom;
 
 
@@ -72,7 +73,8 @@ public class Enemy : MonoBehaviour {
            
             Instantiate(drop, transform.position, trans.rotation);
         }
-       
+        int r = Random.Range(minMax[0],minMax[1]);
+        player.GetComponent<Inventory>().money += r;
         Destroy(gameObject);
     }
 }
