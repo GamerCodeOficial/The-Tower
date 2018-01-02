@@ -15,14 +15,14 @@ public class Menu : MonoBehaviour {
 	}
     public void LoadGame()
     {
-        SceneManager.LoadScene("GamePlay"); 
+       // SceneManager.LoadScene("GamePlay"); 
     }
     public void NewGame()
     {
-        SceneManager.LoadScene("GamePlay");
+       // SceneManager.LoadScene("GamePlay");
     }
     public void Quit()
     {
-        Application.Quit();
+       // Application.Quit();
     } 
 }

@@ -70,11 +70,13 @@ public class Enemy : MonoBehaviour {
         
         if (Random.Range(0, 100) < pct)
         {
+            print("Chance");
            
             Instantiate(drop, transform.position, trans.rotation);
         }
         int r = Random.Range(minMax[0],minMax[1]);
         player.GetComponent<Inventory>().money += r;
+        
         Destroy(gameObject);
     }
 }

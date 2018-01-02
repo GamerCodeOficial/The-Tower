@@ -12,16 +12,18 @@ public class Loot : MonoBehaviour {
 
     void Start()
     {
+        print("Eu sou foda");
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         total = inv.total;
         pickable = true;
         id = Random.Range(0, total);
 
-        while (inv.iSlot[id] == 0)
+        while (PlayerPrefs.GetInt("iSlot"+id) == 0)
         {
             id=Random.Range(0, total);
         }
        
+        
     }
   
 

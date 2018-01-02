@@ -26,26 +26,13 @@ public class Inventory : MonoBehaviour {
     public int total;
 
     public int money;
-
-
-    public string[] iName;
-    public int[] iSlot;
-    public string[] iType;
-    public int[] iValue;
-    public int[] size;
-
-    public float[] hp;
-    public float[] dex;
-    public float[] str;
-    public float[] def;
-    public float[] aura;
-    
+  
 
 
     public Loot[] line;
 
 
-    public int[] slot; //0 null  1 Weapon  2 Secondary  3 Armor  4 Other 5 potions 6 head 7 feet
+    public int[] slot; //0: null 1: Weapon 2: Secondary 3: Other 4: Head 5: Armour 6: Feet
 
     public PlayerRpg rpg;
         
@@ -75,7 +62,7 @@ public class Inventory : MonoBehaviour {
 
             found.text ="Found: "+ListStats(found.text, line[0].id);
             
-            current.text = "Current: " + ListStats(current.text, slot[iSlot[line[0].id]]);
+            current.text = "Current: " + ListStats(current.text, slot[PlayerPrefs.GetInt("iSlots"+line[0].id)]);
             
         }
     }
@@ -123,7 +110,7 @@ public class Inventory : MonoBehaviour {
         }
     public void Take() {
         Loot g = line[0];
-        slot[iSlot[line[0].id]] = line[0].id;
+        slot[PlayerPrefs.GetInt("iSlots"+line[0].id)] = line[0].id;
         for (int i = 0; i < 9; i++)
         {
             if (line[i + 1] != null)
@@ -151,17 +138,17 @@ public class Inventory : MonoBehaviour {
     }
     public string ListStats(string stat,int id) {
         stat = "\n";
-        stat += iName[id]+"\n";
+        stat += PlayerPrefs.GetString("iName"+id)+"\n";
         
-        if(hp[id]!=0)stat += "hp: " + hp[id] + "\n";
+        if(PlayerPrefs.GetFloat("iHp" + id) != 0)stat += "hp: " + PlayerPrefs.GetFloat("iHp" + id) + "\n";
 
-        if (dex[id] != 0) stat += "dex: " + dex[id] + "\n";
+        if (PlayerPrefs.GetFloat("iDex" + id) != 0) stat += "dex: " + PlayerPrefs.GetFloat("iDex" + id) + "\n";
 
-        if (str[id] != 0) stat += "str: " + str[id] + "\n";
+        if (PlayerPrefs.GetFloat("iStr" + id) != 0) stat += "str: " + PlayerPrefs.GetFloat("iStr" + id) + "\n";
 
-        if (def[id] != 0) stat += "def: " + def[id] + "\n";
+        if (PlayerPrefs.GetFloat("iDef" + id) != 0) stat += "def: " + PlayerPrefs.GetFloat("iDef" + id) + "\n";
 
-        if (aura[id] != 0) stat += "aura: " + aura[id];
+        
         stat = stat.Replace('$', '\n');
         return stat;
 
