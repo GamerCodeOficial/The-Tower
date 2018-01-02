@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour {
             slot[i] = PlayerPrefs.GetInt("Slot" + i,0);
             
         }
-        money = PlayerPrefs.GetInt("Slot" ,0);
+        money = PlayerPrefs.GetInt("Money" ,0);
     }
     void Update() {
         
