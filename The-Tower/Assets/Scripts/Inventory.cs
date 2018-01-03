@@ -146,12 +146,12 @@ public class Inventory : MonoBehaviour {
         
         stat += itemDb.list[id].name + "\n";
         
-        if(itemDb.list[id].hp != 0)stat += "hp: " + itemDb.list[id].hp + "\n";
-
+        if (itemDb.list[id].hp != 0)stat += "hp: " + itemDb.list[id].hp + "\n";
+        
         if (itemDb.list[id].dex != 0) stat += "dex: " + itemDb.list[id].dex + "\n";
-
+        
         if (itemDb.list[id].str != 0) stat += "str: " + itemDb.list[id].str + "\n";
-
+        
         if (itemDb.list[id].def != 0) stat += "def: " + itemDb.list[id].def + "\n";
 
         
