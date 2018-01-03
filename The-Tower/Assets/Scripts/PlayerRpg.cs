@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 public class PlayerRpg : MonoBehaviour
 {
@@ -230,10 +233,10 @@ public class PlayerRpg : MonoBehaviour
         for (int i = 0; i < 8; i++) {
 
             int j = inv.slot[i];
-            rHp += PlayerPrefs.GetFloat("iHp"+j);
-            rDex += PlayerPrefs.GetFloat("iDex" + j);
-            rStr += PlayerPrefs.GetFloat("iStr" + j);
-            rDef += PlayerPrefs.GetFloat("iDef" + j);
+            rHp +=  itemDb.list[j].hp;
+            rDex += itemDb.list[j].dex;
+            rStr += itemDb.list[j].str;
+            rDef += itemDb.list[j].def;
             
 
         }
@@ -280,4 +283,47 @@ public class PlayerRpg : MonoBehaviour
     }
 
 
+    ///////               XML                ////////////////////////////////////////////////////////////////////
+    public ItemDataBase itemDb;
+
+
+    public void Awake()
+    {
+        GetItems();
+
+    }
+
+
+
+
+
+    public string GenerateText()
+    {
+        string t = "";
+        if (itemDb.list[0] != null)
+        {
+            foreach (Item it in itemDb.list)
+            {
+                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
+
+            }
+
+        }
+        t = t.Replace('$', '\n');
+
+        return t;
+    }
+
+
+
+    public void GetItems()
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
+        FileStream stream = new FileStream(Application.dataPath + "/StreamingFiles/Xml/Items.xml", FileMode.Open);
+        itemDb = serializer.Deserialize(stream) as ItemDataBase;
+        stream.Close();
+    }
 }
+
+
+

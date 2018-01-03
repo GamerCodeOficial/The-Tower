@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 public class Inventory : MonoBehaviour {
 
@@ -62,7 +64,7 @@ public class Inventory : MonoBehaviour {
 
             found.text ="Found: "+ListStats(found.text, line[0].id);
             
-            current.text = "Current: " + ListStats(current.text, slot[PlayerPrefs.GetInt("iSlots"+line[0].id)]);
+            current.text = "Current: " + ListStats(current.text, slot[itemDb.list[line[0].id].id]);
             
         }
     }
@@ -110,7 +112,8 @@ public class Inventory : MonoBehaviour {
         }
     public void Take() {
         Loot g = line[0];
-        slot[PlayerPrefs.GetInt("iSlots"+line[0].id)] = line[0].id;
+        
+        slot[itemDb.list[line[0].id].id] = line[0].id;
         for (int i = 0; i < 9; i++)
         {
             if (line[i + 1] != null)
@@ -138,15 +141,15 @@ public class Inventory : MonoBehaviour {
     }
     public string ListStats(string stat,int id) {
         stat = "\n";
-        stat += PlayerPrefs.GetString("iName"+id)+"\n";
+        stat += itemDb.list[id].name + "\n";
         
-        if(PlayerPrefs.GetFloat("iHp" + id) != 0)stat += "hp: " + PlayerPrefs.GetFloat("iHp" + id) + "\n";
+        if(itemDb.list[id].hp != 0)stat += "hp: " + itemDb.list[id].hp + "\n";
 
-        if (PlayerPrefs.GetFloat("iDex" + id) != 0) stat += "dex: " + PlayerPrefs.GetFloat("iDex" + id) + "\n";
+        if (itemDb.list[id].dex != 0) stat += "dex: " + itemDb.list[id].dex + "\n";
 
-        if (PlayerPrefs.GetFloat("iStr" + id) != 0) stat += "str: " + PlayerPrefs.GetFloat("iStr" + id) + "\n";
+        if (itemDb.list[id].str != 0) stat += "str: " + itemDb.list[id].str + "\n";
 
-        if (PlayerPrefs.GetFloat("iDef" + id) != 0) stat += "def: " + PlayerPrefs.GetFloat("iDef" + id) + "\n";
+        if (itemDb.list[id].def != 0) stat += "def: " + itemDb.list[id].def + "\n";
 
         
         stat = stat.Replace('$', '\n');
@@ -162,9 +165,69 @@ public class Inventory : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Slot" + i, slot[i]);
         }
-        ////
+       
         PlayerPrefs.SetInt("Money" ,money);
         cont.GoToScene("Fase" + p);
     }
 
+
+
+///////               XML                ////////////////////////////////////////////////////////////////////
+    public ItemDataBase itemDb;
+
+
+    public void Awake()
+    {
+        GetItems();
+
+    }
+   
+
+
+
+
+    public string GenerateText()
+    {
+        string t = "";
+        if (itemDb.list[0] != null)
+        {
+            foreach (Item it in itemDb.list)
+            {
+                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
+
+            }
+
+        }
+        t = t.Replace('$', '\n');
+
+        return t;
+    }
+
+
+   
+    public void GetItems()
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
+        FileStream stream = new FileStream(Application.dataPath + "/StreamingFiles/Xml/Items.xml", FileMode.Open);
+        itemDb = serializer.Deserialize(stream) as ItemDataBase;
+        stream.Close();
+    }
 }
+
+[System.Serializable]
+public class ItemDataBase
+{
+    [XmlArray("Items")]
+    public List<Item> list = new List<Item>();
+}
+public class Item
+{
+    public int id;
+    public string name;
+    public int slot;
+    public float hp;
+    public float dex;
+    public float str;
+    public float def;
+}
+
