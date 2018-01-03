@@ -16,8 +16,9 @@ public class Loot : MonoBehaviour {
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         
         pickable = true;
-        id = Random.Range(0, inv.itemDb.list.Capacity);
-
+        print("Capacity: "+inv.itemDb.list.Count);
+        id = Random.Range(1, inv.itemDb.list.Count);
+        print("Loot Id"+id);
         
          
 

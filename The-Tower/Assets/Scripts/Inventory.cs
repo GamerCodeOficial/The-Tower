@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour {
 
             found.text ="Found: "+ListStats(found.text, line[0].id);
             
-            current.text = "Current: " + ListStats(current.text, slot[itemDb.list[line[0].id].id]);
+            current.text = "Current: " + ListStats(current.text, slot[itemDb.list[line[0].id].slot]);
             
         }
     }
@@ -91,6 +91,7 @@ public class Inventory : MonoBehaviour {
                     if (line[i] == null)
                     {
                         line[i] = g;
+                        print("line "+i+" id"+line[i].id);
                         g.pickable = false;
                         i = 11;
                     }
@@ -113,7 +114,7 @@ public class Inventory : MonoBehaviour {
     public void Take() {
         Loot g = line[0];
         
-        slot[itemDb.list[line[0].id].id] = line[0].id;
+        slot[itemDb.list[line[0].id].slot] = line[0].id;
         for (int i = 0; i < 9; i++)
         {
             if (line[i + 1] != null)
@@ -141,6 +142,8 @@ public class Inventory : MonoBehaviour {
     }
     public string ListStats(string stat,int id) {
         stat = "\n";
+       
+        
         stat += itemDb.list[id].name + "\n";
         
         if(itemDb.list[id].hp != 0)stat += "hp: " + itemDb.list[id].hp + "\n";
@@ -153,6 +156,7 @@ public class Inventory : MonoBehaviour {
 
         
         stat = stat.Replace('$', '\n');
+        
         return stat;
 
 }
@@ -180,6 +184,7 @@ public class Inventory : MonoBehaviour {
     {
         GetItems();
 
+        print("started");
     }
    
 
@@ -209,8 +214,10 @@ public class Inventory : MonoBehaviour {
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
         FileStream stream = new FileStream(Application.dataPath + "/StreamingFiles/Xml/Items.xml", FileMode.Open);
+        print(stream.Name);
         itemDb = serializer.Deserialize(stream) as ItemDataBase;
         stream.Close();
+        print(itemDb.list.Count);
     }
 }
 
@@ -219,6 +226,7 @@ public class ItemDataBase
 {
     [XmlArray("Items")]
     public List<Item> list = new List<Item>();
+
 }
 public class Item
 {

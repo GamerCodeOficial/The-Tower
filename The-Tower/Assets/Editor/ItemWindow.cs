@@ -18,7 +18,6 @@ public class ItemWindow : EditorWindow {
 
     public ItemDataBase itemDb;
 
-
     [MenuItem("Window/Item")]
     public static void ShowWindow() {
         GetWindow<ItemWindow>("Item");
@@ -47,6 +46,8 @@ public class ItemWindow : EditorWindow {
         iDex = EditorGUILayout.FloatField("Dex", iDex);
         iStr = EditorGUILayout.FloatField("Str", iStr);
         iDef = EditorGUILayout.FloatField("Def", iDef);
+
+        
         if (GUILayout.Button("Change Status")) {
             Change();
             SaveItems();
@@ -68,7 +69,7 @@ public class ItemWindow : EditorWindow {
         if (itemDb.list[0] != null) { 
         foreach (Item it in itemDb.list)
         {
-            t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
+            t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
 
         }
 
@@ -124,23 +125,5 @@ public class ItemWindow : EditorWindow {
         stream.Close();
     }
 }
-[System.Serializable]
-public class Item
-{
-    public int id;
-    public string name;
-    public int slot;
-    public float hp;
-    public float dex;
-    public float str;
-    public float def;
-}
-[System.Serializable]
-public class ItemDataBase
-{
-    [XmlArray("Items")]
-    public List<Item> list = new List<Item>();
-}
-
 
 
