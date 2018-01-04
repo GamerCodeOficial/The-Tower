@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 12abb6261621bd641a29c4a994a6d244
-timeCreated: 1512480994
+timeCreated: 1514918473
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -136,10 +136,10 @@ TextureImporter:
       name: Aventureiro_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 112
-        width: 14
-        height: 25
+        x: 0
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Aventureiro_1
       rect:
         serializedVersion: 2
-        x: 29
-        y: 112
-        width: 13
-        height: 24
+        x: 25
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +164,10 @@ TextureImporter:
       name: Aventureiro_2
       rect:
         serializedVersion: 2
-        x: 55
-        y: 112
-        width: 14
-        height: 25
+        x: 50
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Aventureiro_3
       rect:
         serializedVersion: 2
-        x: 78
-        y: 112
-        width: 14
-        height: 25
+        x: 75
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,9 +193,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 112
-        width: 14
-        height: 25
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Aventureiro_5
       rect:
         serializedVersion: 2
-        x: 124
-        y: 112
-        width: 13
-        height: 25
+        x: 125
+        y: 189
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +220,10 @@ TextureImporter:
       name: Aventureiro_6
       rect:
         serializedVersion: 2
-        x: 150
-        y: 112
-        width: 14
-        height: 25
+        x: 0
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Aventureiro_7
       rect:
         serializedVersion: 2
-        x: 178
-        y: 112
-        width: 13
-        height: 24
+        x: 25
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: Aventureiro_8
       rect:
         serializedVersion: 2
-        x: 207
-        y: 112
-        width: 14
-        height: 25
+        x: 50
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +262,10 @@ TextureImporter:
       name: Aventureiro_9
       rect:
         serializedVersion: 2
-        x: 241
-        y: 112
-        width: 14
-        height: 25
+        x: 75
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: Aventureiro_10
       rect:
         serializedVersion: 2
-        x: 270
-        y: 112
-        width: 14
-        height: 25
+        x: 100
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +290,10 @@ TextureImporter:
       name: Aventureiro_11
       rect:
         serializedVersion: 2
-        x: 301
-        y: 112
-        width: 13
-        height: 25
+        x: 125
+        y: 162
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: Aventureiro_12
       rect:
         serializedVersion: 2
-        x: 2
-        y: 76
-        width: 14
-        height: 25
+        x: 0
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: Aventureiro_13
       rect:
         serializedVersion: 2
-        x: 27
-        y: 76
-        width: 13
-        height: 24
+        x: 25
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +332,10 @@ TextureImporter:
       name: Aventureiro_14
       rect:
         serializedVersion: 2
-        x: 52
-        y: 77
-        width: 14
-        height: 25
+        x: 50
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -346,10 +346,10 @@ TextureImporter:
       name: Aventureiro_15
       rect:
         serializedVersion: 2
-        x: 76
-        y: 77
-        width: 14
-        height: 25
+        x: 75
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Aventureiro_16
       rect:
         serializedVersion: 2
-        x: 98
-        y: 77
-        width: 14
-        height: 25
+        x: 100
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,10 +374,10 @@ TextureImporter:
       name: Aventureiro_17
       rect:
         serializedVersion: 2
-        x: 123
-        y: 77
-        width: 13
-        height: 25
+        x: 125
+        y: 135
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,10 +388,10 @@ TextureImporter:
       name: Aventureiro_18
       rect:
         serializedVersion: 2
-        x: 149
-        y: 77
-        width: 14
-        height: 25
+        x: 0
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: Aventureiro_19
       rect:
         serializedVersion: 2
-        x: 178
-        y: 78
-        width: 13
-        height: 24
+        x: 25
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,10 +416,10 @@ TextureImporter:
       name: Aventureiro_20
       rect:
         serializedVersion: 2
-        x: 208
-        y: 79
-        width: 14
-        height: 25
+        x: 50
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,10 +430,10 @@ TextureImporter:
       name: Aventureiro_21
       rect:
         serializedVersion: 2
-        x: 242
-        y: 79
-        width: 14
-        height: 25
+        x: 75
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,10 +444,10 @@ TextureImporter:
       name: Aventureiro_22
       rect:
         serializedVersion: 2
-        x: 270
-        y: 79
-        width: 14
-        height: 25
+        x: 100
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,262 +458,10 @@ TextureImporter:
       name: Aventureiro_23
       rect:
         serializedVersion: 2
-        x: 299
-        y: 79
-        width: 13
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_24
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 43
-        width: 8
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_25
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 43
-        width: 10
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_26
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 43
-        width: 9
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_27
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 43
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_28
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 43
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_29
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 43
-        width: 8
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_30
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 43
-        width: 10
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_31
-      rect:
-        serializedVersion: 2
-        x: 181
-        y: 44
-        width: 10
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_32
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 44
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_33
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 6
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_34
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 6
-        width: 10
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_35
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 5
-        width: 10
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_36
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 5
-        width: 8
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_37
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 5
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_38
-      rect:
-        serializedVersion: 2
-        x: 139
-        y: 5
-        width: 7
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_39
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 5
-        width: 9
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_40
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 5
-        width: 10
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Aventureiro_41
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 5
-        width: 8
-        height: 25
+        x: 125
+        y: 108
+        width: 25
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

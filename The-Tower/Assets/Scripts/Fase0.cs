@@ -9,7 +9,7 @@ public class Fase0 : MonoBehaviour {
     public float dex;
     public float str;
     public float def;
-    public float aura;
+   
 
     public float[] primeiro;
     public float[] segundo;
@@ -128,8 +128,9 @@ public class Fase0 : MonoBehaviour {
         PlayerPrefs.SetFloat("Dex", chosen[1]);
         PlayerPrefs.SetFloat("Str", chosen[2]);
         PlayerPrefs.SetFloat("Def", chosen[3]);
-        PlayerPrefs.SetFloat("Aura", chosen[4]);
+        
         PlayerPrefs.SetInt("Andar", 1);
+        PlayerPrefs.SetInt("Money", 0);
         int p = (int)chosen[5];
         PlayerPrefs.SetString("Cor",colors[p]);
         print(chosen[5]);

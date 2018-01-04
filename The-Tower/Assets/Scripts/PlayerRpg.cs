@@ -21,13 +21,13 @@ public class PlayerRpg : MonoBehaviour
     public float dex;
     public float str;
     public float def;
-    public float aura;
+
 
     public float rHp;
     public float rDex;
     public float rStr;
     public float rDef;
-    public float rAura;
+
 
     public float ac;
     public Collider2D[] col;
@@ -57,7 +57,7 @@ public class PlayerRpg : MonoBehaviour
         dex = PlayerPrefs.GetFloat("Dex");
         str = PlayerPrefs.GetFloat("Str");
         def = PlayerPrefs.GetFloat("Def");
-        aura = PlayerPrefs.GetFloat("Aura");
+       
 
 }
     public void SaveStatus()
@@ -66,7 +66,7 @@ public class PlayerRpg : MonoBehaviour
         PlayerPrefs.SetFloat("Dex", dex);
         PlayerPrefs.SetFloat("Str", str);
         PlayerPrefs.SetFloat("Def", def);
-        PlayerPrefs.SetFloat("Aura", aura);
+        
     }
 
     public Color GetColor(string cor)
@@ -172,7 +172,7 @@ public class PlayerRpg : MonoBehaviour
         if (col != null)
         {
             
-            if (t >= inv.size[inv.slot[1]] / rDex && Input.GetMouseButtonDown(0))
+            if (t >= 1/rDex && Input.GetMouseButtonDown(0))
             {
 
                 foreach(Collider2D cl in col){
@@ -227,15 +227,14 @@ public class PlayerRpg : MonoBehaviour
         rDex=dex;
         rStr=str;
         rDef=def;
-        rAura=aura;
         for (int i = 0; i < 8; i++) {
 
             int j = inv.slot[i];
-            rHp += inv.hp[j];
-            rDex += inv.dex[j];
-            rStr += inv.str[j];
-            rDef += inv.def[j];
-            rAura += inv.aura[j];
+            rHp += PlayerPrefs.GetFloat("iHp"+j);
+            rDex += PlayerPrefs.GetFloat("iDex" + j);
+            rStr += PlayerPrefs.GetFloat("iStr" + j);
+            rDef += PlayerPrefs.GetFloat("iDef" + j);
+            
 
         }
         
@@ -274,7 +273,7 @@ public class PlayerRpg : MonoBehaviour
 
         stat += "def: " + rDef + "\n";
 
-        if(aura>0)stat += "aura: " + rAura;
+        
         stat = stat.Replace('$', '\n');
         return stat;
 
