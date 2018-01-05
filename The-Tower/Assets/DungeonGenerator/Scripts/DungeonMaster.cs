@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DungeonMaster : MonoBehaviour
 {
+    public Sprite[] img;
+
     public RoomControl rContr;
 
     public int size;
@@ -17,7 +19,7 @@ public class DungeonMaster : MonoBehaviour
     public int tamanho;
 
     public void Corridors(int x,int y,int nCor){
-
+        
 
         for (int i = 0; i < nCor ;i++) {
             
@@ -422,8 +424,8 @@ public class DungeonMaster : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
 
+        img = Resources.LoadAll<Sprite>("Graphics/Tiles/Fase"+rContr.andar);
         grid = new int[size, size];
         real = new int[size*10, size*10];
         for (int x = 0; x < size; x++)
@@ -463,8 +465,8 @@ public class DungeonMaster : MonoBehaviour
                 pos.y = y;
                 pos.z = 0;
                 Quaternion q = new Quaternion();
-                Instantiate(tiles[real[x, y]], pos, q);
-
+                GameObject fl=Instantiate(tiles[real[x, y]], pos, q);
+                fl.GetComponent<SpriteRenderer>().sprite = img[real[x, y]];
             }
         }
 

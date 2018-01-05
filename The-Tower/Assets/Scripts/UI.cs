@@ -18,6 +18,7 @@ public class UI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        cors = Resources.LoadAll<Sprite>("Hearts");
         rpg = GameObject.FindGameObjectWithTag("RPG").GetComponent<PlayerRpg>();
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         Life();
@@ -40,24 +41,24 @@ public class UI : MonoBehaviour {
         for (int i = 0; i < 10; i++)
         {
 
-            vidas[i ].GetComponent<SpriteRenderer>().sprite = cors[5];
+            vidas[i ].GetComponent<Image>().sprite = cors[5];
 
         }
 
         for (int i=0;i< (hp / 4) ; i++) {
             
-            vidas[i].GetComponent<SpriteRenderer>().sprite = cors[0]; 
+            vidas[i].GetComponent<Image>().sprite = cors[0]; 
  
         }
         for (int i = hp / 4; i < mHp/4; i++)
         {
             
-            vidas[i].GetComponent<SpriteRenderer>().sprite = cors[4];
+            vidas[i].GetComponent<Image>().sprite = cors[4];
 
         }
         int p = hp % 4;
         
-        vidas[(hp-1) / 4].GetComponent<SpriteRenderer>().sprite = cors[p];
+        vidas[(hp-1) / 4].GetComponent<Image>().sprite = cors[p];
         
 
     }
