@@ -29,7 +29,6 @@ public class Fase0 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-       
 
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         primeiro = Randomize();
@@ -138,7 +137,7 @@ public class Fase0 : MonoBehaviour {
         {
             PlayerPrefs.SetInt("Slot" + i, 0);
         }
-
+        
         cont.GoToScene("Fase1");
     }
 }

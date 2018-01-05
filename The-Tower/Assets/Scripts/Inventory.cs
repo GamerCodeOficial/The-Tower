@@ -28,7 +28,8 @@ public class Inventory : MonoBehaviour {
     public int total;
 
     public int money;
-  
+
+    public GameObject pop;
 
 
     public Loot[] line;
@@ -53,6 +54,7 @@ public class Inventory : MonoBehaviour {
             
         }
         money = PlayerPrefs.GetInt("Money" ,0);
+        PopUp("Fase1",2);
     }
     void Update() {
         
@@ -213,12 +215,19 @@ public class Inventory : MonoBehaviour {
     public void GetItems()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/StreamingFiles/Xml/Items.xml", FileMode.Open);
+        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Open);
         print(stream.Name);
         itemDb = serializer.Deserialize(stream) as ItemDataBase;
         stream.Close();
         print(itemDb.list.Count);
     }
+    public void PopUp(string msg, float duration) {
+        GameObject o=Instantiate(pop,transform.position,transform.rotation);
+        o.transform.parent = GameObject.FindGameObjectWithTag("Canvas").transform;
+        o.GetComponent<PopUp>().msg = msg;
+        o.GetComponent<PopUp>().duration = duration;
+    }
+
 }
 
 [System.Serializable]

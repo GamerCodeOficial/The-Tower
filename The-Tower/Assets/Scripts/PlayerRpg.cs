@@ -115,10 +115,12 @@ public class PlayerRpg : MonoBehaviour
     void Start()
     {
 
+
         GetStatus();
         CalculatStats();
         cHp = rHp;
         nPos = Vector3.zero;
+        
     }
 
     // Update is called once per frame
@@ -319,7 +321,7 @@ public class PlayerRpg : MonoBehaviour
     public void GetItems()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/StreamingFiles/Xml/Items.xml", FileMode.Open);
+        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Open);
         itemDb = serializer.Deserialize(stream) as ItemDataBase;
         stream.Close();
     }
