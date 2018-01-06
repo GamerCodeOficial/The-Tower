@@ -54,7 +54,9 @@ public class Inventory : MonoBehaviour {
             
         }
         money = PlayerPrefs.GetInt("Money" ,0);
-        PopUp("Fase1",2);
+       rpg.itemDb = itemDb;
+        
+       // PopUp("Fase1",6);
     }
     void Update() {
         
@@ -184,7 +186,7 @@ public class Inventory : MonoBehaviour {
 
     public void Awake()
     {
-        GetItems();
+        Open();
 
         print("started");
     }
@@ -211,21 +213,51 @@ public class Inventory : MonoBehaviour {
     }
 
 
-   
-    public void GetItems()
+
+    public void Open()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Open);
-        print(stream.Name);
-        itemDb = serializer.Deserialize(stream) as ItemDataBase;
-        stream.Close();
-        print(itemDb.list.Count);
+        TextAsset textAsset = Resources.Load<TextAsset>("Xml/Items");
+        XmlDocument xmldoc = new XmlDocument();
+        xmldoc.LoadXml(textAsset.text);
+        Converter(xmldoc);
     }
+
+    public void Converter(XmlDocument doc)
+    {
+        foreach (Item it in itemDb.list)
+        {
+            itemDb.list.Remove(it);
+        }
+        foreach (XmlNode itemd in doc.ChildNodes)
+        {
+            foreach (XmlNode items in itemd.ChildNodes)
+            {
+
+                foreach (XmlNode it in items.ChildNodes)
+                {
+                    Item item = new Item();
+                    item.id = (int)float.Parse(it.ChildNodes[0].InnerText);
+                    item.name = it.ChildNodes[1].InnerText;
+                    item.slot = (int)float.Parse(it.ChildNodes[2].InnerText);
+                    item.hp = float.Parse(it.ChildNodes[3].InnerText);
+                    item.dex = float.Parse(it.ChildNodes[4].InnerText);
+                    item.str = float.Parse(it.ChildNodes[5].InnerText);
+                    item.def = float.Parse(it.ChildNodes[6].InnerText);
+
+                    itemDb.list.Add(item);
+                }
+
+            }
+        }
+    }
+
+    
     public void PopUp(string msg, float duration) {
         GameObject o=Instantiate(pop,transform.position,transform.rotation);
         o.transform.parent = GameObject.FindGameObjectWithTag("Canvas").transform;
         o.GetComponent<PopUp>().msg = msg;
         o.GetComponent<PopUp>().duration = duration;
+        
     }
 
 }
@@ -237,6 +269,7 @@ public class ItemDataBase
     public List<Item> list = new List<Item>();
 
 }
+[System.Serializable]
 public class Item
 {
     public int id;

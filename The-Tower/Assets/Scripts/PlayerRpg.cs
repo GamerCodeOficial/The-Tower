@@ -289,12 +289,6 @@ public class PlayerRpg : MonoBehaviour
     public ItemDataBase itemDb;
 
 
-    public void Awake()
-    {
-        GetItems();
-
-    }
-
 
 
 
@@ -318,13 +312,7 @@ public class PlayerRpg : MonoBehaviour
 
 
 
-    public void GetItems()
-    {
-        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Open);
-        itemDb = serializer.Deserialize(stream) as ItemDataBase;
-        stream.Close();
-    }
+   
 }
 
 
