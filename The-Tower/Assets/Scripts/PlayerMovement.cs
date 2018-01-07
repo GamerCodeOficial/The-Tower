@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        rpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
 	}
 	
 	// Update is called once per frame

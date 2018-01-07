@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ItemDataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Items>
+    <Item>
+      <id>0</id>
+      <name>Nothing</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+    </Item>
+  </Items>
+</ItemDataBase>

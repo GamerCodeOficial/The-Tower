@@ -7,6 +7,8 @@ using System.IO;
 
 public class PlayerRpg : MonoBehaviour
 {
+    public StatsModifiers mod;
+
     private Quaternion rota;
     //dir 1:direita 2:baixo 3:esquerda 4:direita
     public int direction;
@@ -115,7 +117,7 @@ public class PlayerRpg : MonoBehaviour
     void Start()
     {
 
-
+        mod = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsModifiers>();
         GetStatus();
         CalculatStats();
         cHp = rHp;
@@ -242,6 +244,8 @@ public class PlayerRpg : MonoBehaviour
             
 
         }
+        mod.Add();
+
         
     }
 

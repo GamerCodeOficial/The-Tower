@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
@@ -6,7 +8,7 @@ using System.Xml.Serialization;
 using System.IO;
 using UnityEditor;
 
-public class ItemWindow : EditorWindow
+public class EffectsWindow : EditorWindow
 {
 
     int id;
@@ -17,12 +19,12 @@ public class ItemWindow : EditorWindow
     float iStr;
     float iDef;
 
-    public ItemDataBase itemDb;
+    public EffectDb itemDb;
 
-    [MenuItem("Window/Item")]
+    [MenuItem("Window/Effects")]
     public static void ShowWindow()
     {
-        GetWindow<ItemWindow>("Item");
+        GetWindow<ItemWindow>("Effects");
     }
     public void Awake()
     {
@@ -42,11 +44,9 @@ public class ItemWindow : EditorWindow
         {
             GetItems();
         }
-        GUILayout.Label("Handle Items");
-        id = EditorGUILayout.IntField("id", id);
+        GUILayout.Label("Handle Effects");
+        id = EditorGUILayout.IntField("Id", id);
         iName = EditorGUILayout.TextField("Name", iName);
-        iSlot = EditorGUILayout.IntField("Slot", iSlot);
-        iHp = EditorGUILayout.FloatField("Hp", iHp);
         iDex = EditorGUILayout.FloatField("Dex", iDex);
         iStr = EditorGUILayout.FloatField("Str", iStr);
         iDef = EditorGUILayout.FloatField("Def", iDef);
@@ -57,7 +57,7 @@ public class ItemWindow : EditorWindow
             Change();
             SaveItems();
         }
-        if (GUILayout.Button("Add New Item"))
+        if (GUILayout.Button("Add New Effect"))
         {
             AddNew();
             SaveItems();
@@ -74,9 +74,9 @@ public class ItemWindow : EditorWindow
         string t = "";
         if (itemDb.list[0] != null)
         {
-            foreach (Item it in itemDb.list)
+            foreach (Effect it in itemDb.list)
             {
-                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
+                t += it.id + "- Nome: *" + it.name + "* Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
 
             }
 
@@ -90,13 +90,12 @@ public class ItemWindow : EditorWindow
     {
 
 
-        foreach (Item it in itemDb.list)
+        foreach (Effect it in itemDb.list)
         {
             if (it.id == id)
             {
                 it.name = iName;
-                it.slot = iSlot;
-                it.hp = iHp;
+
                 it.dex = iDex;
                 it.str = iStr;
                 it.def = iDef;
@@ -108,11 +107,9 @@ public class ItemWindow : EditorWindow
 
     public void AddNew()
     {
-        Item it = new Item();
+        Effect it = new Effect();
         it.id = itemDb.list.Capacity;
         it.name = iName;
-        it.slot = iSlot;
-        it.hp = iHp;
         it.dex = iDex;
         it.str = iStr;
         it.def = iDef;
@@ -121,16 +118,18 @@ public class ItemWindow : EditorWindow
     }
     public void SaveItems()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Create);
+        XmlSerializer serializer = new XmlSerializer(typeof(EffectDb));
+        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Effects.xml", FileMode.Create);
         serializer.Serialize(stream, itemDb);
         stream.Close();
     }
     public void GetItems()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(ItemDataBase));
-        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Items.xml", FileMode.Open);
-        itemDb = serializer.Deserialize(stream) as ItemDataBase;
+        XmlSerializer serializer = new XmlSerializer(typeof(EffectDb));
+        FileStream stream = new FileStream(Application.dataPath + "/ResourcesXml/Effects.xml", FileMode.Open);
+        itemDb = serializer.Deserialize(stream) as EffectDb;
         stream.Close();
     }
 }
+
+

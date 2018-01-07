@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
     void Start () {
 
         player = GameObject.FindGameObjectWithTag("Player");
-        pRpg = GameObject.FindGameObjectWithTag("RPG").GetComponent<PlayerRpg>();
+        pRpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
     }
     private void FixedUpdate()
     {

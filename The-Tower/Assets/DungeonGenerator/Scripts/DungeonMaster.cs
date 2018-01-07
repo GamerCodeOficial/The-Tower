@@ -157,17 +157,6 @@ public class DungeonMaster : MonoBehaviour
                         }
                     }
                 }
-                else if (grid[x, y] == 1)
-                {
-                    for (int xi = (x * tamanho) + 3; xi < ((x + 1) * tamanho) - 3; xi++)
-                    {
-                        for (int yi = (y * tamanho) + 3; yi < ((y + 1) * tamanho) - 3; yi++)
-                        {
-                            
-                            real[xi, yi] = 1;
-                        }
-                    }
-                }
                 else if (grid[x, y] == 2)
                 {
                     
@@ -187,20 +176,22 @@ public class DungeonMaster : MonoBehaviour
 
     }
 
-    public void Conections()
+    public void Conections()// Corridors position in grid
     {
         for (int x = 0; x < size; x++)
         {
-            for (int y = 0; y < size; y++)
+            for (int y = 0; y < size; y++)//loop through all the grid
             {
-                if (grid[x, y] == 1)
-                {
 
-                    if (x < size - 1)
+
+                if (grid[x, y] == 1)//if grid == corridor
+                {
+                    
+                    
+                    if (x < size - 1)// distance of at least one from 
                     {
-                        if (grid[x + 1, y] == 2)
+                        if (grid[x + 1, y] == 2)// right grid == room 
                         {
-                         
                             real[((x + 1) * tamanho) - 1, (y * tamanho) + 4] = 1;
                             real[((x + 1) * tamanho) - 1, (y * tamanho) + 5] = 1;
                         }
@@ -232,118 +223,61 @@ public class DungeonMaster : MonoBehaviour
                             real[(x * tamanho) + 5, y * tamanho] = 1;
                         }
                     }
-
+                    
 
                     if (x < size - 1)
                     {
-                        if (grid[x + 1, y] != 0)
+                        if (grid[x + 1, y] != 0)// right != wall
                         {
-                          
-                            for (int i = 3; i < 7; i++) {
-                                real[((x + 1) * tamanho) - 1, (y * tamanho) + i] = 1;
-
+                            for (int o = -6; o < 1; o++) {
+                                for (int i = 4; i < 6; i++)
+                                {
+                                    real[((x + 1) * tamanho) +o, (y * tamanho) + i] = 1;
+                                }
                             }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[((x + 1) * tamanho) - 2, (y * tamanho) + i] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[((x + 1) * tamanho) , (y * tamanho) + i] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[((x + 1) * tamanho)-3, (y * tamanho) + i] = 1;
-
-                            }
-
                         }
                     }
                     if (x > 1)
                     {
-                        if (grid[x - 1, y] != 0)
+                        if (grid[x - 1, y] != 0)// left != wall
                         {
-                          
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[x * tamanho, (y * tamanho) + i] = 1;
 
-                            }
-                            for (int i = 3; i < 7; i++)
+                            for (int o = -1; o < 6; o++)
                             {
-                                real[(x * tamanho) +1, (y * tamanho) + i] = 1;
-
-                            }
-                            
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) -1, (y * tamanho) + i] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + 2, (y * tamanho) + i] = 1;
-
+                                for (int i = 4; i < 6; i++)
+                                {
+                                    real[(x * tamanho) + o, (y * tamanho) + i] = 1;
+                                }
                             }
 
                         }
                     }
                     if (y < size - 1)
                     {
-                        if (grid[x, y + 1] != 0)
+                        if (grid[x, y + 1] != 0)// top != wall
                         {
-                          
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, ((y + 1) * tamanho) - 1] = 1;
 
-                            }
-                            for (int i = 3; i < 7; i++)
+                            for (int o = -6; o < 1; o++)
                             {
-                                real[(x * tamanho) + i, ((y + 1) * tamanho) - 2] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, ((y + 1) * tamanho) ] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, ((y + 1) * tamanho)-3] = 1;
-
+                                for (int i = 4; i < 6; i++)
+                                {
+                                    real[(x * tamanho) + i, ((y + 1) * tamanho) +o] = 1;
+                                }
                             }
 
                         }
                     }
                     if (y > 1)
                     {
-                        if (grid[x, y - 1] != 0)
+                        if (grid[x, y - 1] != 0)// bottom != wall
                         {
-                          
-                            for (int i = 3; i < 7; i++)
+                            for (int o = -1; o < 6; o++)
                             {
-                                real[(x * tamanho) + i, y * tamanho] = 1;
-
+                                for (int i = 4; i < 6; i++)
+                                {
+                                    real[(x * tamanho) + i, (y * tamanho) + o] = 1;
+                                }
                             }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, (y * tamanho) +1] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, (y * tamanho) -1] = 1;
-
-                            }
-                            for (int i = 3; i < 7; i++)
-                            {
-                                real[(x * tamanho) + i, (y * tamanho) +2] = 1;
-
-                            }
-
                         }
                     }
 
@@ -421,6 +355,92 @@ public class DungeonMaster : MonoBehaviour
             }
         }
     }
+    public void WallColliders() {
+        for (int x = 2; x < (size * tamanho) - 2; x++)
+        {
+            for (int y = 2; y < (size * tamanho)-2; y++)
+            {
+                if (real[x, y] > 0 && real[x, y] < 3 ) {
+                    if (real[x, y + 1]==0 || real[x, y + 1] > 2) {
+
+                        real[x, y + 1] = 3;
+                    }
+                    if (real[x, y - 1] == 0 || real[x, y - 1] > 2)
+                    { 
+                            real[x, y - 1] = 4;
+                    }
+                    if (real[x + 1, y] == 0)
+                    {
+                        real[x + 1, y] = 5;
+                    }
+                    if (real[x - 1, y] == 0)
+                    {
+                        real[x - 1, y] = 6;
+                    }
+                }
+            }
+        }
+      
+        for (int x = 2; x < (size * tamanho) - 2; x++)
+        {
+            for (int y = 2; y < (size * tamanho) - 2; y++)
+            {
+                if (real[x, y] == 3)
+                {
+                    if (real[x + 1, y ] == 0 && real[x + 2, y] == 0)
+                    {
+                        real[x + 1, y ] = 5;
+                    }
+                    if (real[x - 1, y ] == 0 && real[x - 2, y] == 0)
+                    {
+                        real[x - 1, y ] = 6;
+                    }
+                }
+       
+            }
+        }
+        
+  
+        for (int x = 2; x < (size * tamanho) - 2; x++)
+        {
+            for (int y = 2; y < (size * tamanho) - 2; y++)
+            {
+                if (real[x, y] == 4)
+                {
+                    if (real[x + 1, y ] == 0)
+                    {
+                        real[x + 1, y ] = 7;
+                    }
+                    if (real[x - 1, y ] == 0)
+                    {
+                        real[x - 1, y] = 8;
+                    }
+                }
+
+            }
+        }
+        for (int x = 2; x < (size * tamanho) - 2; x++)
+        {
+            for (int y = 2; y < (size * tamanho) - 2; y++)
+            {
+                if (real[x, y] == 4)
+                {
+                    if (real[x + 1, y] ==1|| real[x + 1, y] == 2)
+                    {
+                        real[x , y] = 9;
+                    }
+                    if (real[x - 1, y] == 1 || real[x - 1, y] == 2)
+                    {
+                        real[x , y] = 10;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -441,6 +461,7 @@ public class DungeonMaster : MonoBehaviour
         CreateRooms();
         Realize();
         Conections();
+        WallColliders();
         Roomificate();
         GenerateAll();
         Roomie();

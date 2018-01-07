@@ -16,12 +16,12 @@ public class UI : MonoBehaviour {
     public Image face;
     public Image avatar;
 
-    public Text teste;
+ 
 
 	// Use this for initialization
 	void Start () {
         cors = Resources.LoadAll<Sprite>("Hearts");
-        rpg = GameObject.FindGameObjectWithTag("RPG").GetComponent<PlayerRpg>();
+        rpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         Life();
     }
@@ -34,7 +34,7 @@ public class UI : MonoBehaviour {
         Color c = inv.rpg.GetColor(PlayerPrefs.GetString("Cor"));
         face.color = c;
         avatar.color = c;
-        teste.text = inv.itemDb.list[0].name +PlayerPrefs.GetFloat("Hp");
+        
     }
 
     

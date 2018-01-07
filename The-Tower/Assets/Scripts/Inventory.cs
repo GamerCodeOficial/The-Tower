@@ -44,7 +44,8 @@ public class Inventory : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rpg = GameObject.FindGameObjectWithTag("RPG").GetComponent<PlayerRpg>();
+      
+        rpg = gameObject.GetComponent<PlayerRpg>();
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
 
