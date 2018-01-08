@@ -57,6 +57,7 @@ public class PlayerRpg : MonoBehaviour
 
     public SpriteRenderer render;
 
+
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
         dex = PlayerPrefs.GetFloat("Dex");

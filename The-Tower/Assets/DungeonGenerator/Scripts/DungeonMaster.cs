@@ -18,6 +18,8 @@ public class DungeonMaster : MonoBehaviour
 
     public int tamanho;
 
+    public MiniMap miniMap;
+
     public void Corridors(int x,int y,int nCor){
         
 
@@ -469,6 +471,8 @@ public class DungeonMaster : MonoBehaviour
         rContr.Positionate();
         rContr.ChooseTypes();
         Doorate();
+        
+        miniMap.LoadAll(real);
     }
     
 
@@ -488,6 +492,7 @@ public class DungeonMaster : MonoBehaviour
                 Quaternion q = new Quaternion();
                 GameObject fl=Instantiate(tiles[real[x, y]], pos, q);
                 fl.GetComponent<SpriteRenderer>().sprite = img[real[x, y]];
+                fl.transform.parent = transform.parent;
             }
         }
 
