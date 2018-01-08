@@ -57,6 +57,14 @@ public class PlayerRpg : MonoBehaviour
 
     public SpriteRenderer render;
 
+    public float wlkTime;
+    public float atkTime;
+    public Sprite[] plImg;
+    public int direc;
+
+    public float atkDuration;
+    public float walkDuration;
+
 
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
@@ -117,7 +125,7 @@ public class PlayerRpg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");
         mod = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsModifiers>();
         GetStatus();
         CalculatStats();
@@ -176,24 +184,9 @@ public class PlayerRpg : MonoBehaviour
 
         if (cHp <= 0) Die();
 
-
-        if (col != null)
-        {
-            
-            if (t >= 1/rDex && Input.GetMouseButtonDown(0))
-            {
-
-                foreach(Collider2D cl in col){
-                    cl.GetComponent<Enemy>().TakeDamage(rStr);
-                    print("dam: " + rStr);
-                }
-
-            }
-
-        }
         if (Input.GetMouseButtonDown(0))
         {
-            t = 0;
+            if (atkTime == 0) atkTime = 0.01f;
         }
 
         t += Time.deltaTime;
@@ -206,7 +199,17 @@ public class PlayerRpg : MonoBehaviour
 
     void Update()
     {
-
+        if (atkTime > 0)
+        {
+            Ataque(atkDuration/rDex, 0, 5);
+        }
+        else if (wlkTime > 0)
+        {
+            Walk(walkDuration/rDex);
+        }
+        else {
+            render.sprite = plImg[0];
+        }
 
     }
 
@@ -314,10 +317,56 @@ public class PlayerRpg : MonoBehaviour
 
         return t;
     }
+    /// ///////// Animations
+    /// 
 
+    public void Ataque(float maxTim,int min,int max) {
+        wlkTime = 0;
+        
+        atkTime += Time.deltaTime;
+        int p = (int)(((atkTime / maxTim) * (max - min)) + min);
+        render.sprite = plImg[p];
+       
+        if (col != null)
+        {
+            foreach (Collider2D cl in col)
+            {
+                cl.GetComponent<Enemy>().TakeDamage(rStr/maxTim*Time.deltaTime);
+                print("dam: " + rStr);
+            }
+            
+        }
 
-
-   
+        if (atkTime>maxTim) {
+            atkTime = 0;
+        }
+        
+    }
+    public void Walk(float maxTim) {
+        int min = new int();
+        int max = new int();
+        if (direc == 1) {
+            min = 19;max = 23;
+        }
+        if (direc == 2)
+        {
+            min = 7; max = 11;
+        }
+        if (direc == 3)
+        {
+            min = 13; max = 17;
+        }
+        if (direc == 4)
+        {
+            min = 1; max = 5;
+        }
+        wlkTime += Time.deltaTime;
+        int p = (int)(((wlkTime / maxTim) * (max - min)) + min);
+        render.sprite = plImg[p];
+        if (wlkTime > maxTim) {
+            wlkTime = 0;
+        }
+    }
 }
 
 
