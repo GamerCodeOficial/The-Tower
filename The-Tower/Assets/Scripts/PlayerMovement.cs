@@ -21,9 +21,14 @@ public class PlayerMovement : MonoBehaviour {
     public void Move()
     {
         float h = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right*Time.deltaTime*rpg.dex*h);
         float v = Input.GetAxis("Vertical");
+        if (rpg.atkTime > 0){
+            v = 0;
+            h = 0;
+        }
+        transform.Translate(Vector3.right*Time.deltaTime*rpg.dex*h);
         transform.Translate(Vector3.up * Time.deltaTime * rpg.dex * v);
+
         if (v != 0) {
             if (v > 0)
             {
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
             if (rpg.wlkTime == 0) rpg.wlkTime = 0.01f;
         }
         else {
-            rpg.direc = 2;
+
             rpg.wlkTime = 0;
         }
 

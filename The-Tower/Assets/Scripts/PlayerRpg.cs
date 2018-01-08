@@ -7,6 +7,8 @@ using System.IO;
 
 public class PlayerRpg : MonoBehaviour
 {
+    public bool firstW;
+
     public StatsModifiers mod;
 
     private Quaternion rota;
@@ -65,6 +67,7 @@ public class PlayerRpg : MonoBehaviour
     public float atkDuration;
     public float walkDuration;
 
+    public GameObject bullet;
 
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
@@ -125,6 +128,8 @@ public class PlayerRpg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        firstW = true;
         plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");
         mod = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsModifiers>();
         GetStatus();
@@ -184,10 +189,6 @@ public class PlayerRpg : MonoBehaviour
 
         if (cHp <= 0) Die();
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (atkTime == 0) atkTime = 0.01f;
-        }
 
         t += Time.deltaTime;
 
@@ -196,12 +197,22 @@ public class PlayerRpg : MonoBehaviour
     }
 
 
-
+    public void StartAtack() {
+        if (atkTime == 0) atkTime = 0.01f;
+    }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            firstW = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            firstW = false;
+        }
         if (atkTime > 0)
         {
-            Ataque(atkDuration/rDex, 0, 5);
+            Ataque(atkDuration/rDex);
         }
         else if (wlkTime > 0)
         {
@@ -320,27 +331,95 @@ public class PlayerRpg : MonoBehaviour
     /// ///////// Animations
     /// 
 
-    public void Ataque(float maxTim,int min,int max) {
-        wlkTime = 0;
-        
-        atkTime += Time.deltaTime;
-        int p = (int)(((atkTime / maxTim) * (max - min)) + min);
-        render.sprite = plImg[p];
-       
-        if (col != null)
+    public void Ataque(float maxTim)
+    {
+        if (firstW)
         {
-            foreach (Collider2D cl in col)
+            int min = 0;
+            int max = 0;
+
+            wlkTime = 0;
+            if (dir == 1)
             {
-                cl.GetComponent<Enemy>().TakeDamage(rStr/maxTim*Time.deltaTime);
-                print("dam: " + rStr);
+                min = 19; max = 23;
             }
+            if (dir == 2)
+            {
+                min = 1; max = 5;
+            }
+            if (dir == 3)
+            {
+                min = 13; max = 17;
+            }
+            if (dir == 4)
+            {
+                min = 7; max = 11;
+            }
+
+
+            atkTime += Time.deltaTime;
+            int p = (int)(((atkTime / maxTim) * (max - min)) + min);
+            render.sprite = plImg[p];
+
+            if (col != null)
+            {
+                foreach (Collider2D cl in col)
+                {
+                    cl.GetComponent<Enemy>().TakeDamage(rStr / maxTim * Time.deltaTime);
+                    print("dam: " + rStr);
+                }
+
+            }
+
+            if (atkTime > maxTim)
+            {
+                atkTime = 0;
+            }
+        }
+        else if(inv.slot[2]!=0) {
+
+            int min = 0;
+            int max = 0;
+
+            wlkTime = 0;
+            if (dir == 1)
+            {
+                min = 19; max = 23;
+            }
+            if (dir == 2)
+            {
+                min = 1; max = 5;
+            }
+            if (dir == 3)
+            {
+                min = 13; max = 17;
+            }
+            if (dir == 4)
+            {
+                min = 7; max = 11;
+            }
+
+
+            atkTime += Time.deltaTime;
+            int p = (int)(((atkTime / maxTim) * (max - min)) + min);
+            render.sprite = plImg[p];
+
+            
+
+            if (atkTime > maxTim)
+            {
+                
+                for (int i=0;i<5; i++) {
+                    Quaternion rote = Quaternion.Euler(0, 0, PointToMouse()+Random.Range(-20,20));
+                    Instantiate(bullet, transform.position, rote);
+                }
+                atkTime = 0;
+               
+            }
+
+
             
         }
-
-        if (atkTime>maxTim) {
-            atkTime = 0;
-        }
-        
     }
     public void Walk(float maxTim) {
         int min = new int();
@@ -350,7 +429,7 @@ public class PlayerRpg : MonoBehaviour
         }
         if (direc == 2)
         {
-            min = 7; max = 11;
+            min = 1; max = 5;
         }
         if (direc == 3)
         {
@@ -358,7 +437,7 @@ public class PlayerRpg : MonoBehaviour
         }
         if (direc == 4)
         {
-            min = 1; max = 5;
+            min = 7; max = 11;
         }
         wlkTime += Time.deltaTime;
         int p = (int)(((wlkTime / maxTim) * (max - min)) + min);
