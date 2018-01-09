@@ -51,7 +51,6 @@ public class PlayerMovement : MonoBehaviour {
             if (rpg.wlkTime == 0) rpg.wlkTime = 0.01f;
         }
         else {
-
             rpg.wlkTime = 0;
         }
 

@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour {
     public Collider2D col;
     public LayerMask loot;
     public LayerMask all;
-
+    
     public Collider2D[] coly;
     
 
@@ -57,7 +57,7 @@ public class Inventory : MonoBehaviour {
         money = PlayerPrefs.GetInt("Money" ,0);
        rpg.itemDb = itemDb;
         
-       // PopUp("Fase1",6);
+       PopU("Fase1",6);
     }
     void Update() {
         
@@ -247,17 +247,16 @@ public class Inventory : MonoBehaviour {
 
                     itemDb.list.Add(item);
                 }
-
+                
             }
         }
     }
 
     
-    public void PopUp(string msg, float duration) {
-        GameObject o=Instantiate(pop,transform.position,transform.rotation);
-        o.transform.parent = GameObject.FindGameObjectWithTag("Canvas").transform;
-        o.GetComponent<PopUp>().msg = msg;
-        o.GetComponent<PopUp>().duration = duration;
+    public void PopU(string msg, float duration) {
+        print("PopUp");
+        pop.GetComponent<PopUp>().msg = msg;
+        pop.GetComponent<PopUp>().t = duration;
         
     }
 

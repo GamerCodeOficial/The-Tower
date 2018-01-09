@@ -8,17 +8,23 @@ public class PopUp : MonoBehaviour {
 
     public Text message;
 
-    private float t;
+    public float t;
+
+    public GameObject panel;
+
 	// Use this for initialization
-	void Start () {
-        Time.timeScale = 0;
-        message.text = msg;
-        t = 0;
+	void Start () {     
+     
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (t > duration) { Destroy(gameObject); Time.timeScale = 1; }
-        t += Time.unscaledDeltaTime;
+        t -= Time.unscaledDeltaTime;
+        message.text = msg;
+        if (t > 0) { panel.SetActive(true); print("T>0"); Time.timeScale = 0; }
+        else {
+            panel.SetActive(false); Time.timeScale = 1;
+        }
+        
 	}
 }

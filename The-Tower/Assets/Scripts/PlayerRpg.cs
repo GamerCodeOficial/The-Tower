@@ -16,7 +16,8 @@ public class PlayerRpg : MonoBehaviour
     public int direction;
     public int dir;
     //right:1 down:2 left:3 up:4
-   
+
+    public int bullets;
    
     public Sprite[] atkEsp;
     public SpriteRenderer rend;
@@ -194,6 +195,8 @@ public class PlayerRpg : MonoBehaviour
 
         dory = Physics2D.OverlapCircle(transform.position, raioN, d);
         if (dory != null && Input.GetKeyDown(KeyCode.E)) { dory.GetComponent<DoorControl>().Open();  }
+        if (inv.slot[2] != 0 && bullets <= 0) bullets = 5;
+        
     }
 
 
@@ -412,7 +415,11 @@ public class PlayerRpg : MonoBehaviour
                 for (int i=0;i<5; i++) {
                     Quaternion rote = Quaternion.Euler(0, 0, PointToMouse()+Random.Range(-20,20));
                     Instantiate(bullet, transform.position, rote);
+                    
+
                 }
+                bullets--;
+                if (bullets <= 0) inv.slot[2] = 0;
                 atkTime = 0;
                
             }

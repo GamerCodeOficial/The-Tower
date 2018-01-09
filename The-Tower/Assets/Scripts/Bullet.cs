@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	void Update () {
         transform.Translate(Vector3.right*speed*Time.deltaTime);
 
-       if(damage>5) damage -= Time.deltaTime * 10;
+       if(damage>0) damage -= Time.deltaTime * 8;
 
         t += Time.deltaTime;
         if (t > 5) Destroy(gameObject);
