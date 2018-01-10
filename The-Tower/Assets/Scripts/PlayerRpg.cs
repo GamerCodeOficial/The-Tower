@@ -129,6 +129,7 @@ public class PlayerRpg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
 
         firstW = true;
         plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");

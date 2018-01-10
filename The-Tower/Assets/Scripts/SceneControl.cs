@@ -6,6 +6,7 @@ public class SceneControl : MonoBehaviour {
     public int andar;
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.SetInt("Andar", 1);
         DontDestroyOnLoad(gameObject);
         if (PlayerPrefs.GetInt("Save") != 0 && PlayerPrefs.GetInt("Save") != 1) {
             PlayerPrefs.SetInt("Save", 0);
