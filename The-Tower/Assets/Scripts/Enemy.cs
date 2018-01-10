@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour {
 
     public Room rom;
 
+    public int dropQuality;
 
     // Use this for initialization
     void Start () {
@@ -72,7 +73,8 @@ public class Enemy : MonoBehaviour {
         {
             print("Chance");
            
-            Instantiate(drop, transform.position, trans.rotation);
+            GameObject d =Instantiate(drop, transform.position, trans.rotation);
+            d.GetComponent<Loot>().dropQuality = dropQuality;
         }
         int r = Random.Range(minMax[0],minMax[1]);
         player.GetComponent<Inventory>().money += r;

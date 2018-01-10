@@ -54,7 +54,9 @@ public class MiniMap : MonoBehaviour {
         pois.y += pos.y-75;
         pois.z = 0;
         plIcon.transform.position = pois;
-        TakeShadowOff();
+        if (like!=null) {
+            TakeShadowOff();
+        }
 	}
     public void TakeShadowOff()
     {

@@ -16,6 +16,7 @@ public class ItemWindow : EditorWindow
     float iDex;
     float iStr;
     float iDef;
+    int iChance;
 
     public ItemDataBase itemDb;
 
@@ -50,7 +51,7 @@ public class ItemWindow : EditorWindow
         iDex = EditorGUILayout.FloatField("Dex", iDex);
         iStr = EditorGUILayout.FloatField("Str", iStr);
         iDef = EditorGUILayout.FloatField("Def", iDef);
-
+        iSlot = EditorGUILayout.IntField("Chance", iChance);
 
         if (GUILayout.Button("Change Status"))
         {
@@ -76,8 +77,7 @@ public class ItemWindow : EditorWindow
         {
             foreach (Item it in itemDb.list)
             {
-                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
-
+                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + " Chance: " + it.chance + "\n";
             }
 
         }

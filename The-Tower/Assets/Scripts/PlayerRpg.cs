@@ -75,8 +75,6 @@ public class PlayerRpg : MonoBehaviour
         dex = PlayerPrefs.GetFloat("Dex");
         str = PlayerPrefs.GetFloat("Str");
         def = PlayerPrefs.GetFloat("Def");
-       
-
 }
     public void SaveStatus()
     {
@@ -249,10 +247,12 @@ public class PlayerRpg : MonoBehaviour
         inv.cont.GoToScene("Menu");
     }
     public void CalculatStats() {
+        print("HP inicial: "+hp);
         rHp=hp;
         rDex=dex;
         rStr=str;
         rDef=def;
+        
         for (int i = 0; i < 8; i++) {
 
             int j = inv.slot[i];
@@ -264,8 +264,6 @@ public class PlayerRpg : MonoBehaviour
 
         }
         mod.Add();
-
-        
     }
 
     //Public Vars
@@ -363,6 +361,7 @@ public class PlayerRpg : MonoBehaviour
 
             atkTime += Time.deltaTime;
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
+            if (p > max) p = max;
             render.sprite = plImg[p];
 
             if (col != null)

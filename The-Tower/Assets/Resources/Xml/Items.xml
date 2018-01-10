@@ -9,6 +9,7 @@
       <dex>0</dex>
       <str>0</str>
       <def>0</def>
+      <chance>0</chance>
     </Item>
     <Item>
       <id>1</id>
@@ -18,6 +19,7 @@
       <dex>1</dex>
       <str>4</str>
       <def>0</def>
+      <chance>10</chance>
     </Item>
     <Item>
       <id>2</id>
@@ -27,6 +29,7 @@
       <dex>2</dex>
       <str>2</str>
       <def>0</def>
+      <chance>10</chance>
     </Item>
     <Item>
       <id>3</id>
@@ -36,6 +39,7 @@
       <dex>0</dex>
       <str>6</str>
       <def>0</def>
+      <chance>10</chance>
     </Item>
     <Item>
       <id>4</id>
@@ -45,6 +49,7 @@
       <dex>0</dex>
       <str>0</str>
       <def>0</def>
+      <chance>1</chance>
     </Item>
   </Items>
 </ItemDataBase>

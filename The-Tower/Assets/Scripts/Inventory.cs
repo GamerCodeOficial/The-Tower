@@ -45,7 +45,6 @@ public class Inventory : MonoBehaviour {
     // Use this for initialization
     void Start () {
       
-        rpg = gameObject.GetComponent<PlayerRpg>();
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
 
@@ -55,7 +54,7 @@ public class Inventory : MonoBehaviour {
             
         }
         money = PlayerPrefs.GetInt("Money" ,0);
-       rpg.itemDb = itemDb;
+      
         
        PopU("Fase"+rom.andar,4);
     }
@@ -189,7 +188,8 @@ public class Inventory : MonoBehaviour {
     public void Awake()
     {
         Open();
-
+        rpg = gameObject.GetComponent<PlayerRpg>();
+        rpg.itemDb = itemDb;
         print("started");
     }
    
@@ -245,7 +245,7 @@ public class Inventory : MonoBehaviour {
                     item.dex = float.Parse(it.ChildNodes[4].InnerText);
                     item.str = float.Parse(it.ChildNodes[5].InnerText);
                     item.def = float.Parse(it.ChildNodes[6].InnerText);
-
+                    item.chance = (int)float.Parse(it.ChildNodes[7].InnerText);
                     itemDb.list.Add(item);
                 }
                 
@@ -280,5 +280,6 @@ public class Item
     public float dex;
     public float str;
     public float def;
+    public int chance;
 }
 

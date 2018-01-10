@@ -42,30 +42,36 @@ public class UI : MonoBehaviour {
     public void Life() {
 
         int hp=(int)rpg.cHp;
-        int mHp = (int)rpg.hp;
-        for (int i = 0; i < 10; i++)
+        if (hp <= 0) {
+            vidas[0].GetComponent<Image>().sprite = cors[0];
+            return; }
+        else
         {
+            int mHp = (int)rpg.hp;
+            for (int i = 0; i < 10; i++)
+            {
 
-            vidas[i ].GetComponent<Image>().sprite = cors[5];
+                vidas[i].GetComponent<Image>().sprite = cors[5];
+
+            }
+
+            for (int i = 0; i < (hp / 4); i++)
+            {
+
+                vidas[i].GetComponent<Image>().sprite = cors[0];
+
+            }
+            for (int i = hp / 4; i < mHp / 4; i++)
+            {
+
+                vidas[i].GetComponent<Image>().sprite = cors[4];
+
+            }
+            int p = hp % 4;
+
+            vidas[(hp - 1) / 4].GetComponent<Image>().sprite = cors[p];
 
         }
-
-        for (int i=0;i< (hp / 4) ; i++) {
-            
-            vidas[i].GetComponent<Image>().sprite = cors[0]; 
- 
-        }
-        for (int i = hp / 4; i < mHp/4; i++)
-        {
-            
-            vidas[i].GetComponent<Image>().sprite = cors[4];
-
-        }
-        int p = hp % 4;
-        
-        vidas[(hp-1) / 4].GetComponent<Image>().sprite = cors[p];
-        
-
     }
 
     public void Charc(){
