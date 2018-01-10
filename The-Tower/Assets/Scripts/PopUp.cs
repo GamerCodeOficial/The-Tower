@@ -13,12 +13,13 @@ public class PopUp : MonoBehaviour {
     public GameObject panel;
 
 	// Use this for initialization
-	void Start () {     
-     
+	void Start () {
+       
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        print("Active");
         t -= Time.unscaledDeltaTime;
         message.text = msg;
         if (t > 0) { panel.SetActive(true); print("T>0"); Time.timeScale = 0; }

@@ -57,7 +57,7 @@ public class Inventory : MonoBehaviour {
         money = PlayerPrefs.GetInt("Money" ,0);
        rpg.itemDb = itemDb;
         
-       PopU("Fase1",6);
+       PopU("Fase"+rom.andar,4);
     }
     void Update() {
         
@@ -120,6 +120,7 @@ public class Inventory : MonoBehaviour {
         Loot g = line[0];
         
         slot[itemDb.list[line[0].id].slot] = line[0].id;
+        if (itemDb.list[line[0].id].slot == 2) rpg.bullets = 5;
         for (int i = 0; i < 9; i++)
         {
             if (line[i + 1] != null)

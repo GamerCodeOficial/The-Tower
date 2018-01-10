@@ -195,7 +195,7 @@ public class PlayerRpg : MonoBehaviour
 
         dory = Physics2D.OverlapCircle(transform.position, raioN, d);
         if (dory != null && Input.GetKeyDown(KeyCode.E)) { dory.GetComponent<DoorControl>().Open();  }
-        if (inv.slot[2] != 0 && bullets <= 0) bullets = 5;
+      
         
     }
 
