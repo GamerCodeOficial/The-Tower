@@ -30,8 +30,13 @@ public class Enemy : MonoBehaviour {
 
     public int dropQuality;
 
+    public Sprite[] img;
+    public GameObject efctImg;
+
+
     // Use this for initialization
     void Start () {
+        img = Resources.LoadAll<Sprite>("Graphics/Icons/EffectIcons");
         player = GameObject.FindGameObjectWithTag("Player");
         pRpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
         effectDb= pRpg.gameObject.GetComponent<StatsModifiers>().effectDb;
@@ -63,17 +68,21 @@ public class Enemy : MonoBehaviour {
             t = 0;
         }
         t+=Time.deltaTime;
-
-        if (ti >= 1)
+        
+            if (ti >= 1)
         {
             foreach (int efct in effects)
             {
                 hp -= effectDb.list[efct].damage;
-
+                for (int i = 0; i < 4; i++)
+                {
+                    GameObject p = Instantiate(efctImg, transform.position, transform.rotation);
+                    p.GetComponent<EffectAnim>().rend.sprite = img[efct];
+                }
             }
             for (int i = 0; i < duration.Count; i++)
             {
-                duration[i]--;
+                duration[i]-=1;
                 if (duration[i] <= 0)
                 {
                     effects.Remove(effects[i]);

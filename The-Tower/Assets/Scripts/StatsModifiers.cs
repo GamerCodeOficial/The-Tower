@@ -11,10 +11,14 @@ public class StatsModifiers : MonoBehaviour {
     public PlayerRpg rpg;
 
 
+    public Sprite[] img;
+    public GameObject efctImg;
+
     public float t;
 
 	// Use this for initialization
 	void Start () {
+        img = Resources.LoadAll<Sprite>("Graphics/Icons/EffectIcons");
         rpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
         Open();
         
@@ -25,6 +29,8 @@ public class StatsModifiers : MonoBehaviour {
         if (t >= 1) {
             foreach (int efct in effects)
             {
+                GameObject p = Instantiate(efctImg,transform.position,transform.rotation);
+                p.GetComponent<EffectAnim>().rend.sprite= img[efct];
                 rpg.cHp -= effectDb.list[efct].damage;  
                 
             }
