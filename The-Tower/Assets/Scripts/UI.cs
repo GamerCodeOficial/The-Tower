@@ -13,7 +13,9 @@ public class UI : MonoBehaviour {
     public Text stats;
     public Text money;
 
-    public Image face;
+    public Image head;
+    public Image chest;
+    public Image feet;
     public Image avatar;
 
  
@@ -32,9 +34,14 @@ public class UI : MonoBehaviour {
         money.text = inv.money.ToString();
         Life();
         Color c = inv.rpg.GetColor(PlayerPrefs.GetString("Cor"));
-        face.color = c;
+        head.color = c;
+        chest.color = c;
+        feet.color = c;
         avatar.color = c;
-        
+
+        head.sprite = rpg.headImg[0];
+        chest.sprite = rpg.chestImg[0];
+        feet.sprite = rpg.feetImg[0];
     }
 
     

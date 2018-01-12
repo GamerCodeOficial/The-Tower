@@ -67,5 +67,16 @@
       <chance>5</chance>
       <effect>1</effect>
     </Item>
+    <Item>
+      <id>6</id>
+      <name>Hat</name>
+      <slot>4</slot>
+      <hp>0</hp>
+      <dex>2</dex>
+      <str>0</str>
+      <def>80</def>
+      <chance>9</chance>
+      <effect>0</effect>
+    </Item>
   </Items>
 </ItemDataBase>
