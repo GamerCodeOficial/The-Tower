@@ -19,50 +19,5 @@
       <damage>2</damage>
       <duration>5</duration>
     </Effect>
-    <Effect>
-      <id>2</id>
-      <name>P</name>
-      <dex>0</dex>
-      <str>0</str>
-      <def>0</def>
-      <damage>0</damage>
-      <duration>0</duration>
-    </Effect>
-    <Effect>
-      <id>3</id>
-      <name>P</name>
-      <dex>0</dex>
-      <str>0</str>
-      <def>0</def>
-      <damage>0</damage>
-      <duration>0</duration>
-    </Effect>
-    <Effect>
-      <id>4</id>
-      <name>P</name>
-      <dex>0</dex>
-      <str>0</str>
-      <def>0</def>
-      <damage>0</damage>
-      <duration>0</duration>
-    </Effect>
-    <Effect>
-      <id>5</id>
-      <name>P</name>
-      <dex>0</dex>
-      <str>0</str>
-      <def>0</def>
-      <damage>0</damage>
-      <duration>0</duration>
-    </Effect>
-    <Effect>
-      <id>6</id>
-      <name>P</name>
-      <dex>0</dex>
-      <str>0</str>
-      <def>0</def>
-      <damage>0</damage>
-      <duration>0</duration>
-    </Effect>
   </Effects>
 </EffectDb>

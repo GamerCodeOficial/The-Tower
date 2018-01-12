@@ -21,7 +21,7 @@ public class PlayerRpg : MonoBehaviour
    
     public Sprite[] atkEsp;
     public SpriteRenderer rend;
-
+   
 
     public float cHp;
 
@@ -59,10 +59,20 @@ public class PlayerRpg : MonoBehaviour
     public Inventory inv;
 
     public SpriteRenderer render;
+    public SpriteRenderer head;
+    public SpriteRenderer chest;
+    public SpriteRenderer feet;
+    public SpriteRenderer pri;
+    public SpriteRenderer sec;
 
     public float wlkTime;
     public float atkTime;
     public Sprite[] plImg;
+    public Sprite[] headImg;
+    public Sprite[] chestImg;
+    public Sprite[] feetImg;
+    public Sprite[] priImg;
+    public Sprite[] secImg;
     public int direc;
 
     public float atkDuration;
@@ -131,6 +141,11 @@ public class PlayerRpg : MonoBehaviour
 
         firstW = true;
         plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");
+        priImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[1]);
+        secImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[2]);
+        headImg = Resources.LoadAll<Sprite>("Graphics/Player/"+inv.slot[4]);
+        chestImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[5]);
+        feetImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[6]);
         mod = gameObject.GetComponent<StatsModifiers>();
         GetStatus();
         CalculatStats();
@@ -146,6 +161,9 @@ public class PlayerRpg : MonoBehaviour
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
 
         render.color = c;
+        head.color = c;
+        chest.color = c;
+        feet.color = c;
 
         CalculatStats();
 
@@ -204,6 +222,12 @@ public class PlayerRpg : MonoBehaviour
     }
     void Update()
     {
+        priImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[1]);
+        secImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[2]);
+        headImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[4]);
+        chestImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[5]);
+        feetImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[6]);
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             firstW = true;
@@ -221,9 +245,19 @@ public class PlayerRpg : MonoBehaviour
             Walk(walkDuration/rDex);
         }
         else {
-            render.sprite = plImg[0];
+            ChangeSprite(0);
+            
         }
 
+    }
+
+    public void ChangeSprite(int index) {
+        render.sprite = plImg[index];
+        pri.sprite = priImg[index];
+        sec.sprite = secImg[index];
+        head.sprite = headImg[index];
+        chest.sprite = chestImg[index];
+        feet.sprite = feetImg[index];
     }
 
     public void TakeDamage(float dam)
@@ -361,7 +395,8 @@ public class PlayerRpg : MonoBehaviour
             atkTime += Time.deltaTime;
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
             if (p > max) p = max;
-            render.sprite = plImg[p];
+            ChangeSprite(p);
+            
 
             if (col != null)
             {
@@ -406,8 +441,7 @@ public class PlayerRpg : MonoBehaviour
 
             atkTime += Time.deltaTime;
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
-            render.sprite = plImg[p];
-
+            ChangeSprite(p);
             
 
             if (atkTime > maxTim)
@@ -449,7 +483,7 @@ public class PlayerRpg : MonoBehaviour
         }
         wlkTime += Time.deltaTime;
         int p = (int)(((wlkTime / maxTim) * (max - min)) + min);
-        render.sprite = plImg[p];
+        ChangeSprite(p);
         if (wlkTime > maxTim) {
             wlkTime = 0;
         }
