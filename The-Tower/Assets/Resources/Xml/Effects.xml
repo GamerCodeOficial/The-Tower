@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<ItemDataBase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Items>
-    <Item>
+<EffectDb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Effects>
+    <Effect>
       <id>0</id>
-      <name>Nothing</name>
+      <name>None</name>
       <dex>0</dex>
       <str>0</str>
       <def>0</def>
-    </Item>
-  </Items>
-</ItemDataBase>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+    <Effect>
+      <id>1</id>
+      <name>Flame</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>2</damage>
+      <duration>5</duration>
+    </Effect>
+    <Effect>
+      <id>2</id>
+      <name>P</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+    <Effect>
+      <id>3</id>
+      <name>P</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+    <Effect>
+      <id>4</id>
+      <name>P</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+    <Effect>
+      <id>5</id>
+      <name>P</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+    <Effect>
+      <id>6</id>
+      <name>P</name>
+      <dex>0</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>0</damage>
+      <duration>0</duration>
+    </Effect>
+  </Effects>
+</EffectDb>

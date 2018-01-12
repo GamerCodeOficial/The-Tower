@@ -32,9 +32,10 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         player = GameObject.FindGameObjectWithTag("Player");
         pRpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
+        effectDb= pRpg.gameObject.GetComponent<StatsModifiers>().effectDb;
+        
     }
     private void FixedUpdate()
     {
@@ -62,6 +63,28 @@ public class Enemy : MonoBehaviour {
             t = 0;
         }
         t+=Time.deltaTime;
+
+        if (ti >= 1)
+        {
+            foreach (int efct in effects)
+            {
+                hp -= effectDb.list[efct].damage;
+
+            }
+            for (int i = 0; i < duration.Count; i++)
+            {
+                duration[i]--;
+                if (duration[i] <= 0)
+                {
+                    effects.Remove(effects[i]);
+                    duration.Remove(duration[i]);
+                }
+
+            }
+            ti = 0;
+        }
+        ti += Time.deltaTime;
+        EffectStatus();
     }
     public void TakeDamage(float dam) {
        float a= Random.Range(0, 100);
@@ -81,4 +104,48 @@ public class Enemy : MonoBehaviour {
         
         Destroy(gameObject);
     }
+
+
+    public float ti;
+
+    public EffectDb effectDb;
+    public List<int> effects = new List<int>();
+    public List<int> duration = new List<int>();
+    public PlayerRpg rpg;
+
+
+    public void EffectStatus()
+    {
+        foreach (int efct in effects)
+        {
+            dex += effectDb.list[efct].dex;
+            str += effectDb.list[efct].str;
+            def += effectDb.list[efct].def;
+        }
+    }
+
+    public void AddEffect(int ef)
+    {
+        print("ef: "+ef);
+        print("count: "+effects.Count);
+        for (int i = 0; i < effects.Count; i++)
+        {
+            if (effects[i] == ef)
+            {
+                print("igual eff i:" + effects[i] + " ef: " + ef);
+                print("i: "+i);
+                print("coiso: " + effectDb.list[ef].duration);
+                print("Dur: " + duration[i]);
+                duration[i] = effectDb.list[ef].duration;
+                return;
+            }
+        }
+        effects.Add(ef);
+        duration.Add(effectDb.list[ef].duration);
+
+    }
+
+ 
 }
+
+

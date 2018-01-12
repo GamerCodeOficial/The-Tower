@@ -13,33 +13,33 @@ public class EffectsWindow : EditorWindow
 
     int id;
     string iName;
-    int iSlot;
-    float iHp;
     float iDex;
     float iStr;
     float iDef;
-
+    float iDamage;
+    int iDuration;
     public EffectDb itemDb;
 
     [MenuItem("Window/Effects")]
     public static void ShowWindow()
     {
-        GetWindow<ItemWindow>("Effects");
+        GetWindow<EffectsWindow>("Effects");
     }
+
     public void Awake()
     {
         GetItems();
-        if (itemDb.list[0].name != "Nothing")
+        if (itemDb.list[0].name != "None")
         {
-            Item I = new Item();
-            iName = "Nothing";
+            Effect I = new Effect();
+            iName = "None";
             AddNew();
         }
     }
     private void OnGUI()
     {
 
-
+   
         if (GUILayout.Button("Refresh"))
         {
             GetItems();
@@ -50,8 +50,8 @@ public class EffectsWindow : EditorWindow
         iDex = EditorGUILayout.FloatField("Dex", iDex);
         iStr = EditorGUILayout.FloatField("Str", iStr);
         iDef = EditorGUILayout.FloatField("Def", iDef);
-
-
+        iDamage = EditorGUILayout.FloatField("Damage", iDamage);
+        iDuration = EditorGUILayout.IntField("Duration", iDuration);
         if (GUILayout.Button("Change Status"))
         {
             Change();
@@ -63,7 +63,7 @@ public class EffectsWindow : EditorWindow
             SaveItems();
         }
         GUILayout.TextArea(GenerateText());
-
+  
     }
 
 
@@ -76,7 +76,7 @@ public class EffectsWindow : EditorWindow
         {
             foreach (Effect it in itemDb.list)
             {
-                t += it.id + "- Nome: *" + it.name + "* Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + "\n";
+                t += it.id + "- Nome: *" + it.name + "* Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + " Damage:" + it.damage + " Duration:" + it.duration + "\n";
 
             }
 
@@ -95,11 +95,11 @@ public class EffectsWindow : EditorWindow
             if (it.id == id)
             {
                 it.name = iName;
-
                 it.dex = iDex;
                 it.str = iStr;
                 it.def = iDef;
-
+                it.damage = iDamage;
+                it.duration = iDuration;
                 Debug.Log("Match");
             }
         }
@@ -108,12 +108,13 @@ public class EffectsWindow : EditorWindow
     public void AddNew()
     {
         Effect it = new Effect();
-        it.id = itemDb.list.Capacity;
+        it.id = itemDb.list.Count;
         it.name = iName;
         it.dex = iDex;
         it.str = iStr;
         it.def = iDef;
-
+        it.damage = iDamage;
+        it.duration = iDuration;
         itemDb.list.Add(it);
     }
     public void SaveItems()
@@ -126,7 +127,7 @@ public class EffectsWindow : EditorWindow
     public void GetItems()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(EffectDb));
-        FileStream stream = new FileStream(Application.dataPath + "/ResourcesXml/Effects.xml", FileMode.Open);
+        FileStream stream = new FileStream(Application.dataPath + "/Resources/Xml/Effects.xml", FileMode.Open);
         itemDb = serializer.Deserialize(stream) as EffectDb;
         stream.Close();
     }

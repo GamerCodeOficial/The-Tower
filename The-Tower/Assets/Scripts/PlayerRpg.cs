@@ -131,7 +131,7 @@ public class PlayerRpg : MonoBehaviour
 
         firstW = true;
         plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");
-        mod = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsModifiers>();
+        mod = gameObject.GetComponent<StatsModifiers>();
         GetStatus();
         CalculatStats();
         cHp = rHp;
@@ -252,7 +252,7 @@ public class PlayerRpg : MonoBehaviour
         rDex=dex;
         rStr=str;
         rDef=def;
-        
+        if(inv.itemDb.list!=null)
         for (int i = 0; i < 8; i++) {
 
             int j = inv.slot[i];
@@ -260,9 +260,9 @@ public class PlayerRpg : MonoBehaviour
             rDex += itemDb.list[j].dex;
             rStr += itemDb.list[j].str;
             rDef += itemDb.list[j].def;
-            
-
+           
         }
+        if(mod.effectDb.list!=null)
         mod.Add();
     }
 
@@ -331,7 +331,6 @@ public class PlayerRpg : MonoBehaviour
         return t;
     }
     /// ///////// Animations
-    /// 
 
     public void Ataque(float maxTim)
     {
@@ -369,7 +368,9 @@ public class PlayerRpg : MonoBehaviour
                 foreach (Collider2D cl in col)
                 {
                     cl.GetComponent<Enemy>().TakeDamage(rStr / maxTim * Time.deltaTime);
-                    print("dam: " + rStr);
+                    print("EffId: "+ itemDb.list[inv.slot[1]].effect);
+                    cl.GetComponent<Enemy>().AddEffect(itemDb.list[inv.slot[1]].effect);
+                   
                 }
 
             }

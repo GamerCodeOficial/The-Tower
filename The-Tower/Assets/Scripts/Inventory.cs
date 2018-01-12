@@ -246,6 +246,7 @@ public class Inventory : MonoBehaviour {
                     item.str = float.Parse(it.ChildNodes[5].InnerText);
                     item.def = float.Parse(it.ChildNodes[6].InnerText);
                     item.chance = (int)float.Parse(it.ChildNodes[7].InnerText);
+                    item.effect = (int)float.Parse(it.ChildNodes[8].InnerText);
                     itemDb.list.Add(item);
                 }
                 
@@ -281,5 +282,6 @@ public class Item
     public float str;
     public float def;
     public int chance;
+    public int effect;
 }
 

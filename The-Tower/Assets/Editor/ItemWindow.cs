@@ -17,7 +17,7 @@ public class ItemWindow : EditorWindow
     float iStr;
     float iDef;
     int iChance;
-
+    int iEffect;
     public ItemDataBase itemDb;
 
     [MenuItem("Window/Item")]
@@ -51,7 +51,8 @@ public class ItemWindow : EditorWindow
         iDex = EditorGUILayout.FloatField("Dex", iDex);
         iStr = EditorGUILayout.FloatField("Str", iStr);
         iDef = EditorGUILayout.FloatField("Def", iDef);
-        iSlot = EditorGUILayout.IntField("Chance", iChance);
+        iChance = EditorGUILayout.IntField("Chance", iChance);
+        iEffect = EditorGUILayout.IntField("Effect", iEffect);
 
         if (GUILayout.Button("Change Status"))
         {
@@ -77,7 +78,7 @@ public class ItemWindow : EditorWindow
         {
             foreach (Item it in itemDb.list)
             {
-                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + " Chance: " + it.chance + "\n";
+                t += it.id + "- Nome: *" + it.name + "* Slot:" + it.slot + " Hp:" + it.hp + " Dex:" + it.dex + " Str:" + it.str + " Def:" + it.def + " Chnc: " + it.chance + " Efct: " + it.effect + "\n";
             }
 
         }
@@ -89,34 +90,31 @@ public class ItemWindow : EditorWindow
     public void Change()
     {
 
-
-        foreach (Item it in itemDb.list)
-        {
-            if (it.id == id)
-            {
-                it.name = iName;
-                it.slot = iSlot;
-                it.hp = iHp;
-                it.dex = iDex;
-                it.str = iStr;
-                it.def = iDef;
-
+                itemDb.list[id].name = iName;
+                itemDb.list[id].slot = iSlot;
+                itemDb.list[id].hp = iHp;
+                itemDb.list[id].dex = iDex;
+                itemDb.list[id].str = iStr;
+                itemDb.list[id].def = iDef;
+                itemDb.list[id].chance = iChance;
+                itemDb.list[id].effect = iEffect;
                 Debug.Log("Match");
-            }
-        }
+            
+        
     }
 
     public void AddNew()
     {
         Item it = new Item();
-        it.id = itemDb.list.Capacity;
+        it.id = itemDb.list.Count;
         it.name = iName;
         it.slot = iSlot;
         it.hp = iHp;
         it.dex = iDex;
         it.str = iStr;
         it.def = iDef;
-
+        it.chance = iChance;
+        it.effect = iEffect;
         itemDb.list.Add(it);
     }
     public void SaveItems()
