@@ -13,9 +13,17 @@ public class Enemy : MonoBehaviour {
     public int[] minMax;
 
     public float hp;
+
     public float str;
     public float dex;
     public float def;
+
+    public float cHp;
+
+    public float rStr;
+    public float rDex;
+    public float rDef;
+
     public float alc;
 
     public GameObject player;
@@ -36,6 +44,7 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        cHp = hp;
         img = Resources.LoadAll<Sprite>("Graphics/Icons/EffectIcons");
         player = GameObject.FindGameObjectWithTag("Player");
         pRpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
@@ -51,7 +60,7 @@ public class Enemy : MonoBehaviour {
         //float d = Vector3.Distance(transform.position, player.transform.position);
         if (rom.oppened)
         { 
-            transform.Translate(trans.forward * Time.deltaTime * dex);
+            transform.Translate(trans.forward * Time.deltaTime * rDex);
         }
 
     }
@@ -59,10 +68,10 @@ public class Enemy : MonoBehaviour {
 
     void Update ( ) {
         
-        if (hp <= 0) Die();
+        if (cHp <= 0) Die();
 
        float d = Vector3.Distance(transform.position, player.transform.position);
-        if (t >= 4 / dex && d<alc)
+        if (t >= 4 / rDex && d<alc)
         {
             pRpg.TakeDamage(str);
             t = 0;
@@ -73,7 +82,7 @@ public class Enemy : MonoBehaviour {
         {
             foreach (int efct in effects)
             {
-                hp -= effectDb.list[efct].damage;
+                cHp -= effectDb.list[efct].damage;
                 for (int i = 0; i < 4; i++)
                 {
                     GameObject p = Instantiate(efctImg, transform.position, transform.rotation);
@@ -97,7 +106,7 @@ public class Enemy : MonoBehaviour {
     }
     public void TakeDamage(float dam) {
        float a= Random.Range(0, 100);
-        if (a > def)  hp -= dam; 
+        if (a > rDef)  cHp -= dam; 
     }
     public void Die() {
         
@@ -137,9 +146,12 @@ public class Enemy : MonoBehaviour {
     {
         foreach (int efct in effects)
         {
-            dex += effectDb.list[efct].dex;
-            str += effectDb.list[efct].str;
-            def += effectDb.list[efct].def;
+            rDex = dex;
+            rStr = str;
+            rDef = def;
+            rDex += effectDb.list[efct].dex;
+            rStr += effectDb.list[efct].str;
+            rDef += effectDb.list[efct].def;
         }
     }
 
