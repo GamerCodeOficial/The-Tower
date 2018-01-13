@@ -161,9 +161,7 @@ public class PlayerRpg : MonoBehaviour
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
 
         render.color = c;
-        head.color = c;
-        chest.color = c;
-        feet.color = c;
+       
 
         CalculatStats();
 
@@ -245,8 +243,10 @@ public class PlayerRpg : MonoBehaviour
             Walk(walkDuration/rDex);
         }
         else {
-            ChangeSprite(0);
-            
+            if(dir==1)ChangeSprite(18);
+            if (dir == 2) ChangeSprite(0);
+            if (dir == 3) ChangeSprite(12);
+            if (dir == 4) ChangeSprite(6);
         }
 
     }

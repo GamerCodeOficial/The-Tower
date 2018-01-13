@@ -17,7 +17,8 @@ public class Inventory : MonoBehaviour {
     public Collider2D col;
     public LayerMask loot;
     public LayerMask all;
-    
+    public LayerMask usable;
+
     public Collider2D[] coly;
     
 
@@ -33,25 +34,40 @@ public class Inventory : MonoBehaviour {
 
 
     public Loot[] line;
-
+ 
 
     public int[] slot; //0: null 1: Weapon 2: Secondary 3: Other 4: Head 5: Armour 6: Feet
+    public List<int> usables=new List<int>();
 
     public PlayerRpg rpg;
-        
 
+    public Sprite[] usImg;
+    public Image[] usab;
     
 
     // Use this for initialization
+
+    public void UseUsable(int index) {
+        if (index<usables.Count) {
+            rpg.mod.AddEffect(usables[index]);
+            usables.Remove(usables[index]);
+        }
+    }
+    public void AddUsable(int id) {
+        usables.Add(id);
+    }
     void Start () {
-      
+        usImg = Resources.LoadAll<Sprite>("Graphics/Icons/UsableIcons");
         cont = GameObject.FindGameObjectWithTag("Control").GetComponent<SceneControl>();
         rom = GameObject.FindGameObjectWithTag("Board").GetComponent<RoomControl>();
 
         for (int i = 0; i < 8; i++)
         {
             slot[i] = PlayerPrefs.GetInt("Slot" + i,0);
-            
+            if (PlayerPrefs.GetInt("Usable" + i) > 0)
+            {
+                usables.Add(PlayerPrefs.GetInt("Usable" + i, 0));
+            }
         }
         money = PlayerPrefs.GetInt("Money" ,0);
       
@@ -60,6 +76,17 @@ public class Inventory : MonoBehaviour {
     }
     void Update() {
         
+            for (int i = 0; i < 4; i++) {
+                if (i < usables.Count)
+                {
+                    usab[i].sprite = usImg[usables[i]];
+                }
+                else {
+                    usab[i].sprite = usImg[0];
+                }
+
+            }
+       
         if (line[0] == null) {
             tkorlv.SetActive(false);
             
@@ -102,6 +129,10 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
+
+        col = Physics2D.OverlapCircle(transform.position, 0.4f, usable);
+
+     
 
         coly = Physics2D.OverlapCircleAll(transform.position, 0.4f, all);
 

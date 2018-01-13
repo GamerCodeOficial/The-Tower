@@ -19,5 +19,14 @@
       <damage>2</damage>
       <duration>5</duration>
     </Effect>
+    <Effect>
+      <id>2</id>
+      <name>Bleeding</name>
+      <dex>-2</dex>
+      <str>0</str>
+      <def>0</def>
+      <damage>1</damage>
+      <duration>9</duration>
+    </Effect>
   </Effects>
 </EffectDb>

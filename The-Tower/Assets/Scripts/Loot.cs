@@ -13,12 +13,12 @@ public class Loot : MonoBehaviour {
     public int dropQuality;
 
     void Start()
-    {
-        
+    {  
         inv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         
         pickable = true;
         print("Capacity: "+inv.itemDb.list.Count);
+
         List<int> it = new List<int>();
         foreach (Item item in inv.itemDb.list)
         {

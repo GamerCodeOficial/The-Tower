@@ -104,11 +104,21 @@ public class Enemy : MonoBehaviour {
         if (Random.Range(0, 100) < pct)
         {
             print("Chance");
-           
-            GameObject d =Instantiate(drop, transform.position, trans.rotation);
-            d.GetComponent<Loot>().dropQuality = dropQuality;
+            if (Random.Range(0, 100) > 20)
+            {
+                GameObject d = Instantiate(drop, transform.position, trans.rotation);
+                d.GetComponent<Loot>().dropQuality = dropQuality;
+            }
+            else {
+                int c= pRpg.mod.effectDb.list.Count;
+                int p = Random.Range(1, c);
+                pRpg.inv.AddUsable(p);
+                
+            }
+
         }
         int r = Random.Range(minMax[0],minMax[1]);
+       
         player.GetComponent<Inventory>().money += r;
         
         Destroy(gameObject);
