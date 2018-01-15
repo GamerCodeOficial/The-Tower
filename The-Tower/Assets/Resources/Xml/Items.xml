@@ -78,5 +78,16 @@
       <chance>9</chance>
       <effect>0</effect>
     </Item>
+    <Item>
+      <id>7</id>
+      <name>Blood Sword</name>
+      <slot>1</slot>
+      <hp>0</hp>
+      <dex>2</dex>
+      <str>4</str>
+      <def>0</def>
+      <chance>5</chance>
+      <effect>2</effect>
+    </Item>
   </Items>
 </ItemDataBase>
