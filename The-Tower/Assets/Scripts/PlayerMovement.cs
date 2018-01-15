@@ -22,10 +22,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        if (rpg.atkTime > 0){
-            v = 0;
-            h = 0;
-        }
         transform.Translate(Vector3.right*Time.deltaTime*rpg.dex*h);
         transform.Translate(Vector3.up * Time.deltaTime * rpg.dex * v);
 
@@ -46,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
             rpg.direc = 3;
         }
 
-        if (h != 0 || v != 0)
+        if (h != 0 || v != 0&& rpg.rollTime==0&&rpg.atkTime==0)
         {
             if (rpg.wlkTime == 0) rpg.wlkTime = 0.01f;
         }

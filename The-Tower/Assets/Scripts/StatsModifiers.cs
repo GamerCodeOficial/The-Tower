@@ -26,27 +26,32 @@ public class StatsModifiers : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (t >= 1) {
+        if (t >= 1)
+        {
             foreach (int efct in effects)
             {
-                GameObject p = Instantiate(efctImg,transform.position,transform.rotation);
-                p.GetComponent<EffectAnim>().rend.sprite= img[efct];
-                rpg.cHp -= effectDb.list[efct].damage;  
-                
+                rpg.cHp -= effectDb.list[efct].damage;
+                for (int i = 0; i < 4; i++)
+                {
+                    GameObject p = Instantiate(efctImg, transform.position, transform.rotation);
+                    p.GetComponent<EffectAnim>().rend.sprite = img[efct];
+                }
             }
-            for(int i=0;i<duration.Count;i++)
+            for (int i = 0; i < duration.Count; i++)
             {
-                duration[i]--;
-                if (duration[i] <= 0) {
-                    duration[i] = 0;
-                    effects[i] = 0;
+                duration[i] -= 1;
+                if (duration[i] <= 0)
+                {
+                    effects.Remove(effects[i]);
+                    duration.Remove(duration[i]);
                 }
 
             }
             t = 0;
         }
         t += Time.deltaTime;
-	}
+        Add();
+    }
 
     public void Add() {
         foreach (int efct in effects)
@@ -56,6 +61,7 @@ public class StatsModifiers : MonoBehaviour {
             rpg.rDef += effectDb.list[efct].def;
         }
     }
+
 
     public void AddEffect(int ef) {
         for (int i = 0; i < effects.Count; i++)

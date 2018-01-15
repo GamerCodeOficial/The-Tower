@@ -67,6 +67,7 @@ public class PlayerRpg : MonoBehaviour
 
     public float wlkTime;
     public float atkTime;
+    public float rollTime;
     public Sprite[] plImg;
     public Sprite[] headImg;
     public Sprite[] chestImg;
@@ -77,6 +78,7 @@ public class PlayerRpg : MonoBehaviour
 
     public float atkDuration;
     public float walkDuration;
+    public float rollDuration;
 
     public GameObject bullet;
 
@@ -161,9 +163,7 @@ public class PlayerRpg : MonoBehaviour
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
 
         render.color = c;
-        head.color = c;
-        chest.color = c;
-        feet.color = c;
+       
 
         CalculatStats();
 
@@ -191,7 +191,10 @@ public class PlayerRpg : MonoBehaviour
         rend.sprite = atkEsp[dir];
 
 
-
+        if (Input.GetKeyDown(KeyCode.Space)&&rollTime==0) {
+            
+            rollTime = 0.01f;
+        }
         
 
 
@@ -240,13 +243,19 @@ public class PlayerRpg : MonoBehaviour
         {
             Ataque(atkDuration/rDex);
         }
+        else if (rollTime > 0)
+        {
+            Roll(rollDuration);
+        }
         else if (wlkTime > 0)
         {
             Walk(walkDuration/rDex);
         }
         else {
-            ChangeSprite(0);
-            
+            if(dir==1)ChangeSprite(18);
+            if (dir == 2) ChangeSprite(0);
+            if (dir == 3) ChangeSprite(12);
+            if (dir == 4) ChangeSprite(6);
         }
 
     }
@@ -298,6 +307,7 @@ public class PlayerRpg : MonoBehaviour
         }
         if(mod.effectDb.list!=null)
         mod.Add();
+        if (rollTime > 0) rDef += 100;
     }
 
     //Public Vars
@@ -342,10 +352,6 @@ public class PlayerRpg : MonoBehaviour
 
     ///////               XML                ////////////////////////////////////////////////////////////////////
     public ItemDataBase itemDb;
-
-
-
-
 
 
     public string GenerateText()
@@ -486,6 +492,34 @@ public class PlayerRpg : MonoBehaviour
         ChangeSprite(p);
         if (wlkTime > maxTim) {
             wlkTime = 0;
+        }
+    }
+    public void Roll(float maxTim)
+    {
+        int min = new int();
+        int max = new int();
+        if (direc == 1)
+        {
+            min = 19; max = 23;
+        }
+        if (direc == 2)
+        {
+            min = 1; max = 5;
+        }
+        if (direc == 3)
+        {
+            min = 13; max = 17;
+        }
+        if (direc == 4)
+        {
+            min = 7; max = 11;
+        }
+        rollTime += Time.deltaTime;
+        int p = (int)(((rollTime / maxTim) * (max - min)) + min);
+        ChangeSprite(p);
+        if (rollTime > maxTim)
+        {
+            rollTime = 0;
         }
     }
 }
