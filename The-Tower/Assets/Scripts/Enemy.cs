@@ -59,7 +59,8 @@ public class Enemy : MonoBehaviour {
 
         //float d = Vector3.Distance(transform.position, player.transform.position);
         if (rom.oppened)
-        { 
+        {
+            print("Oppened "+rDex);
             transform.Translate(trans.forward * Time.deltaTime * rDex);
         }
 
@@ -144,15 +145,19 @@ public class Enemy : MonoBehaviour {
 
     public void EffectStatus()
     {
+        rDex = dex;
+        rStr = str;
+        rDef = def;
         foreach (int efct in effects)
         {
-            rDex = dex;
-            rStr = str;
-            rDef = def;
+           
             rDex += effectDb.list[efct].dex;
             rStr += effectDb.list[efct].str;
             rDef += effectDb.list[efct].def;
         }
+        if (rDex < 0) rDex = 0;
+        if (rStr < 0) rStr = 0;
+        if (rDef < 0) rDef = 0;
     }
 
     public void AddEffect(int ef)
