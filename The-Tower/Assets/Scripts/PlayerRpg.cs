@@ -262,11 +262,12 @@ public class PlayerRpg : MonoBehaviour
 
     public void ChangeSprite(int index) {
         render.sprite = plImg[index];
-        pri.sprite = priImg[index];
+
+      /*  pri.sprite = priImg[index];
         sec.sprite = secImg[index];
         head.sprite = headImg[index];
         chest.sprite = chestImg[index];
-        feet.sprite = feetImg[index];
+        feet.sprite = feetImg[index];*/
     }
 
     public void TakeDamage(float dam)
@@ -380,23 +381,25 @@ public class PlayerRpg : MonoBehaviour
             int max = 0;
 
             wlkTime = 0;
+
+            
             if (dir == 1)
             {
-                min = 19; max = 23;
+                min = 32; max = 35;
             }
             if (dir == 2)
             {
-                min = 1; max = 5;
+                min = 24; max = 27;
             }
             if (dir == 3)
             {
-                min = 13; max = 17;
+                min = 36; max = 39;
             }
             if (dir == 4)
             {
-                min = 7; max = 11;
+                min = 28; max = 31;
             }
-
+            
 
             atkTime += Time.deltaTime;
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
@@ -473,7 +476,7 @@ public class PlayerRpg : MonoBehaviour
         int min = new int();
         int max = new int();
         if (direc == 1) {
-            min = 19;max = 23;
+            min = 19;max = 24;
         }
         if (direc == 2)
         {
@@ -481,19 +484,32 @@ public class PlayerRpg : MonoBehaviour
         }
         if (direc == 3)
         {
-            min = 13; max = 17;
+            min = 13; max = 18;
         }
         if (direc == 4)
         {
-            min = 7; max = 11;
+            min = 7; max = 12;
         }
         wlkTime += Time.deltaTime;
         int p = (int)(((wlkTime / maxTim) * (max - min)) + min);
+        if (p < min) p = min;
+        if (p > max-1) p = max-1;
         ChangeSprite(p);
-        if (wlkTime > maxTim) {
-            wlkTime = 0;
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        if (wlkTime > maxTim)
+        {
+            if (h != 0 || v != 0)
+            {
+                wlkTime = 0.01f;
+            }
+            else
+            {
+                wlkTime = 0;
+            }
         }
     }
+  
     public void Roll(float maxTim)
     {
         int min = new int();

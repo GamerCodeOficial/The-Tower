@@ -41,12 +41,14 @@ public class PlayerMovement : MonoBehaviour {
         else if(h<0) {
             rpg.direc = 3;
         }
-
+        
         if (h != 0 || v != 0&& rpg.rollTime==0&&rpg.atkTime==0)
         {
             if (rpg.wlkTime == 0) rpg.wlkTime = 0.01f;
+          
         }
         else {
+            
             rpg.wlkTime = 0;
         }
 
