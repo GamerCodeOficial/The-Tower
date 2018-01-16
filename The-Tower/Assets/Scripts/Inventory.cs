@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour {
         money = PlayerPrefs.GetInt("Money" ,0);
       
         
-       PopU("Fase"+rom.andar,4);
+       PopU("Floor "+rom.andar,4);
     }
     void Update() {
         

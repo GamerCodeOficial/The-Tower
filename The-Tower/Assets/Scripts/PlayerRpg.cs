@@ -19,7 +19,7 @@ public class PlayerRpg : MonoBehaviour
 
     public int bullets;
    
-    public Sprite[] atkEsp;
+    
     public SpriteRenderer rend;
    
 
@@ -74,6 +74,9 @@ public class PlayerRpg : MonoBehaviour
     public Sprite[] feetImg;
     public Sprite[] priImg;
     public Sprite[] secImg;
+
+    public Sprite[] atkImg;
+
     public int direc;
 
     public float atkDuration;
@@ -81,6 +84,8 @@ public class PlayerRpg : MonoBehaviour
     public float rollDuration;
 
     public GameObject bullet;
+
+    float z = new float();
 
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
@@ -139,7 +144,7 @@ public class PlayerRpg : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        atkImg = Resources.LoadAll<Sprite>("Graphics/Player/Ataques");
 
         firstW = true;
         plImg = Resources.LoadAll<Sprite>("Graphics/Player/Aventureiro");
@@ -163,14 +168,16 @@ public class PlayerRpg : MonoBehaviour
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
 
         render.color = c;
-       
+
 
         CalculatStats();
-
-        float z = PointToMouse();
-        
         Vector2 atkPos = transform.position;
+        if (atkTime == 0)
+        {
+            z = PointToMouse();
 
+           
+        }
         
         
         
@@ -188,7 +195,7 @@ public class PlayerRpg : MonoBehaviour
             atkPos.y -= radiusM ;
         }
         
-        rend.sprite = atkEsp[dir];
+     
 
 
         if (Input.GetKeyDown(KeyCode.Space)&&rollTime==0) {
@@ -230,7 +237,7 @@ public class PlayerRpg : MonoBehaviour
         headImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[4]);
         chestImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[5]);
         feetImg = Resources.LoadAll<Sprite>("Graphics/Player/" + inv.slot[6]);
-
+        ChangeAtk(16);
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             firstW = true;
@@ -256,18 +263,24 @@ public class PlayerRpg : MonoBehaviour
             if (dir == 2) ChangeSprite(0);
             if (dir == 3) ChangeSprite(12);
             if (dir == 4) ChangeSprite(6);
+            
         }
 
     }
 
     public void ChangeSprite(int index) {
         render.sprite = plImg[index];
-
-      /*  pri.sprite = priImg[index];
+        /*
+        pri.sprite = priImg[index];
         sec.sprite = secImg[index];
         head.sprite = headImg[index];
         chest.sprite = chestImg[index];
         feet.sprite = feetImg[index];*/
+    }
+
+    public void ChangeAtk(int index) {
+        rend.sprite = atkImg[index];
+
     }
 
     public void TakeDamage(float dam)
@@ -380,32 +393,41 @@ public class PlayerRpg : MonoBehaviour
             int min = 0;
             int max = 0;
 
+            int minA=0;
+            int maxA = 0;
+
             wlkTime = 0;
 
             
             if (dir == 1)
             {
-                min = 32; max = 35;
+                min = 32; max = 36;
+                minA = 12; maxA = 16;
             }
             if (dir == 2)
             {
-                min = 24; max = 27;
+                min = 24; max = 28;
+                minA = 0; maxA = 4;
             }
             if (dir == 3)
             {
-                min = 36; max = 39;
+                min = 36; max = 40;
+                minA = 8; maxA = 12;
             }
             if (dir == 4)
             {
-                min = 28; max = 31;
+                min = 28; max = 32;
+                minA = 4; maxA = 8;
             }
             
 
             atkTime += Time.deltaTime;
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
-            if (p > max) p = max;
+            int o = (int)(((atkTime / maxTim) * (maxA - minA)) + minA);
+            if (p > max-1) p = max-1;
+            if (o > maxA-1) o = maxA-1;
             ChangeSprite(p);
-            
+            ChangeAtk(o);
 
             if (col != null)
             {

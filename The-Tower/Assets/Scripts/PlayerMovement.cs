@@ -22,9 +22,11 @@ public class PlayerMovement : MonoBehaviour {
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.right*Time.deltaTime*rpg.dex*h);
-        transform.Translate(Vector3.up * Time.deltaTime * rpg.dex * v);
 
+        if (rpg.atkTime==0) {
+            transform.Translate(Vector3.right * Time.deltaTime * rpg.dex * h);
+            transform.Translate(Vector3.up * Time.deltaTime * rpg.dex * v);
+        }
         if (v != 0) {
             if (v > 0)
             {
