@@ -69,6 +69,7 @@ public class Inventory : MonoBehaviour {
                 usables.Add(PlayerPrefs.GetInt("Usable" + i, 0));
             }
         }
+        if (slot[1] == 0) slot[1] = 1;
         money = PlayerPrefs.GetInt("Money" ,0);
       
         

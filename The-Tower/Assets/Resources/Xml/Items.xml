@@ -14,13 +14,13 @@
     </Item>
     <Item>
       <id>1</id>
-      <name>Sword</name>
+      <name>Initial Sword</name>
       <slot>1</slot>
       <hp>0</hp>
-      <dex>1</dex>
-      <str>4</str>
+      <dex>0</dex>
+      <str>0</str>
       <def>0</def>
-      <chance>10</chance>
+      <chance>1</chance>
       <effect>0</effect>
     </Item>
     <Item>

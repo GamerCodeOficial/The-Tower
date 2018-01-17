@@ -270,12 +270,12 @@ public class PlayerRpg : MonoBehaviour
 
     public void ChangeSprite(int index) {
         render.sprite = plImg[index];
-        /*
+        
         pri.sprite = priImg[index];
         sec.sprite = secImg[index];
         head.sprite = headImg[index];
         chest.sprite = chestImg[index];
-        feet.sprite = feetImg[index];*/
+        feet.sprite = feetImg[index];
     }
 
     public void ChangeAtk(int index) {
