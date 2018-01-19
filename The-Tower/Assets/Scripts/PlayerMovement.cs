@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (rpg.atkTime==0) {
             Vector3 dir = (Vector3.right * h) + (Vector3.up * v);
-            transform.Translate(dir * Time.deltaTime * rpg.dex/1.5f );
+            transform.Translate(dir * Time.deltaTime * rpg.rDex/1.5f );
         }
         if (v != 0) {
             if (v > 0)

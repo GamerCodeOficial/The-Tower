@@ -30,8 +30,9 @@ public class GoblinBehaviour : MonoBehaviour {
         float d = en.disToPlayer;
         if (en.rom.oppened && d < giveUpRange) {
 
-            if (d < atkRange)
+            if (d < atkRange-0.1f)
             {
+               
                 if (atkTime==0) {
                     atkTime = 0.01f;
                 }
@@ -120,12 +121,9 @@ public class GoblinBehaviour : MonoBehaviour {
 
     public void Attack(float maxTim)
     {
-       
+        atkTime += Time.deltaTime;
             int min = 0;
             int max = 0;
-
-            int minA = 0;
-            int maxA = 0;
 
             wlkTime = 0;
 
@@ -133,30 +131,30 @@ public class GoblinBehaviour : MonoBehaviour {
             if (dir == 1)
             {
                 min = 32; max = 36;
-                minA = 12; maxA = 16;
+
             }
             if (dir == 2)
             {
                 min = 24; max = 28;
-                minA = 0; maxA = 4;
+
             }
             if (dir == 3)
             {
                 min = 36; max = 40;
-                minA = 8; maxA = 12;
+
             }
             if (dir == 4)
             {
                 min = 28; max = 32;
-                minA = 4; maxA = 8;
+
             }
 
 
-            atkTime += Time.deltaTime;
+            
             int p = (int)(((atkTime / maxTim) * (max - min)) + min);
-            int o = (int)(((atkTime / maxTim) * (maxA - minA)) + minA);
+
             if (p > max - 1) p = max - 1;
-            if (o > maxA - 1) o = maxA - 1;
+
             ChangeSprite(p);
 
             if (atkTime >= maxTim)

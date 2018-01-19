@@ -184,7 +184,7 @@ public class Enemy : MonoBehaviour {
         Vector3 df = player.transform.position - transform.position;
         df.Normalize();
         transform.Translate(df * Time.deltaTime * speed);
-        print((df * Time.deltaTime * speed * -1).magnitude);
+
     }
  
 }
