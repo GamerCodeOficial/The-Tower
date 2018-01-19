@@ -44,12 +44,15 @@ public class Enemy : MonoBehaviour {
     public Sprite[] img;
     public GameObject efctImg;
 
+    public Sprite[] enAnim;
+    public string link;
 
     // Use this for initialization
     void Start () {
         cHp = hp;
         img = Resources.LoadAll<Sprite>("Graphics/Icons/EffectIcons");
         player = GameObject.FindGameObjectWithTag("Player");
+        enAnim = Resources.LoadAll<Sprite>("Graphics/Enemies/"+link);
         pRpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
         effectDb= pRpg.gameObject.GetComponent<StatsModifiers>().effectDb;
         

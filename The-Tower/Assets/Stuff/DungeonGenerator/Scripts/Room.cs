@@ -157,7 +157,7 @@ public class Room : MonoBehaviour {
             if (d == 3) { Quaternion rote = Quaternion.Euler(0, 0, 180); p.transform.rotation = rote; }
             if (enemies[type].Convert()[i] != 0)
             {
-                GameObject o = Instantiate(en[enemies[type].Convert()[i]], p.transform.position, p.transform.rotation, transform);
+                GameObject o = Instantiate(en[enemies[type].Convert()[i]], p.transform.position, transform.rotation, transform);
                 o.GetComponent<Enemy>().rom = this;
             }
         }
