@@ -44,11 +44,14 @@ public class Enemy : MonoBehaviour {
     public Sprite[] img;
     public GameObject efctImg;
 
+    public SpriteRenderer rend;
+
     public Sprite[] enAnim;
     public string link;
 
     // Use this for initialization
     void Start () {
+
         cHp = hp;
         img = Resources.LoadAll<Sprite>("Graphics/Icons/EffectIcons");
         player = GameObject.FindGameObjectWithTag("Player");

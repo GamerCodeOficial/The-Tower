@@ -174,9 +174,7 @@ public class PlayerRpg : MonoBehaviour
         Vector2 atkPos = transform.position;
         if (atkTime == 0)
         {
-            z = PointToMouse();
-
-           
+            z = PointToMouse(); 
         }
         
         
