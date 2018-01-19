@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour {
         float v = Input.GetAxis("Vertical");
 
         if (rpg.atkTime==0) {
-            transform.Translate(Vector3.right * Time.deltaTime * rpg.dex * h);
-            transform.Translate(Vector3.up * Time.deltaTime * rpg.dex * v);
+            Vector3 dir = (Vector3.right * h) + (Vector3.up * v);
+            transform.Translate(dir * Time.deltaTime * rpg.dex/1.5f );
         }
         if (v != 0) {
             if (v > 0)

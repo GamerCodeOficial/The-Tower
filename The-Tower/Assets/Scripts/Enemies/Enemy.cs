@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
+    public float disToPlayer;
+    public LayerMask wall;
+
     public float pct;
 
     public Transform trans;
@@ -53,16 +56,8 @@ public class Enemy : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        trans.position = transform.position;
-        trans.LookAt(player.transform);
-
-
-        //float d = Vector3.Distance(transform.position, player.transform.position);
-        if (rom.oppened)
-        {
-            print("Oppened "+rDex);
-            transform.Translate(trans.forward * Time.deltaTime * rDex);
-        }
+      disToPlayer= Vector3.Distance(transform.position, player.transform.position);
+    
 
     }
     // Update is called once per frame
@@ -70,14 +65,6 @@ public class Enemy : MonoBehaviour {
     void Update ( ) {
         
         if (cHp <= 0) Die();
-
-       float d = Vector3.Distance(transform.position, player.transform.position);
-        if (t >= 4 / rDex && d<alc)
-        {
-            pRpg.TakeDamage(str);
-            t = 0;
-        }
-        t+=Time.deltaTime;
         
             if (ti >= 1)
         {
@@ -178,9 +165,21 @@ public class Enemy : MonoBehaviour {
         }
         effects.Add(ef);
         duration.Add(effectDb.list[ef].duration);
-
     }
-
+    public void Walk(float size,float speed) {
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position,size,wall);
+        if(col!=null)
+        foreach (Collider2D c in col) {
+                Vector3 dif = c.transform.position - transform.position;
+                dif.Normalize();
+                transform.Translate(dif* Time.deltaTime * speed*-1);
+                
+            }
+        Vector3 df = player.transform.position - transform.position;
+        df.Normalize();
+        transform.Translate(df * Time.deltaTime * speed);
+        print((df * Time.deltaTime * speed * -1).magnitude);
+    }
  
 }
 
