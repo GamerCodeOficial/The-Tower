@@ -39,14 +39,6 @@ public class RoomControl : MonoBehaviour {
     public void AddRoom(int x, int y, bool[] door) {
         rX[rNum] = x;
         rY[rNum] = y;
-        //print(door[1]);
-        //print(rDoor[1,1]);
-        /*
-        for (int i=0;i<5;i++) {
-            rDoor[rNum,i] = door[i];
-        }
-        */
-
         rNum++;
 
     }

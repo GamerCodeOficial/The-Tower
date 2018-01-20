@@ -20,7 +20,7 @@ public class DoorControl : MonoBehaviour {
     public void ReSize() {
         if (dir == 1 || dir == 3) {
             Vector3 scale = transform.localScale;
-            scale.y = 4;
+            scale.y = 2;
             scale.x = 1;
             transform.localScale = scale;
         }
@@ -28,7 +28,7 @@ public class DoorControl : MonoBehaviour {
         {
             Vector3 scale = transform.localScale;
             scale.y = 1;
-            scale.x = 4;
+            scale.x = 2;
             transform.localScale = scale;
         }
     }

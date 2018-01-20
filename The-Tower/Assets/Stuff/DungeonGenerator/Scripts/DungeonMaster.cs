@@ -393,7 +393,7 @@ public class DungeonMaster : MonoBehaviour
                     {
                         real[x + 1, y ] = 5;
                     }
-                    if (real[x - 1, y ] == 0 && real[x - 2, y] == 0)
+                    if (real[x - 1, y ] == 0 && (real[x - 2, y] == 0|| real[x - 2, y]==5))
                     {
                         real[x - 1, y ] = 6;
                     }

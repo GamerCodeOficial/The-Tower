@@ -54,7 +54,7 @@ public class HobgoblinBehaviour : MonoBehaviour
                     atkTime = 0.01f;
                 }
             }
-            else if (atkTime == 0)
+            else if (atkTime == 0&& spTime==0)
             {
                 en.Walk(size, speed);
                 if (wlkTime == 0) wlkTime = 0.01f;
@@ -198,12 +198,16 @@ public class HobgoblinBehaviour : MonoBehaviour
         atkTime = 0;
         wlkTime = 0;
 
-        if (spTime > 1){
+        if (spTime > 1)
+        {
             target.Normalize();
-            transform.Translate(target * Time.deltaTime * speed * 0.8f);
+            transform.Translate(target * Time.deltaTime * speed * 2);
+        }
+        else {
+            target = en.player.transform.position - transform.position;
         }
 
-        if (en.disToPlayer < atkRange - 0.2f) {
+        if (en.disToPlayer < atkRange) {
             en.pRpg.TakeDamage(spDamage);
     
             spTime = 0;

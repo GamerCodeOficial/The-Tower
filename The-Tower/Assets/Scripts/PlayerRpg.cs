@@ -51,9 +51,6 @@ public class PlayerRpg : MonoBehaviour
 
     public Vector3 nPos;
 
-    public Transform hit;
-    public Transform aim;
-
     public float t;
 
     public Inventory inv;
@@ -86,6 +83,9 @@ public class PlayerRpg : MonoBehaviour
     public GameObject bullet;
 
     float z = new float();
+
+    public GameObject aim;
+
 
     public void GetStatus() {
         hp=PlayerPrefs.GetFloat("Hp");
@@ -164,7 +164,12 @@ public class PlayerRpg : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
- 
+
+        Quaternion rot = new Quaternion();
+
+        rot = Quaternion.Euler(0f, 0f, z + 0.0f);
+        aim.transform.rotation = rot;
+
         Color c = GetColor(PlayerPrefs.GetString("Cor"));
 
         render.color = c;
@@ -206,7 +211,7 @@ public class PlayerRpg : MonoBehaviour
         nPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         nPos.z = -1;
 
-        aim.LookAt(nPos);
+        
         
       
 
