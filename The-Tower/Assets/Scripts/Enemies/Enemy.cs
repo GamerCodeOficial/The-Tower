@@ -49,6 +49,11 @@ public class Enemy : MonoBehaviour {
     public Sprite[] enAnim;
     public string link;
 
+    public bool awaked;
+    public float aT;
+
+    public float redT;
+
     // Use this for initialization
     void Start () {
 
@@ -69,7 +74,10 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
 
     void Update ( ) {
-        
+        if (rom.oppened && !awaked) {
+            aT += Time.deltaTime;
+           if(aT>0.4f) awaked = true;
+        }
         if (cHp <= 0) Die();
         
             if (ti >= 1)
@@ -95,12 +103,24 @@ public class Enemy : MonoBehaviour {
             }
             ti = 0;
         }
+        if (redT > 0)
+        {
+            rend.color = new Color(255, 30, 30, 0.8f);
+            print("Red");
+            redT -= Time.deltaTime;
+        }
+        else {
+            rend.color = new Color(255, 255, 255, 1);
+        }
         ti += Time.deltaTime;
         EffectStatus();
     }
     public void TakeDamage(float dam) {
        float a= Random.Range(0, 100);
-        if (a > rDef)  cHp -= dam; 
+        if (a > rDef) {
+            cHp -= dam;
+            redT = 0.1f;
+        } 
     }
     public void Die() {
         

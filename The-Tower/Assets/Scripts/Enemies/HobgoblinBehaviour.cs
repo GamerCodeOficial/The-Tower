@@ -38,7 +38,7 @@ public class HobgoblinBehaviour : MonoBehaviour
     void Update()
     {
         float d = en.disToPlayer;
-        if (en.rom.oppened && d < giveUpRange)
+        if (en.awaked && d < giveUpRange)
         {
             if (coolDown <= 0)
             {

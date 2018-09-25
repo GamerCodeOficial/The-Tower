@@ -28,7 +28,7 @@ public class GoblinBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float d = en.disToPlayer;
-        if (en.rom.oppened && d < giveUpRange) {
+        if (en.awaked && d < giveUpRange) {
 
             if (d < atkRange-0.1f)
             {

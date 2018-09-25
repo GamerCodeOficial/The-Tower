@@ -37,7 +37,7 @@ public class EffectsWindow : EditorWindow
     private void OnGUI()
     {
 
-   
+
         if (GUILayout.Button("Refresh"))
         {
             GetItems();
@@ -61,7 +61,7 @@ public class EffectsWindow : EditorWindow
             SaveItems();
         }
         GUILayout.TextArea(GenerateText());
-  
+
     }
 
 
