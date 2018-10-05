@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Time.timeScale = 0f;
         rpg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRpg>();
 	}
 	
