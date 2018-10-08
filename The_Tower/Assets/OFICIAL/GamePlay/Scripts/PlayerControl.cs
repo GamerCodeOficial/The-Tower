@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     public float speed;
+    public float dashSpeed;
+    public float range;
+    public float atkSize;
     float x = 0;
     float y = 0;
-    Vector2 velocity; 
+    public Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,13 +20,26 @@ public class PlayerControl : MonoBehaviour {
     {
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
-        velocity = new Vector2(x, y);
-        if (velocity.magnitude != 0) velocity /= velocity.magnitude;
-
     }
     void FixedUpdate () {
-
-        transform.Translate(velocity * speed * Time.deltaTime);
-        
+        rb.velocity = new Vector2(x, y);
+        rb.velocity *= speed / Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space)) Dash();
     }
+    void Attack() {
+        Vector2 v = new Vector2(x, y);
+        v /= v.magnitude;
+        Vector2 pos = transform.position;
+        RaycastHit2D[] objs = Physics2D.CircleCastAll((pos + v) * range, atkSize, v);
+        foreach (RaycastHit2D o in objs) {
+            print(o.collider.gameObject.name);
+        }
+    }
+    void Dash() {
+        print("Dash");
+        Vector2 v = new Vector2(x, y);
+        v /= v.magnitude;
+        v *= dashSpeed;
+        rb.AddForce(v);
+    } 
 }
